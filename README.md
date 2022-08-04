@@ -1,6 +1,11 @@
 # PhenoScript
  The computer language for describing species and phenotypes 
 
+
+ <p align="left">
+  <img src="https://github.com/sergeitarasov/PhenoScript/blob/main/Phenoscript_logo.png" width="300" title="hover text">
+</p>  
+
 ## Requirements
 
 * Python >=3.6
