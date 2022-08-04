@@ -1,0 +1,34 @@
+# To Do:
+# 1. bearer_of to has_characteristic
+# 2. change Snippets Edge to put comma in front
+
+# '>', 'has_part.'
+# '<', 'part_of.'
+# '>>', 'has_characteristic.'
+# '<<', 'inheres_in.'
+# '|>|' 'increased_in_magnitude_relative_to.'
+# '|<|' 'decreased_in_magnitude_relative_to.'
+# '|=|' 'has_count:'
+
+# This is a new PhenoScript Syntax
+# Changes:
+# 1. OTU, OTU_DATA, OPHU_LIST are all capitals
+# 2.  OTU, OTU_DATA, OPHU_LIST are ddefined by {}
+# 3. Personalozation (tagging) was with '@', now with ':''
+# 4. Edges (object properties) was 'edge.', now '.edge'
+# 5. Recommendations: Consider inserting a comment '# Gen. Sp.' after 'OTU =', for example 'OTU={ #G ryonoides_brasiliensis'.
+#       This will help finding errors when parsing file.
+
+OTU={ # Some beetle
+
+  OTU_DATA={
+    TU:tu1['to_Ophu_List'='has_phenotype', 'rdfs:label'='Onthophagus_sp1'] .denotes adult_organism:sp1['rdfs:label'='Onthophagus_sp1'];
+  }
+
+  OPHU_LIST={
+    adult_organism:sp1 > cuticle_of_protibia;
+    adult_organism:sp1 !> cuticle_of_mesotibia;
+
+
+  }
+}

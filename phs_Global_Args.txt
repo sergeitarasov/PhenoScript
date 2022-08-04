@@ -1,0 +1,2 @@
+PATH_TO_ATOM = '/Users/taravser/.atom'
+INSTANCE_IRI='https://orcid.org/0000-0001-5237-2330/'

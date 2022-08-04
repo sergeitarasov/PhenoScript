@@ -1,0 +1,64 @@
+
+# '>', 'has_part.'
+# '<', 'part_of.'
+# '>>', 'has_characteristic.'
+# '<<', 'inheres_in.'
+# '|>|' 'increased_in_magnitude_relative_to.'
+# '|<|' 'decreased_in_magnitude_relative_to.'
+# '|=|' 'has_count:'
+
+# This is a new PhenoScript Syntax
+# Changes:
+# 1. OTU, OTU_DATA, OPHU_LIST are all capitals
+# 2.  OTU, OTU_DATA, OPHU_LIST are ddefined by {}
+# 3. Personalozation (tagging) was with '@', now with ':''
+# 4. Edges (object properties) was 'edge.', now '.edge'
+# 5. Recommendations: Consider inserting a comment '# Gen. Sp.' after 'OTU =', for example 'OTU={ #G ryonoides_brasiliensis'.
+#       This will help finding errors when parsing file.
+
+OTU={ #G ryonoides_brasiliensis
+
+  OTU_DATA={
+    TU:CNCHYMEN_132936['to_Ophu_List'='has_phenotype', 'rdfs:label'='Gryonoides_brasiliensis']
+    .denotes female_organism:G_brasiliensis ['rdfs:label'='Gryonoides_brasiliensis'];
+    TU:CNCHYMEN_132936 .denotes Gryonoides;
+  }
+
+  OPHU_LIST={
+    length .is_quality_measured_as measurement_datum;
+    female_organism:G_brasiliensis > radicle:rad_brasiliensis >> yellow;
+    female_organism:G_brasiliensis > frontal_patch;
+    female_organism:G_brasiliensis > tenth_flagellomere > multiporous_gustatory_sensillum |=|  1;
+    female_organism:G_brasiliensis > fifth_flagellomere !> multiporous_gustatory_sensillum;
+    female_organism:G_brasiliensis > radicle:rad_brasiliensis >> elongated;
+
+    female_organism:G_brasiliensis > radicle:rad_brasiliensis >> length .is_quality_measured_as measurement_datum:mrad_brasiliensis
+      .has_measurement_unit_label minimum_width << radicle:rad_brasiliensis;
+      measurement_datum:mrad_brasiliensis .has_measurement_value 4.5;
+    female_organism:G_brasiliensis > (first_flagellomere, second_flagellomere, third_flagellomere);
+    female_organism:G_brasiliensis > (first_flagellomere > second_flagellomere > third_flagellomere);
+    (first_flagellomere, second_flagellomere, third_flagellomere) >> red;
+    (first_flagellomere > second_flagellomere > third_flagellomere) >> blue;
+
+  }
+}
+
+
+#
+#
+OTU={ # Gryonoides_flaviclavus_flaviclavus
+
+  OTU_DATA={
+    TU:CNCHYMEN_135290['to_Ophu_List'='has_phenotype', 'rdfs:label'='Gryonoides_flaviclavus_flaviclavus']
+    .denotes female_organism:G_flaviclavus_flaviclavus['rdfs:label'='Gryonoides_flaviclavus_flaviclavus'];
+    TU:CNCHYMEN_135290 .denotes Gryonoides;
+  }
+
+  OPHU_LIST={
+    female_organism:G_flaviclavus_flaviclavus > radicle:rad_flaviclavus_flaviclavus >> yellow;
+    female_organism:G_flaviclavus_flaviclavus > frontal_patch;
+    female_organism:G_flaviclavus_flaviclavus > tenth_flagellomere > multiporous_gustatory_sensillum |=| 2;
+    female_organism:G_flaviclavus_flaviclavus > fifth_flagellomere > multiporous_gustatory_sensillum;
+    female_organism:G_flaviclavus_flaviclavus > radicle:rad_flaviclavus_flaviclavus ! >> elongated;
+  }
+}
