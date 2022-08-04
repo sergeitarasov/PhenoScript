@@ -36,7 +36,6 @@ source(file.path(script.basename, "phsDictionary", "dependencies.R"))
 #source(file.path(script.basename, "phsDictionary", "snips_functions.R"))
 
 #---- Get local dir
-
 # print(script.basename)
 # print(file)
 # print(file.out)
@@ -54,12 +53,13 @@ if (!dir.exists(file.out)) {
 
 ##  ............................................................................
 ##  Make Dictionary                                                         ####
-make_dic <-paste0('./', file.path("phsDictionary", 'cmdPhsDic.R'), ' ', onto.in, ' ', dic.out )
+make_dic <-paste0(file.path(script.basename, "phsDictionary", 'cmdPhsDic.R'), ' ', onto.in, ' ', dic.out )
 system(make_dic)
 
 ##  ............................................................................
 ##  Make Snippets                                                           ####
-make_snps <-paste0('./', file.path("phsDictionary", 'cmdSnips.R'), ' ', dic.out, ' ', snip.out )
+make_snps <-paste0(file.path(script.basename, "phsDictionary", 'cmdSnips.R'), ' ', dic.out, ' ', snip.out )
+#make_snps <-paste0('./', file.path("phsDictionary", 'cmdSnips.R'), ' ', dic.out, ' ', snip.out )
 system(make_snps)
 
 
