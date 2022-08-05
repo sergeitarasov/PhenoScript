@@ -33,11 +33,11 @@ cd to `PhenosScript` and execute in Terminal:
 ```{r}
 snips.r data/colao_merged.owl output -u
 ```
-This command take the onotlogy `data/colao_merged.owl` and saves snippets and dictionary to `output`folder. It also copies those to files to Atom snippet direcory (`-u`). Get help via `snips.r -h`.
+This command takes the onotlogy `data/colao_merged.owl` and saves snippets and dictionary to `output`folder. It also copies those to files to Atom snippet direcory (`-u`). Get help via `snips.r -h`.
 
 ### Let's convert PhenoScript into OWL
 
 ```{r}
 phs.py -onto data/colao_merged.owl -phs data/colao_AP.phs -o ./output -pre my_instance
 ```
-This prodecuces two files: one is xml PhenoScript file, and another is OWL file. Note `phs.py` uses `phs_dictionary.csv`file directly from Atom directory. Get help via `phs.r -h`.
+This produces two files: one is xml PhenoScript file, and another is OWL file. Note `phs.py` uses `phs_dictionary.csv`file directly from Atom directory. Get help via `phs.r -h`.
