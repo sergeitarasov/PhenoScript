@@ -1,0 +1,12 @@
+1. has_part
+for most relatinships:
+  * remove from subclass definition: fore_leg > tibia
+  * but leave: tibia < fore_leg
+
+2. encirecles
+ * conjunctiva and sclerites Subclass defitiontions: S1->C2->S3->C4
+    * C2 .encircled_by S1
+    * C2 .encircles S3
+    AND
+    * S3 .encircled_by C2
+    * BUT REMOVE S3 .encircles C2

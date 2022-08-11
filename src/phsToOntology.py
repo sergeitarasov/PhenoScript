@@ -239,7 +239,9 @@ for nodeXML in nodePos1:
             # --------------------------------
             # obo.BFO_0000051  # has_part
             # --------------------------------
-            exec('N1.is_a.append( obo.BFO_0000051.some( Not(%s.some(classN2) ) ) )' % Ed)
+            #exec('N1.is_a.append( obo.BFO_0000051.some( Not(%s.some(classN2) ) ) )' % Ed)
+            exec('N1.is_a.append( Not(%s.some(classN2)  ) )' % Ed)
+            #absClass.equivalent_to.append(Not(obo.BFO_0000051.some(i)))
             # N2.is_a.append(obo.HAO_0001017) # this works
             # N2.is_a.append(obo.BFO_0000051.some(obo.HAO_0001017)) # this works
             # N2.is_a.append(obo.BFO_0000051.some( Not(obo.BFO_0000051.some(obo.HAO_0001017)) ))  # this works
@@ -313,7 +315,14 @@ for otu in OTUs:
 #
 
 
+# Adding necessary classes for Reasoning
+inf=onto.get_namespace("https://github.com/sergeitarasov/PhenoScript/inference/")
 
+# New class
+with inf:
+    class phsEncirclesSome(Thing): pass
+    phsEncirclesSome.equivalent_to.append(obo.AISM_0000078.some(Thing))
+        # AISM_0000078 encircles
 
 
 #--- Save

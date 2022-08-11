@@ -22,12 +22,50 @@
 OTU={ # Some beetle
 
   OTU_DATA={
-    TU:tu1['to_Ophu_List'='has_phenotype', 'rdfs:label'='Onthophagus_sp1'] .denotes adult_organism:sp1['rdfs:label'='Onthophagus_sp1'];
+    TU:tu1['rdfs:label'='Onthophagus_sp1']
+    .denotes adult_organism:sp1['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp1'];
   }
 
   OPHU_LIST={
     adult_organism:sp1 > cuticle_of_protibia;
-    adult_organism:sp1 !> cuticle_of_mesotibia;
+    #adult_organism:sp1 !> cuticle_of_mesotibia;
+    #adult_organism:sp1 !> cuticle_of_mid_leg;
+
+
+  }
+}
+
+
+
+
+OTU={ # Some beetle2
+
+  OTU_DATA={
+    TU:tu2['rdfs:label'='Onthophagus_sp2']
+    .denotes adult_organism:sp2['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp2'];
+  }
+
+  OPHU_LIST={
+
+    adult_organism:sp2 !>  cuticle_of_protibia;
+
+
+  }
+}
+
+
+
+
+OTU={ # Some beetle3
+
+  OTU_DATA={
+    TU:tu3['rdfs:label'='Onthophagus_sp3']
+    .denotes adult_organism:sp3['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp3'];
+  }
+
+  OPHU_LIST={
+
+    cuticle_of_profemur !.encircles cuticle_of_protibia;
 
 
   }
