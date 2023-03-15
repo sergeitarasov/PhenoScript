@@ -1,0 +1,116 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": 0, "label": "measurement datum:basi_ph", "shape": "dot"}, {"id": 1, "label": "1.0", "shape": "dot"}, {"id": 2, "label": "diameter:_ophu_5_9", "shape": "dot"}, {"id": 3, "label": "anterior region:_ophu_8_1", "shape": "dot"}, {"id": 4, "label": "pronotum:pr1", "shape": "dot"}, {"id": 5, "label": "length:_ophu_5_5", "shape": "dot"}, {"id": 6, "label": "red:_ophu_7_3", "shape": "dot"}, {"id": 7, "label": "cuticle of mesotibia:_ophu_3_3", "shape": "dot"}, {"id": 8, "label": "cuticle of protibia:_ophu_2_3", "shape": "dot"}, {"id": 9, "label": "vertex:_ophu_4_3", "shape": "dot"}, {"id": 10, "label": "postero-medial region:_ophu_4_5", "shape": "dot"}, {"id": 11, "label": "smooth:_ophu_4_7", "shape": "dot"}]);
+        edges = new vis.DataSet([{"arrows": "to", "color": "#0000FF", "from": 0, "label": "\u003chas measurement value\u003e", "to": 1}, {"arrows": "to", "color": "#0000FF", "from": 0, "label": "\u003chas measurement unit label\u003e", "to": 2}, {"arrows": "to", "color": "#0000FF", "from": 3, "label": "\u003cpart of\u003e", "to": 4}, {"arrows": "to", "color": "#0000FF", "from": 4, "label": "\u003cbearer of\u003e", "to": 5}, {"arrows": "to", "color": "#0000FF", "from": 4, "label": "\u003cbearer of\u003e", "to": 6}, {"arrows": "to", "color": "#0000FF", "from": 9, "label": "\u003chas part\u003e", "to": 10}, {"arrows": "to", "color": "#0000FF", "from": 10, "label": "\u003cbearer of\u003e", "to": 11}, {"arrows": "to", "color": "#0000FF", "from": 5, "label": "\u003cis quality measured as\u003e", "to": 0}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "barnesHut": {
+            "avoidOverlap": 0,
+            "centralGravity": 0.3,
+            "damping": 0.09,
+            "gravitationalConstant": -80000,
+            "springConstant": 0.001,
+            "springLength": 250
+        },
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

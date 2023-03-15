@@ -134,7 +134,7 @@ class phsNumericNode:
         for i in range( 0, len(self.props_list) ):
             coll='<phs:node_property phs:value="%s">%s</phs:node_property>\n' % (str(self.props_list[i][1]), self.props_list[i][0])
             props_collection.append(coll)
-        props_collection=''.join(props_collection)
+        props_collection =''.join(props_collection)
         return props_collection
     
     def updateTriplePos(self, value):

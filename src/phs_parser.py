@@ -179,7 +179,8 @@ ed6=make_keyword("|<|", 'decreased_in_magnitude_relative_to')
 ed7=make_keyword("|=|", 'has_count')
 
 ed1=make_keyword(">", 'has_part')
-ed3=make_keyword("<", 'part_of')
+#ed3=make_keyword("<", 'part_of')
+ed3=make_keyword("<", 'part_of[iri="BFO_0000050"]')
 #ed2=make_keyword('>>', 'bearer_of')
 ed2=make_keyword('>>', 'has_characteristic')
 ed4=make_keyword('<<', 'inheres_in')
@@ -190,14 +191,14 @@ ed4=make_keyword('<<', 'inheres_in')
 phsInt=ppc.integer()('num_int')
 phsReal=ppc.real()('num_real')
 
-graph_alphanum = Word(alphanums +"_" +"-")
+graph_alphanum = Word(alphanums + "_" + "-")
 #graph_alphanum = Word(alphanums +"_", alphanums+"_")
 
 graph_word=(phsReal | phsInt | graph_alphanum)
 
 #----------- Node
 # Node Properties: N[]
-propertyWord=Word(alphanums +"_" +":") # in []
+propertyWord=Word(alphanums + "_" + ":") # in []
 #jsonString = quotedString().setParseAction(removeQuotes)
 jsonStr = quotedString().setParseAction(removeQuotes)
 jsonString = (jsonStr|propertyWord)

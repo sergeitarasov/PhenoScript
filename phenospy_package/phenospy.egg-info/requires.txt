@@ -1,0 +1,6 @@
+owlready2
+pyyaml
+colorama
+pandas
+numpy
+pyparsing==2.4.2

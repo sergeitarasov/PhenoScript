@@ -1,0 +1,45 @@
+# Phenoscript description
+
+
+OTU={ # Gryonoides_brasiliensis
+
+  OTU_DATA={
+    cdao-TU:a1['to_Ophu_List'='has_phenotype', 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
+    hao-female_organism:G_brasiliensis['rdfs:label'= 'female_org-Gryonoides_brasiliensis'];
+    
+  }
+
+  OPHU_LIST={
+
+     hao-female_organism:G_brasiliensis > hao-radicle >> pato-yellow;
+     hao-female_organism:G_brasiliensis !> hao-leg >> pato-yellow;
+     hao-female_organism:G_brasiliensis |>| hao-radicle |<| pato-yellow;
+     hao-female_organism:G_brasiliensis > hao-radicle >> pato-yellow;
+     hao-female_organism:G_brasiliensis -> hao-radicle <- pato-yellow;
+     # ao-female_organism:G_brasiliensis .ao-denotes patllow;
+
+  }
+}
+
+
+OTU={ # Gryonoides_brasiliensis2
+
+  OTU_DATA={
+    cdao-TU:a2['to_Ophu_List'='has_phenotype', 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
+    hao-female_organism:G_brasiliensis['rdfs:label'= 'female_org-Gryonoides_brasiliensis'];
+    
+  }
+
+  OPHU_LIST={
+
+     hao-female_organism:G_brasiliensis1 > hao-radicle >> pato-yellow;
+     hao-female_organism:G_brasiliensis1 !> hao-leg >> pato-yellow;
+     hao-female_organism:G_brasiliensis1 |>| hao-radicle |<| pato-yellow;
+     hao-female_organism:G_brasiliensis1 > hao-radicle >> pato-yellow;
+     hao-female_organism:G_brasiliensis1 -> hao-radicle <- pato-yellow;
+     hao-female_organism .iao-has_measurement_value 2.0;
+     hao-female_organism > (hao-aedeagus > hao-seta_0000935);
+     hao-female_organism > (hao-aedeagus, hao-seta_0000935);
+
+  }
+}

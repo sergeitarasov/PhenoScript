@@ -19,54 +19,67 @@
 # 5. Recommendations: Consider inserting a comment '# Gen. Sp.' after 'OTU =', for example 'OTU={ #G ryonoides_brasiliensis'.
 #       This will help finding errors when parsing file.
 
-OTU={ # Some beetle
+OTU={ # Onthopgus sp1
+
 
   OTU_DATA={
-    TU:tu1['rdfs:label'='Onthophagus_sp1']
-    .denotes adult_organism:sp1['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp1'];
+    TU:gryo1['to_Ophu_List'='has_phenotype', 'rdfs:label'='OTU_Onthophagus_sp1'] .denotes
+      adult_organism:sp1['rdfs:label'='ORG_Onthophagus_sp1'];
+    TU:gryo1 .denotes Gryonoides;
+
   }
 
   OPHU_LIST={
     adult_organism:sp1 > cuticle_of_protibia;
-    #adult_organism:sp1 !> cuticle_of_mesotibia;
-    #adult_organism:sp1 !> cuticle_of_mid_leg;
+    adult_organism:sp1 > cuticle_of_mesotibia;
+    adult_organism:sp1 > vertex > postero-medial_region >> smooth;
+
+    adult_organism:sp1 > pronotum:pr1 >> length .is_quality_measured_as measurement_datum:basi_ph .has_measurement_unit_label diameter;
+        measurement_datum:basi_ph .has_measurement_value 1.0;
+    pronotum:pr1 >> red;
+    anterior_region < pronotum:pr1;
+
+
+    # adult_organism:sp1 !> cuticle_of_mesotibia;
+    # adult_organism:sp1 !> cuticle_of_mid_leg;
 
 
   }
 }
 
 
+#
+#
+# OTU={ # Some beetle2
+#
+#   OTU_DATA={
+#     TU:tu2['rdfs:label'='Onthophagus_sp2']
+#     .denotes adult_organism:sp2['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp2'];
+#   }
+#
+#   OPHU_LIST={
+#
+#     adult_organism:sp2 !>  cuticle_of_protibia;
+#     adult_organism:sp2 !> cuticle_of_mesotibia;
+#
+#
+#   }
+# }
 
 
-OTU={ # Some beetle2
-
-  OTU_DATA={
-    TU:tu2['rdfs:label'='Onthophagus_sp2']
-    .denotes adult_organism:sp2['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp2'];
-  }
-
-  OPHU_LIST={
-
-    adult_organism:sp2 !>  cuticle_of_protibia;
-
-
-  }
-}
-
-
-
-
-OTU={ # Some beetle3
-
-  OTU_DATA={
-    TU:tu3['rdfs:label'='Onthophagus_sp3']
-    .denotes adult_organism:sp3['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp3'];
-  }
-
-  OPHU_LIST={
-
-    cuticle_of_profemur !.encircles cuticle_of_protibia;
-
-
-  }
-}
+#
+#
+# OTU={ # Some beetle3
+#
+#   OTU_DATA={
+#     TU:tu3['rdfs:label'='Onthophagus_sp3']
+#     .denotes adult_organism:sp3['to_Ophu_List'='has_phenotype', 'rdfs:label'='orgOnthophagus_sp3'];
+#   }
+#
+#   OPHU_LIST={
+#
+#     cuticle_of_profemur !.encircles cuticle_of_protibia;
+#
+#
+#   }
+# }

@@ -37,6 +37,9 @@ import warnings
 # # ontoFile="colao_merged.owl"
 # -----------------------------------------
 
+
+#onto_out = get_ontology("http://tmpsmpmpm#")
+
 # additional (default) Args
 phs='{https://github.com/sergeitarasov/PhenoScript}'
 ns = {'phs': 'https://github.com/sergeitarasov/PhenoScript'}
@@ -54,7 +57,8 @@ onto_path.append(ontoPath)
 onto = get_ontology(ontoFile)
 onto.load(reload_if_newer=True)
 obo = onto.get_namespace("http://purl.obolibrary.org/obo/")
-
+inf=onto.get_namespace("https://github.com/sergeitarasov/PhenoScript/inference/")
+tdwg = onto.get_namespace('http://rs.tdwg.org/dwc/terms/')
 #xxx=onto.get_namespace("29-07-2022-16-18-35/")
 
 #-----------------------
@@ -83,6 +87,23 @@ def phsNumbersToOWL(str_value, type):
         warnings.warn('Unknown numeric type, see: phsNumbersToOWL()')
     return out
 
+#-----------------------
+# Create Annotations
+#-----------------------
+
+with inf:
+    class Penoscript_annotations(AnnotationProperty): pass
+    class PhenoScript_original_class(Penoscript_annotations): pass
+    class PhenoScript_implies_absence_of(Penoscript_annotations): pass
+    class PhenoScript_NL(Penoscript_annotations): pass
+    class PhenoScript_original_assertion(Penoscript_annotations): pass
+
+with tdwg:
+    class catalogNumber(AnnotationProperty): pass
+
+# Annotationds for triples
+# inf.PhenoScript_original_assertion[focal_sp, obo.IAO_0000219, focal_org ] = True
+# inf.PhenoScript_original_class[focal_sp, obo.IAO_0000219, focal_org ]
 
 #-----------------------
 # Make nodes
@@ -116,9 +137,9 @@ for ni in nodeIDunique:
     # this piece of code uses a workaround for iri cuz Owlready does not assign it correctly
     # when using the direct approach newNode = IRIS[nodeClass](ni)
     # create new node
-    #type(ni)
-    #newNode = IRIS[nodeClass](ni)
-    newNode = IRIS[nodeClass]('https://temp/tmp')
+    #newNode = IRIS[nodeClass]('https://temp/tmp')
+    nodeClassObj=IRIS[nodeClass]
+    newNode = nodeClassObj('https://temp/tmp')
     newNode.iri=ni
     #print(newNode.iri)
 
@@ -131,12 +152,21 @@ for ni in nodeIDunique:
         className=IRIS[nodeClass].label
         newNode.label = className[0]+':'+ ni.rsplit('/', 1)[-1]
 
+    # getting catalog number
+    catalogNumber_value = node.find(".//phs:node_property[.='catalogNumber']", ns)
+    if (catalogNumber_value is not None):
+        newNode.catalogNumber = catalogNumber_value.get(phs + 'value')
+
     # add annotations
     newNode.created_by = "PhenoScript v. " + phsVersion
     # add date
     today = date.today()
     dt_string = today.strftime("%d/%m/%Y")
     newNode.creation_date = dt_string
+    # add original class annotation
+    newNode.PhenoScript_original_class.append(nodeClassObj)
+
+
 
 
 #-----------------------
@@ -176,8 +206,10 @@ for nodeXML in nodePos1:
             Ed = IRIS[edgeXML[0].get(phs + 'iri')]
             if owl.FunctionalProperty in Ed.is_a:
                 exec('N1.%s = N2' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             else:
                 exec('N1.%s.append(N2)' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             #
         elif (Pos3XML[0].tag == phs + 'list_node'):
             # print('list_node')
@@ -190,8 +222,10 @@ for nodeXML in nodePos1:
                 N2 = IRIS[child.get(phs + 'node_id')]
                 if owl.FunctionalProperty in Ed.is_a:
                     exec('N1.%s = N2' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
                 else:
                     exec('N1.%s.append(N2)' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             #
         elif (Pos3XML[0].tag == phs + 'nested_node'):
             # print('nested_node')
@@ -207,8 +241,10 @@ for nodeXML in nodePos1:
                 N2 = IRIS[child.get(phs + 'node_id')]
                 if owl.FunctionalProperty in Ed.is_a:
                     exec('N1.%s = N2' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
                 else:
                     exec('N1.%s.append(N2)' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             #
         elif (Pos3XML[0].tag == phs + 'numeric_node'):
             # print(Pos3XML[0].attrib)
@@ -220,8 +256,10 @@ for nodeXML in nodePos1:
             # [owl.DatatypeProperty, owl.FunctionalProperty] obo.IAO_0000004.is_a
             if owl.FunctionalProperty in Ed.is_a:
                 exec('N1.%s = N2' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             else:
                 exec('N1.%s.append(N2)' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             #
         else:
             #print('WARNING: something is wrong in "for nodeXML in nodePos1: ... else:"')
@@ -241,7 +279,9 @@ for nodeXML in nodePos1:
             # --------------------------------
             #exec('N1.is_a.append( obo.BFO_0000051.some( Not(%s.some(classN2) ) ) )' % Ed)
             exec('N1.is_a.append( Not(%s.some(classN2)  ) )' % Ed)
-            #absClass.equivalent_to.append(Not(obo.BFO_0000051.some(i)))
+            # add annotation for absence
+            N1.PhenoScript_implies_absence_of.append(classN2)
+
             # N2.is_a.append(obo.HAO_0001017) # this works
             # N2.is_a.append(obo.BFO_0000051.some(obo.HAO_0001017)) # this works
             # N2.is_a.append(obo.BFO_0000051.some( Not(obo.BFO_0000051.some(obo.HAO_0001017)) ))  # this works
@@ -277,8 +317,10 @@ for nodeXML in nodePos1:
             N1 = IRIS[child.get(phs + 'node_id')]
             if owl.FunctionalProperty in Ed.is_a:
                 exec('N1.%s = N2' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
             else:
                 exec('N1.%s.append(N2)' % Ed.name)
+                inf.PhenoScript_original_assertion[N1, Ed, N2] = True
     else:
         warnings.warn('something is wrong  with "Pos3XML[0].tag == phs + node and is_negEdge==False" when phs:triple_pos=1 is not a simple node')
 
@@ -309,20 +351,22 @@ for otu in OTUs:
                 N2=IRIS[node.get(phs+'node_id')]
                 if owl.FunctionalProperty in Ed.is_a:
                     exec('N1.%s = N2' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
                 else:
                     exec('N1.%s.append(N2)' % Ed.name)
+                    inf.PhenoScript_original_assertion[N1, Ed, N2] = True
 #
 #
 
 
-# Adding necessary classes for Reasoning
-inf=onto.get_namespace("https://github.com/sergeitarasov/PhenoScript/inference/")
-
-# New class
-with inf:
-    class phsEncirclesSome(Thing): pass
-    phsEncirclesSome.equivalent_to.append(obo.AISM_0000078.some(Thing))
-        # AISM_0000078 encircles
+# # Adding necessary classes for Reasoning
+# inf=onto.get_namespace("https://github.com/sergeitarasov/PhenoScript/inference/")
+#
+# # New class
+# with inf:
+#     class phsEncirclesSome(Thing): pass
+#     phsEncirclesSome.equivalent_to.append(obo.AISM_0000078.some(Thing))
+#         # AISM_0000078 encircles
 
 
 #--- Save
