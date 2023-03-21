@@ -1,0 +1,4 @@
+{
+    "terminal.integrated.cwd": "\"${fileDirname}\"",
+    "python.terminal.executeInFileDir": true
+}

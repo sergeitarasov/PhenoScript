@@ -45,22 +45,16 @@ phsReal = ppc.real()('num_real')
 
 graph_alphanum = Word(alphanums + "_" + "-")
 
-#graph_word = (phsReal | phsInt | graph_alphanum)
+graph_word = (phsReal | phsInt | graph_alphanum)
 
 # -----------------------------------------
 # Node
 # -----------------------------------------
-
-# --------- Node Properties: N[]
+# Node Properties: N[]
 propertyWord = Word(alphanums + "_" + ":")  # in []
-# propertyWord = Suppress('.') + Word(alphanums + "_" + ":" + "." + "-")  # in []
 jsonStr = quotedString().setParseAction(removeQuotes)
 jsonString = (jsonStr | propertyWord)
 
-# ----
-jsonStr2 = quotedString()('node_quoted')
-graph_word = (phsReal | phsInt | graph_alphanum | jsonStr2)
-# ---
 
 jsonNumber = ppc.number()
 
@@ -68,10 +62,10 @@ jsonValue = (jsonString | jsonNumber | TRUE | FALSE | NULL)
 memberDef = Group(jsonString + EQAL + jsonValue)  # ("jsonMember")
 props = Group(LBRACK + delimitedList(memberDef, delim=', ', combine=False) + RBRACK)("node_props")
 
-# --------- node id N:
+# node id N:
 ID_props = Suppress(':') + graph_alphanum('id_props')
 
-# --------- Node
+# Node
 # node=Group(graph_word("node_name") + Optional(ID_props) + Optional(props) + NotAny('.') )("node")
 node = Group(NotAny('.') + graph_word("node_name") + Optional(ID_props) + Optional(props))("node")
 
@@ -109,12 +103,8 @@ grammar.setParseAction(transform4)
 # OTU statements
 # -----------------------------------------
 ophu_stat = Group(grammar + Suppress(";"))("ophu_statement")
-# ophu_list = Group(Suppress(Literal('OPHU_LIST')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("ophu_list")
-# otu_list = Group(Suppress(Literal('OTU_DATA')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("otu_properties")
-# otu_object = Group(Suppress(Literal('OTU')) + EQAL + LBRACE + otu_list + ophu_list + RBRACE)("otu_object")
-
-ophu_list = Group(Suppress(Literal('TRAITS')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("ophu_list")
-otu_list = Group(Suppress(Literal('DATA')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("otu_properties")
+ophu_list = Group(Suppress(Literal('OPHU_LIST')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("ophu_list")
+otu_list = Group(Suppress(Literal('OTU_DATA')) + EQAL + LBRACE + OneOrMore(ophu_stat) + RBRACE)("otu_properties")
 otu_object = Group(Suppress(Literal('OTU')) + EQAL + LBRACE + otu_list + ophu_list + RBRACE)("otu_object")
 
 otu_object.setParseAction(countOTUobjects)

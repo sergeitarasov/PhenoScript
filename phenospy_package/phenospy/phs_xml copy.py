@@ -10,8 +10,6 @@ from datetime import datetime
 # import xml.dom.minidom
 from phs_various_fun import *
 import xml.dom.minidom as xmldom
-from snips_fun import *
-from sys import exit
 
 # ------ This is the wrapper to make xml output nice
 
@@ -156,29 +154,6 @@ class phsNumericNode:
     def __repr__(self):
         return 'node_name:%s  node_id:%s' % (self.node_name, self.node_id)
 
-# --------
-
-# Quoted Node
-class phsQuotedNode:
-    def __init__(self, node_dict, triple_pos='NA'):
-        self.node_name = node_dict['node_name']
-        self.node_name = eval(self.node_name)  # removing double quotes
-        self.triple_pos = triple_pos  # should be only 3
-        if (self.triple_pos != 3):
-            print(f"{Fore.RED}Error: a quoted node should be at triple position 3.{Style.RESET_ALL}")
-            print(f"{Fore.RED}\tsome quoted node is at:{Style.RESET_ALL}", self.triple_pos)
-            exit()
-
-    def updateTriplePos(self, value):
-        self.triple_pos = value
-
-    def strXML(self):
-        return '<phs:quoted_node phs:triple_pos="%s" phs:node_name="%s" />\n' % \
-            (self.triple_pos, self.node_name)
-
-    def __repr__(self):
-        return 'node_name:%s  node_id:%s' % (self.node_name, self.node_id)
-
 
 # ------
 class phsEdge:
@@ -271,11 +246,6 @@ def makeNodes(node, pos, ophu_id='NA', coord='NA'):
         # this is a numeric node for data properties
         if ('num_real' in node_dict) | ('num_int' in node_dict):
             node_xml = phsNumericNode(node_dict, triple_pos=pos)
-
-        # this is quoted node
-        elif ('node_quoted' in node_dict):
-            print('It is here!')
-            node_xml = phsQuotedNode(node_dict, triple_pos=pos)
 
         # this is normal node
         else:

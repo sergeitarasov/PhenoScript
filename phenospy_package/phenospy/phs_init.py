@@ -12,6 +12,7 @@ from snips_readFromJSON import *
 from phs_addXmlMeta import *
 from phs_xmlTranslateTerms import *
 
+
 # -----------------------------------------
 # ARGUMENTS
 # -----------------------------------------
@@ -21,7 +22,7 @@ yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/ph
 base_iri = 'https://' + 'urn:uuid:' + str(uuid.uuid1())  # https://urn:uuid:2348c8b6-c31c-11ed-876a-acde48001122
 
 xml_save = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data' \
-           '/phs_xml.xml '
+           '/phs_xml.xml'
 
 # -----------------------------------------
 # Read yaml
@@ -100,6 +101,7 @@ print('Saving file ...', flush=True)
 with open(xml_save, 'w') as f:
     f.write(xml_string)
     f.close()
+
 print('DONE! The instances are saved to:', xml_save, flush=True)
 
 

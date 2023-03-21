@@ -3,6 +3,7 @@
 import yaml
 import json
 import os
+from sys import exit
 from owlready2 import *
 from colorama import init as colorama_init
 from colorama import Fore

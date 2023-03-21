@@ -19,7 +19,7 @@
     },
     "Tmp-OTU": {
     "prefix": ["Tmp insert OTU"],
-    "body": ["OTU = { # ADD SP NAME\n\t\n\tOTU_DATA = {$1}\n\t\n\tOPHU_LIST = {}\n\n}"],
+    "body": ["OTU = { # ADD SP NAME\n\t\n\tDATA = {$1}\n\t\n\tTRAITS = {}\n\n}"],
     "description": "Inserts OTU block",
     "type": "Tmp"
     },
