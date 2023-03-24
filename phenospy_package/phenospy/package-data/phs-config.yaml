@@ -16,7 +16,9 @@ importOntologies:
   - https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl
   - https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl
   - http://camwebb.info/dsw/dsw.owl
-  - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/blob/main/owl/taxonomy-repo.owl # taxonomy
+  - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/main/owl/taxonomy-repo.owl # taxonomy
+  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl # phenoscript
+  - https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl # Biological Collections Ontology
 namespace:
   default:    http://www.w3.org/2002/07/owl#
   others:
@@ -38,8 +40,9 @@ namespace:
     cdao:     http://purl.obolibrary.org/obo/CDAO_
     unit:     http://purl.obolibrary.org/obo/UO_
     dsw:      http://purl.org/dsw/
-    dwc:      http://rs.tdwg.org/dwc/
+    dwc:      http://rs.tdwg.org/dwc/terms/
     zoo:      http://zoobank.org/
     gbif:     https://www.gbif.org/species/
+    phs:      https://github.com/sergeitarasov/phenoscript/PHS_
     # uberon: http://purl.obolibrary.org/obo/UBERON_
     # obo: http://purl.obolibrary.org/obo/
