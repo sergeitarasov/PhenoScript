@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="https://github.com/sergeitarasov/phenoscript/"
-     xml:base="https://github.com/sergeitarasov/phenoscript/"
+<rdf:RDF xmlns="https://github.com/sergeitarasov/PhenoScript/"
+     xml:base="https://github.com/sergeitarasov/PhenoScript/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -12,7 +12,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:phenoscript="https://github.com/sergeitarasov/phenoscript/">
-    <owl:Ontology rdf:about="https://github.com/sergeitarasov/phenoscript/">
+    <owl:Ontology rdf:about="https://github.com/sergeitarasov/PhenoScript/">
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/taxrank/releases/2016-04-15/taxrank.owl"/>
     </owl:Ontology>
     
@@ -133,9 +133,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000001 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000001 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000001">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000001">
         <obo:IAO_0000115>Contains annotation properties used by Phenoscript</obo:IAO_0000115>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:15:16Z</oboInOwl:creation_date>
@@ -144,53 +144,53 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000002 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000002 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000002">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000002">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:18:37Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">phs_original_class</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/phenoscript/PHS_0000001"/>
+        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000003 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000003 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000003">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000003">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:05Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">phs_implies_absence_of</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/phenoscript/PHS_0000001"/>
+        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000004 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000004 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000004">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000004">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:28Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">phs_NL</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/phenoscript/PHS_0000001"/>
+        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000005 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000005 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000005">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000005">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:55Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">phs_original_assertion</rdfs:label>
-        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/phenoscript/PHS_0000001"/>
+        <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000006 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000006 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000006">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000006">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T13:34:58Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonID</oboInOwl:hasDbXref>
@@ -199,9 +199,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000008 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000008 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000008">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000008">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:07:25Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/scientificNameAuthorship</oboInOwl:hasDbXref>
@@ -210,9 +210,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000009 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000009 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000009">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000009">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:08:09Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonRank</oboInOwl:hasDbXref>
@@ -221,9 +221,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000010 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000010 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000010">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000010">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:10:48Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonomicStatus</oboInOwl:hasDbXref>
@@ -232,9 +232,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000011 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000011 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000011">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000011">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T15:50:01Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">hasGbifID</rdfs:label>
@@ -242,9 +242,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000012 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000012 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000012">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000012">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T15:51:03Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">hasZooBankID</rdfs:label>
@@ -252,9 +252,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000013 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000013 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000013">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000013">
         <obo:IAO_0000115>means that some species belongs to some genus. This genus is specified by gbif taxonID from backbone taxonomy</obo:IAO_0000115>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T16:24:29Z</oboInOwl:creation_date>
@@ -263,9 +263,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000015 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000015 -->
 
-    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000015">
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000015">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T21:19:28Z</oboInOwl:creation_date>
         <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/scientificName</oboInOwl:hasDbXref>
@@ -285,9 +285,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000016 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000016 -->
 
-    <owl:DatatypeProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000016">
+    <owl:DatatypeProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000016">
         <obo:IAO_0000115>counts anatomical structures</obo:IAO_0000115>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T21:26:56Z</oboInOwl:creation_date>
@@ -321,9 +321,9 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
-    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000014 -->
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000014 -->
 
-    <owl:Class rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000014">
+    <owl:Class rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000014">
         <obo:IAO_0000115>denotes a new speceis taxon</obo:IAO_0000115>
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T16:36:47Z</oboInOwl:creation_date>

@@ -43,6 +43,6 @@ namespace:
     dwc:      http://rs.tdwg.org/dwc/terms/
     zoo:      http://zoobank.org/
     gbif:     https://www.gbif.org/species/
-    phs:      https://github.com/sergeitarasov/phenoscript/PHS_
+    phs:      https://github.com/sergeitarasov/PhenoScript/PHS_
     # uberon: http://purl.obolibrary.org/obo/UBERON_
     # obo: http://purl.obolibrary.org/obo/

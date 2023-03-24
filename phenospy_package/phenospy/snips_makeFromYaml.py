@@ -274,4 +274,4 @@ def make_vscodeSnips(yaml_file):
         f.write(snips_out)
         f.close()
 
-    print(f"{Fore.BLUE}DONE!{Style.RESET_ALL}")
+    print(f"{Fore.GREEN}DONE!{Style.RESET_ALL}")

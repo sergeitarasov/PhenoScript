@@ -274,7 +274,6 @@ def makeNodes(node, pos, ophu_id='NA', coord='NA'):
 
         # this is quoted node
         elif ('node_quoted' in node_dict):
-            print('It is here!')
             node_xml = phsQuotedNode(node_dict, triple_pos=pos)
 
         # this is normal node

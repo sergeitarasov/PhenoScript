@@ -84,12 +84,12 @@
     "type": "OP"
     },
     "(DP alias) PHS_0000016": {
-    "prefix": ["|=| (.has_count)"],
+    "prefix": ["|=| (.has_element_count)"],
     "body": ["="],
     "description": "(DP) PHS_0000016: counts anatomical structures",
     "iri": "https://github.com/sergeitarasov/phenoscript/PHS_0000016",
     "label_4_translation": ["_vev_"],
-    "label_original": "has count",
+    "label_original": "has element count",
     "type": "DP"
     },
     "(OP alias) aism-0000078": {

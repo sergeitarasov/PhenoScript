@@ -1,5 +1,5 @@
 [PrefixDeclaration]
-:		https://github.com/sergeitarasov/phenoscript/
+:		https://github.com/sergeitarasov/PhenoScript/
 dc:		http://purl.org/dc/elements/1.1/
 obo:		http://purl.obolibrary.org/obo/
 owl:		http://www.w3.org/2002/07/owl#
