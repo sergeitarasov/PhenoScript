@@ -33,13 +33,15 @@
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="iao-denotes" phs:iri="http://purl.obolibrary.org/obo/IAO_0000219" phs:label_original="denotes" phs:type_onto="OP"/>
 						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/id-3d112b" phs:triple_pos="3" phs:node_name="hao-female_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000028" phs:label_original="female organism" phs:type_onto="C">
 							<phs:node_property phs:value="hao-female_organism">node_name</phs:node_property>
-							<phs:node_property phs:value="TRUE">links-triats</phs:node_property>
+							<phs:node_property phs:value="T">linksTraits</phs:node_property>
+							<phs:node_property phs:value="T">This</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 					<phs:triple_node>
 						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/id-3d112b" phs:triple_pos="1" phs:node_name="hao-female_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000028" phs:label_original="female organism" phs:type_onto="C">
 							<phs:node_property phs:value="hao-female_organism">node_name</phs:node_property>
-							<phs:node_property phs:value="TRUE">links-triats</phs:node_property>
+							<phs:node_property phs:value="T">linksTraits</phs:node_property>
+							<phs:node_property phs:value="T">This</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="rdfs-label" phs:iri="http://www.w3.org/2000/01/rdf-schema#label" phs:label_original="label" phs:type_onto="AP"/>
 						<phs:quoted_node phs:triple_pos="3" phs:node_name="org_Grebennikovius"/>
@@ -51,12 +53,12 @@
 							<phs:node_property phs:value="cdao-TU">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="iao-denotes" phs:iri="http://purl.obolibrary.org/obo/IAO_0000219" phs:label_original="denotes" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_2d2e1e_2-3" phs:triple_pos="3" phs:node_name="gbif-Grebennikovius" phs:fromNegativeEdge="False" phs:iri="https://www.gbif.org/species/10360397" phs:label_original="Grebennikovius" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_a60b6c_2-3" phs:triple_pos="3" phs:node_name="gbif-Grebennikovius" phs:fromNegativeEdge="False" phs:iri="https://www.gbif.org/species/10360397" phs:label_original="Grebennikovius" phs:type_onto="C">
 							<phs:node_property phs:value="gbif-Grebennikovius">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_2d2e1e_2-3" phs:triple_pos="1" phs:node_name="gbif-Grebennikovius" phs:fromNegativeEdge="False" phs:iri="https://www.gbif.org/species/10360397" phs:label_original="Grebennikovius" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_a60b6c_2-3" phs:triple_pos="1" phs:node_name="gbif-Grebennikovius" phs:fromNegativeEdge="False" phs:iri="https://www.gbif.org/species/10360397" phs:label_original="Grebennikovius" phs:type_onto="C">
 							<phs:node_property phs:value="gbif-Grebennikovius">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="rdfs-label" phs:iri="http://www.w3.org/2000/01/rdf-schema#label" phs:label_original="label" phs:type_onto="AP"/>
@@ -71,16 +73,16 @@
 							<phs:node_property phs:value="hao-female_organism">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_g_" phs:iri="http://purl.obolibrary.org/obo/BFO_0000051" phs:label_original="has part" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_2d2e1e_3-3" phs:triple_pos="3" phs:node_name="hao-radicle" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000889" phs:label_original="radicle" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_a60b6c_3-3" phs:triple_pos="3" phs:node_name="hao-radicle" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000889" phs:label_original="radicle" phs:type_onto="C">
 							<phs:node_property phs:value="hao-radicle">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_2d2e1e_3-3" phs:triple_pos="1" phs:node_name="hao-radicle" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000889" phs:label_original="radicle" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_a60b6c_3-3" phs:triple_pos="1" phs:node_name="hao-radicle" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000889" phs:label_original="radicle" phs:type_onto="C">
 							<phs:node_property phs:value="hao-radicle">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_gg_" phs:iri="http://purl.obolibrary.org/obo/RO_0000053" phs:label_original="bearer of" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_2d2e1e_3-5" phs:triple_pos="3" phs:node_name="pato-yellow" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000324" phs:label_original="yellow" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:5b81ed24-ca93-11ed-82d2-acde48001122/_a60b6c_3-5" phs:triple_pos="3" phs:node_name="pato-yellow" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000324" phs:label_original="yellow" phs:type_onto="C">
 							<phs:node_property phs:value="pato-yellow">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>

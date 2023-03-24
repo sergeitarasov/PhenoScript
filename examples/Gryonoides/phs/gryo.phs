@@ -11,15 +11,18 @@
 OTU = { # Gryonoides_brasiliensis
   
   DATA = {
-    cdao-TU:id-1be296 .iao-denotes hao-female_organism:id-3d112b['links-triats' = TRUE] .rdfs-label 'org_Grebennikovius';
+    cdao-TU:id-1be296 .iao-denotes hao-female_organism:id-3d112b[linksTraits = T, this = T] .rdfs-label 'org_Grebennikovius';
     cdao-TU:id-1be296 .iao-denotes gbif-Grebennikovius .rdfs-label 'taxon_Grebennikovius';
   }
   
   TRAITS = {
     hao-female_organism:id-3d112b > hao-radicle >> pato-yellow;
+    this > hao-aedeagus;
+
   }
 
 }
+
 
 # OTU={ # Gryonoides_brasiliensis
 
