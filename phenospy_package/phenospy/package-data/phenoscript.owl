@@ -9,9 +9,12 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:obda="https://w3id.org/obda/vocabulary#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:phenoscript="https://github.com/sergeitarasov/phenoscript/">
-    <owl:Ontology rdf:about="https://github.com/sergeitarasov/PhenoScript/"/>
+    <owl:Ontology rdf:about="https://github.com/sergeitarasov/PhenoScript/">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/taxrank/releases/2016-04-15/taxrank.owl"/>
+    </owl:Ontology>
     
 
 
@@ -102,6 +105,14 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://purl.org/dc/terms/references -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/references">
+        <rdfs:label>reference</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://www.geneontology.org/formats/oboInOwl#created_by -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#created_by"/>
@@ -111,6 +122,14 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- http://www.geneontology.org/formats/oboInOwl#creation_date -->
 
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#creation_date"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasDbXref -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref">
+        <rdfs:label>database_cross_reference</rdfs:label>
+    </owl:AnnotationProperty>
     
 
 
@@ -130,7 +149,7 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000002">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:18:37Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">phenoscript_original_class</rdfs:label>
+        <rdfs:label xml:lang="en">phs_original_class</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
@@ -141,7 +160,7 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000003">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:05Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">phenoscript_implies_absence_of</rdfs:label>
+        <rdfs:label xml:lang="en">phs_implies_absence_of</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
@@ -152,7 +171,7 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000004">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:28Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">phenoscript_NL</rdfs:label>
+        <rdfs:label xml:lang="en">phs_NL</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
     
@@ -163,9 +182,131 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000005">
         <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-21T09:28:55Z</oboInOwl:creation_date>
-        <rdfs:label xml:lang="en">phenoscript_original_assertion</rdfs:label>
+        <rdfs:label xml:lang="en">phs_original_assertion</rdfs:label>
         <rdfs:subPropertyOf rdf:resource="https://github.com/sergeitarasov/PhenoScript/PHS_0000001"/>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000006 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000006">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T13:34:58Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonID</oboInOwl:hasDbXref>
+        <rdfs:label xml:lang="en">taxonID</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000008 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000008">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:07:25Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/scientificNameAuthorship</oboInOwl:hasDbXref>
+        <rdfs:label xml:lang="en">scientificNameAuthorship</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000009 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000009">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:08:09Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonRank</oboInOwl:hasDbXref>
+        <rdfs:label xml:lang="en">taxonRank</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000010 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000010">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T14:10:48Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/taxonomicStatus</oboInOwl:hasDbXref>
+        <rdfs:label xml:lang="en">taxonomicStatus</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000011 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000011">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T15:50:01Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">hasGbifID</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000012 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000012">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T15:51:03Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">hasZooBankID</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000013 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000013">
+        <obo:IAO_0000115>means that some species belongs to some genus. This genus is specified by gbif taxonID from backbone taxonomy</obo:IAO_0000115>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T16:24:29Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">parentGbifTaxonID</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/scientificName -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/phenoscript/scientificName">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T13:36:48Z</oboInOwl:creation_date>
+        <oboInOwl:hasDbXref>http://rs.tdwg.org/dwc/terms/scientificName</oboInOwl:hasDbXref>
+        <rdfs:label xml:lang="en">scientificName</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TAXRANK_0000006 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TAXRANK_0000006">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/TAXRANK_0000000"/>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NCBITaxon:species</oboInOwl:hasDbXref>
+        <oboInOwl:hasDbXref rdf:datatype="http://www.w3.org/2001/XMLSchema#string">http://rs.tdwg.org/ontology/voc/TaxonRank#Species</oboInOwl:hasDbXref>
+        <oboInOwl:hasOBONamespace rdf:datatype="http://www.w3.org/2001/XMLSchema#string">taxonomic_rank</oboInOwl:hasOBONamespace>
+        <oboInOwl:id rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TAXRANK:0000006</oboInOwl:id>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">species</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000014 -->
+
+    <owl:Class rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000014">
+        <obo:IAO_0000115>denotes a new speceis taxon</obo:IAO_0000115>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T16:36:47Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">New Species</rdfs:label>
+        <phenoscript:PHS_0000009 rdf:resource="http://purl.obolibrary.org/obo/TAXRANK_0000006"/>
+    </owl:Class>
 </rdf:RDF>
 
 
