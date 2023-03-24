@@ -277,6 +277,29 @@ We also have the outstanding issue of how to aim different definitions to differ
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://github.com/sergeitarasov/phenoscript/PHS_0000016 -->
+
+    <owl:DatatypeProperty rdf:about="https://github.com/sergeitarasov/phenoscript/PHS_0000016">
+        <obo:IAO_0000115>counts anatomical structures</obo:IAO_0000115>
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T21:26:56Z</oboInOwl:creation_date>
+        <rdfs:comment>For exampe: &apos;segement has element count 3&apos; indicates three segments</rdfs:comment>
+        <rdfs:label xml:lang="en">has element count</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
