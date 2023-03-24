@@ -12,9 +12,7 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
      xmlns:phenoscript="https://github.com/sergeitarasov/phenoscript/">
-    <owl:Ontology rdf:about="https://github.com/sergeitarasov/PhenoScript/">
-        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/taxrank/releases/2016-04-15/taxrank.owl"/>
-    </owl:Ontology>
+    <owl:Ontology rdf:about="https://github.com/sergeitarasov/PhenoScript/"/>
     
 
 
@@ -130,6 +128,18 @@ We also have the outstanding issue of how to aim different definitions to differ
     <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasDbXref">
         <rdfs:label>database_cross_reference</rdfs:label>
     </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#hasOBONamespace -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#hasOBONamespace"/>
+    
+
+
+    <!-- http://www.geneontology.org/formats/oboInOwl#id -->
+
+    <owl:AnnotationProperty rdf:about="http://www.geneontology.org/formats/oboInOwl#id"/>
     
 
 
@@ -305,6 +315,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/TAXRANK_0000000 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/TAXRANK_0000000"/>
     
 
 

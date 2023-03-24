@@ -87,7 +87,7 @@
     "prefix": ["|=| (.has_element_count)"],
     "body": ["="],
     "description": "(DP) PHS_0000016: counts anatomical structures",
-    "iri": "https://github.com/sergeitarasov/phenoscript/PHS_0000016",
+    "iri": "https://github.com/sergeitarasov/PhenoScript/PHS_0000016",
     "label_4_translation": ["_vev_"],
     "label_original": "has element count",
     "type": "DP"
