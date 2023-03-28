@@ -1,12 +1,11 @@
 Metadata-Version: 2.1
 Name: phenospy
 Version: 0.1
-Summary: Tools for computable phenotype descriptions
+Summary: Tools for making and processing computable phenotype descriptions
 Home-page: https://github.com/sergeitarasov/PhenoScript
 Author: Sergei Tarasov
 Author-email: sergei.tarasov@helsinki.fi
 License: MIT
-Platform: UNKNOWN
 License-File: LICENSE.txt
 
 # PhenoScript
@@ -52,5 +51,3 @@ This command takes the onotlogy `data/colao_merged.owl` and saves snippets and d
 phs.py -onto data/colao_merged.owl -phs data/colao_AP.phs -o ./output -pre my_instance
 ```
 This produces two files: one is xml PhenoScript file, and another is OWL file. Note `phs.py` uses `phs_dictionary.csv`file directly from Atom directory. Get help via `phs.r -h`.
-
-

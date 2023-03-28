@@ -1,6 +1,4 @@
-owlready2
-pyyaml
+Owlready2
+PyYAML
 colorama
-pandas
-numpy
 pyparsing==2.4.2

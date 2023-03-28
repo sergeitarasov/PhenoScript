@@ -12,6 +12,7 @@ colorama_init()
 import xml.etree.ElementTree as ET
 from datetime import date
 import tempfile
+import os
 
 from owl_xml2owl_fun import *
 from xml_recodeThis import *
@@ -76,7 +77,10 @@ def xmlToOwl(tree, owl_file):
     # --------------------------------------------------------------------------------
     # Add phenoscript ontology and other terms
     # --------------------------------------------------------------------------------
-    with open("owl_make_phsOntology.py", "r") as f_phs:
+    module_path = os.path.dirname(__file__)
+    owl_file_path = os.path.join(module_path, "owl_make_phsOntology.py")
+
+    with open(owl_file_path, "r") as f_phs:
         phs_make = f_phs.read()
     
     exec(phs_make, {"onto": onto}, globals())

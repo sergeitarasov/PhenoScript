@@ -1,6 +1,9 @@
 # cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
 # /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
+import sys
+sys.path.append('/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy')
+
 # ---- new imports
 from pathlib import Path
 from phs_various_fun import *
@@ -13,18 +16,20 @@ from phs_xmlTranslateTerms import *
 from snips_makeFromYaml import *
 from owl_xmlToOwl import *
 from phs_mainConvert import *
+# from phs_test import *
+
+# my_function()
 
 # -----------------------------------------
 # Make snippets
 # -----------------------------------------
-
 yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
 make_vscodeSnips(yaml_file)
+
 
 # -----------------------------------------
 # ARGUMENTS
 # -----------------------------------------
-
 phs_file    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Gryonoides/phs/gryo.phs'
 yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
 save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/'
@@ -33,10 +38,7 @@ save_pref   = 'gryo'
 # -----------------------------------------
 # Quick conversion
 # -----------------------------------------
-
 phsToOWL(phs_file, yaml_file, save_dir, save_pref)
-
-
 
 
 # -----------------------------------------
