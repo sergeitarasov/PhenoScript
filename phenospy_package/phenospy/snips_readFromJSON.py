@@ -6,16 +6,16 @@ from snips_fun import *
 
 # yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
 # json_iri, json_type, json_lab = make_dicsFromSnips(yaml_file)
-def make_dicsFromSnips(yaml_file):
+def make_dicsFromSnips(phs_yaml):
     # -----------------------------------------
     # Read configuration yaml
     # -----------------------------------------
 
-    print(f"{Fore.BLUE}Reading yaml file...{Style.RESET_ALL}")
-    with open(yaml_file, 'r') as f_yaml:
-        phs_yaml = yaml.safe_load(f_yaml)
-    # print(phs_yaml)
-    print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
+    # print(f"{Fore.BLUE}Reading yaml file...{Style.RESET_ALL}")
+    # with open(yaml_file, 'r') as f_yaml:
+    #     phs_yaml = yaml.safe_load(f_yaml)
+    # # print(phs_yaml)
+    # print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
 
     # -----------------------------------------
     # Read JSON snippets

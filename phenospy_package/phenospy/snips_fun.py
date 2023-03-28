@@ -121,7 +121,10 @@ def printUniqueIRIs(yaml_file):
     for onto_path in onto_store:
         # print(onto_path)
         print(f"\n\t{Fore.BLUE}Loading ontology:{Style.RESET_ALL}", onto_path)
-        onto = get_ontology(onto_path).load()
+        try:
+            onto = get_ontology(onto_path).load()
+        except:
+            onto = get_ontology(onto_path).load()
         obo = onto.get_namespace("http://purl.obolibrary.org/obo/")
         print(f"\t\t{Fore.GREEN}The ontology loaded!{Style.RESET_ALL}")
         # --------------

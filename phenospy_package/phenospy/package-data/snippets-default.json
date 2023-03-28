@@ -110,6 +110,60 @@
     "label_original": "encircled by",
     "type": "OP"
     },
+    "(KeyWord) linksTraits": {
+    "prefix": ["linksTraits"],
+    "body": ["linksTraits = True"],
+    "description": "All entities in TRAITS scope will be linked with this node",
+    "iri": "KeyWord:linksTraits",
+    "label_4_translation": ["linksTraits"],
+    "label_original": "linksTraits",
+    "type": "KeyWord"
+    },
+    "(KeyWord) this": {
+    "prefix": ["this"],
+    "body": ["this = True"],
+    "description": "Serves as alias within its OTU scope",
+    "iri": "KeyWord:this",
+    "label_4_translation": ["this"],
+    "label_original": "this",
+    "type": "KeyWord"
+    },
+    "(KeyWord) cls": {
+    "prefix": ["cls"],
+    "body": ["cls = "],
+    "description": "Assigns the node to additional class",
+    "iri": "KeyWord:cls",
+    "label_4_translation": ["cls"],
+    "label_original": "cls",
+    "type": "KeyWord"
+    },
+    "(KeyWord) True": {
+    "prefix": ["True"],
+    "body": ["True"],
+    "description": "Boolean True operator",
+    "iri": "KeyWord:True",
+    "label_4_translation": ["True"],
+    "label_original": "True",
+    "type": "KeyWord"
+    },
+    "(KeyWord) False": {
+    "prefix": ["False"],
+    "body": ["False"],
+    "description": "Boolean False operator",
+    "iri": "KeyWord:False",
+    "label_4_translation": ["False"],
+    "label_original": "False",
+    "type": "KeyWord"
+    },
+    "(KeyWord) exclude": {
+    "prefix": ["exclude"],
+    "body": ["exclude = True"],
+    "description": "exclude an individual from linking with the DATA scope",
+    "iri": "KeyWord:exclude",
+    "label_4_translation": ["exclude"],
+    "label_original": "exclude",
+    "type": "KeyWord"
+    },
     "(C phs) owl-Nothing": {
     "prefix": ["owl-Nothing"],
     "body": ["owl-Nothing"],

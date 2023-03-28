@@ -1,27 +1,48 @@
 # Phenoscript description
 
-# '>', 'has_part.'
-# '<', 'part_of.'
-# '>>', 'has_characteristic.'
-# '<<', 'inheres_in.'
-# '|>|' 'increased_in_magnitude_relative_to.'
-# '|<|' 'decreased_in_magnitude_relative_to.'
-# '|=|' 'has_count:'
-
-OTU = { # Gryonoides_brasiliensis
+OTU = { # Grebennikovius_basilewskyi
   
   DATA = {
-    cdao-TU:id-1be296 .iao-denotes hao-female_organism:id-3d112b[linksTraits = T, this = T] .rdfs-label 'org_Grebennikovius';
-    cdao-TU:id-1be296 .iao-denotes gbif-Grebennikovius .rdfs-label 'taxon_Grebennikovius';
+    cdao-TU:id-3c0726 .iao-denotes hao-female_organism:id-4e3742[linksTraits = True, this=True, cls='dwc-Organism'] .rdfs-label 'org_Grebennikovius_basilewskyi';
+    cdao-TU:id-3c0726 .rdfs-label 'otu_Grebennikovius_basilewskyi';
+    cdao-TU:id-3c0726 .iao-denotes gbif-Grebennikovius_basilewskyi;
+
   }
   
   TRAITS = {
-    hao-female_organism:id-3d112b > hao-radicle >> pato-yellow;
-    this > hao-aedeagus;
+    
+    hao-female_organism:id-4e3742 > hao-radicle >> pato-yellow;
+    hao-female_organism:id-4e3742 >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-8ff5d4 .iao-has_measurement_unit_label unit-millimeter;
+																					iao-measurement_datum:md-8ff5d4 .iao-has_measurement_value 2.3;
+    hao-female_organism:id-4e3742 !> hao-fore_tibia;
+    hao-female_organism:id-4e3742 > hao-hind_wing |=| 2;
+    hao-female_organism:id-4e3742 > hao-hind_leg >> (pato-red, pato-elongated);
+    hao-female_organism:id-4e3742 > hao-mid_coxa > (bspo-dorsal_side > hao-seta_0002299);
+    this > hao-aedeagus >> pato-triangular;
+    this > bspo-dorsal_side >> pato-black;
+    this > hao-leg >> pato-length |>| pato-length:id-185304[exclude = True];
 
   }
 
 }
+
+
+OTU = { # Grebennikovius
+  
+  DATA = {
+    cdao-TU:id-4f03cd .iao-denotes hao-female_organism:id-2c5eb8[linksTraits = True, this=True, cls='dwc-Organism'] .rdfs-label 'org_Grebennikovius';
+    cdao-TU:id-4f03cd .rdfs-label 'otu_Grebennikovius';
+    cdao-TU:id-4f03cd .iao-denotes gbif-Grebennikovius;
+  }
+  
+  TRAITS = {
+    
+    this > bspo-dorsal_side >> pato-black;
+    this > hao-leg >> pato-length:id-185304;
+  }
+
+}
+
 
 
 # OTU={ # Gryonoides_brasiliensis
@@ -47,7 +68,7 @@ OTU = { # Gryonoides_brasiliensis
 
 # OTU={ # Gryonoides_brasiliensis2
 # DATA = {
-#   cdao-TU:a2['to_Ophu_List' = TRUE, 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
+#   cdao-TU:a2['to_Ophu_List' = true, 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
 #   hao-female_organism:G_brasiliensis['rdfs:label'= 'female_org-Gryonoides_brasiliensis'];   
 #   }
 
@@ -64,4 +85,3 @@ OTU = { # Gryonoides_brasiliensis
 #   hao-female_organism .rdfs-label 'asa a s';
 #   }
 # }
-

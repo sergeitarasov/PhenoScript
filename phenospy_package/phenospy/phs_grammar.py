@@ -4,6 +4,12 @@
 # (C) 2023 Sergei Tarasov
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
+from pathlib import Path
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
+colorama_init()
+
 from pyparsing import *
 from pyparsing import pyparsing_common as ppc
 from phs_parser_fun import *
@@ -124,3 +130,18 @@ grammar1 = Group(OneOrMore(otu_object))("otu_objects_list")
 # comments are denoted by #
 pyComment = pythonStyleComment
 grammar1.ignore(pyComment)
+
+# Parse phs string
+def parsePHS(file_phs):
+    print(f"{Fore.BLUE}Reading Phenoscript file:{Style.RESET_ALL}", file_phs)
+    txt = Path(file_phs).read_text()
+    print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
+    # check if brackets are balanced
+    is_balanced(txt)
+    # Parse
+    print(f"{Fore.BLUE}Parsing Phenoscript file ...{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}The following OTUs found:{Style.RESET_ALL}")
+    out = grammar1.parseString(txt)
+    var_countOTU.reset(prefix='', starting_id=1)
+    return out
+

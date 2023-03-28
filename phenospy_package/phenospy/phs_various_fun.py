@@ -5,7 +5,7 @@
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
 import uuid
-
+from snips_fun import *
 
 # print(uuid_n(6))  # For example, da86ce
 def uuid_n(string_length=6):
@@ -44,7 +44,8 @@ class nodeIdGenerator:
 # is_balanced(str)
 # -----------------------------------------
 def is_balanced(expr):
-    print('Checking if parentheses are balanced...', flush=True)
+    # print('Checking if parentheses are balanced...', flush=True)
+    print(f"{Fore.BLUE}Checking if parentheses are balanced...{Style.RESET_ALL}")
     opening = set('([{')
     new = set(')]}{[(')
     match = set([('(', ')'), ('[', ']'), ('{', '}')])
@@ -59,16 +60,23 @@ def is_balanced(expr):
         else:
             if len(stack) == 0:
                 # print(i)
-                print('Some parentheses might be disbalanced, see line:', txt[1:i].count('\n') + 1, flush=True)
+                # print('Some parentheses might be disbalanced, see line:', txt[1:i].count('\n') + 1, flush=True)
+                print(f"{Fore.RED}Some parentheses might be disbalanced, see line:{Style.RESET_ALL}", expr[1:i].count('\n') + 1)
                 return False
             lastOpen = stack.pop()
             lastindex = stackcount.pop()
             if (lastOpen, char) not in match:
                 # print (i)
-                print('Some parentheses might be disbalanced, see line:', txt[1:i].count('\n') + 1, flush=True)
+                # print('Some parentheses might be disbalanced, see line:', expr[1:i].count('\n') + 1, flush=True)
+                print(f"{Fore.RED}Some parentheses might be disbalanced, see line:{Style.RESET_ALL}", expr[1:i].count('\n') + 1)
                 return False
     length = len(stack)
     if length != 0:
         elem = stackcount[0]
-        print(elem, flush=True)
-    return length == 0
+        # print(elem, flush=True)
+        print(f"{Fore.RED}Some parentheses might be disbalanced, see:{Style.RESET_ALL}", elem)
+    # return length == 0
+    if (length == 0):
+        print(f"{Fore.GREEN}Good! Parentheses are balanced.{Style.RESET_ALL}")
+    else:
+        print(f"{Fore.RED}Some parentheses might be disbalanced!{Style.RESET_ALL}")

@@ -2,25 +2,7 @@
 # Settings for using owlready and Phenoscript
 # -----------------------------------------
 from owlready2 import *
-
-
-# -----------------------------------------
-# Arguments
-# -----------------------------------------
-phsVersion = "1.0.0"
-
-# -----------------------------------------
-# owlready
-# -----------------------------------------
-phs = '{https://github.com/sergeitarasov/PhenoScript}'
-ns = {'phs': 'https://github.com/sergeitarasov/PhenoScript'}
-
-def render_using_label(entity):
-    return entity.label.first() or entity.name
-
-set_render_func(render_using_label)
-set_log_level(9)
-
+from owl_owlready_config import *
 
 
 # -----------------------------------------
@@ -85,6 +67,11 @@ def make_all_classes(root, onto):
     for i in terms_C:
         #print(i.get(phs + 'iri'), i.get(phs + 'label_original'))
         dic_C.update({i.get(phs + 'iri'): i.get(phs + 'label_original')})
+    
+    terms_C_props = root.findall(".//phs:node_property[@phs:value-type_onto='C']", ns)
+    for i in terms_C_props:
+        # print(i.get(phs + 'value-iri'), '>', i.get(phs + 'value-label_original'))
+        dic_C.update({i.get(phs + 'value-iri'): i.get(phs + 'value-label_original')})
 
     for iri in dic_C:
         make_Class(onto, iri=iri, label=dic_C[iri])

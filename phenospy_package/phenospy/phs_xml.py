@@ -16,13 +16,20 @@ from sys import exit
 # ------ This is the wrapper to make xml output nice
 
 # former: def phenoscriptParse(phs_string, base_iri):
-def phenoscript2xml(phs_string, base_iri):
+def phenoscriptToXML(phs_string):
+    print(f"{Fore.BLUE}Converting Phenoscript to XML ...{Style.RESET_ALL}")
     # IRI for node: https://urn:uuid:4831b6e2-c326-11ed-a65d-acde48001122/_b3cbc5_12-5
     # IRI for nested node: https://urn:uuid:1312852a-c328-11ed-949a-acde48001122/_ecd5db_14_N3-3"
     # IRI for list node: https://urn:uuid:826c3694-c32a-11ed-96cb-acde48001122/_f34012_15-L3-1
     # For not personalized nodes: https://<base_iri>/<nid>-<self.coord_node>
     # For personalized nodes:     https://<base_iri>/node_dict['id_props']
     #   where node_dict['id_props'] is the tag, N:tag
+
+    # -----------------------------------------
+    # Make base iri. This function returns it
+    # -----------------------------------------
+    # https://urn:uuid:2348c8b6-c31c-11ed-876a-acde48001122
+    base_iri = 'https://' + 'urn:uuid:' + str(uuid.uuid1())
 
     # identifier for to keep track on ophu statement and node coordinates
     global nid # _b3cbc5_N
@@ -43,7 +50,8 @@ def phenoscript2xml(phs_string, base_iri):
     xml = xmldom.parseString(nn)
     xml_pretty_str = xml.toprettyxml(indent="\t", newl="\n", encoding=None)
     xx = "\n".join([ll.rstrip() for ll in xml_pretty_str.splitlines() if ll.strip()])
-    return xx
+    print(f"{Fore.GREEN}Done!{Style.RESET_ALL}")
+    return xx, base_iri
 
 
 # varGlobalfromNegativeEdge=GlobalfromNegativeEdge()

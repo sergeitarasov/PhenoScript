@@ -1,20 +1,50 @@
+from owlready2 import *
 
-from colorama import init as colorama_init
-from colorama import Fore
-from colorama import Style
-colorama_init()
-from owl_xml2owl_fun import *
+# def make_phsOnto(onto):
+with onto:
+    class phenoscript_annotations(AnnotationProperty): pass
+    class phs_implies_absence_of(phenoscript_annotations): pass
+    class phs_NL(phenoscript_annotations): pass
+    class phs_original_assertion(phenoscript_annotations): pass
+    class phs_original_class(phenoscript_annotations): pass
 
+phenoscript_annotations.iri     = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000001'
+phs_implies_absence_of.iri      = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000003'
+phs_NL.iri                      = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000004'
+phs_original_assertion.iri      = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000005'
+phs_original_class.iri          = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000002'
 
-onto_phs = get_ontology('https://github.com/sergeitarasov/PhenoScript')
+phenoscript_annotations.label    = 'phenoscript_annotations'
+phs_implies_absence_of.label     = 'phs_implies_absence_of'
+phs_NL.label                     = 'phs_NL'
+phs_original_assertion.label     = 'phs_original_assertion'
+phs_original_class.label         = 'phs_original_class'
 
+# Connecting OTUs and traits
+with onto:
+    class has_trait(AnnotationProperty): pass
+    class contributor(AnnotationProperty): pass
+    class created_by(AnnotationProperty): pass
+    class project_id(AnnotationProperty): pass
+    class purl_requires(AnnotationProperty): pass
+    class purl_source(AnnotationProperty): pass
+    class creation_date(AnnotationProperty): pass
+    class cls_project(Thing): pass
 
-with onto_phs:
-    class Phenoscript_annotations(AnnotationProperty): pass
-    class PhenoScript_original_class(Phenoscript_annotations): pass
-    class PhenoScript_implies_absence_of(Phenoscript_annotations): pass
-    class PhenoScript_NL(Phenoscript_annotations): pass
-    class PhenoScript_original_assertion(Phenoscript_annotations): pass
-
-
-# onto_phs.save(file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phenoscript.owl', format = "rdfxml")
+has_trait.iri       = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000017'
+has_trait.label     = 'has_trait'
+contributor.iri     = 'http://purl.org/dc/elements/1.1/contributor'
+contributor.label   = 'contributor'
+created_by.iri      = 'http://www.geneontology.org/formats/oboInOwl#created_by'
+created_by.label    = 'created_by'
+project_id.iri      = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000018'
+project_id.label    = 'project_id'
+purl_requires.iri   = 'http://purl.org/dc/terms/requires'
+purl_requires.label = 'requires'
+purl_source.iri     = 'http://purl.org/dc/elements/1.1/source'
+purl_source.label   = 'source'
+cls_project.iri     = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000019'
+cls_project.label   = 'project'
+creation_date.iri   = 'http://www.geneontology.org/formats/oboInOwl#creation_date'
+creation_date.label = 'creation_date'
+#  return(onto)

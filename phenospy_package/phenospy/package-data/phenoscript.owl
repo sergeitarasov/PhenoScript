@@ -284,6 +284,26 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000017 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000017">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-27T15:04:07Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">has_trait</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000018 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000018">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-27T19:14:30Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">project_id</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -345,6 +365,16 @@ We also have the outstanding issue of how to aim different definitions to differ
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-24T16:36:47Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">New Species</rdfs:label>
         <PHS_0000009 rdf:resource="http://purl.obolibrary.org/obo/TAXRANK_0000006"/>
+    </owl:Class>
+    
+
+
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000019 -->
+
+    <owl:Class rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000019">
+        <dc:contributor rdf:datatype="http://www.w3.org/2001/XMLSchema#string">starasov</dc:contributor>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-27T19:35:40Z</oboInOwl:creation_date>
+        <rdfs:label xml:lang="en">project</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 

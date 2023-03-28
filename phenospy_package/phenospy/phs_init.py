@@ -1,6 +1,5 @@
-# import os
-# os.getcwd()
-# os.chdir('./src')
+# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+# /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
 # ---- new imports
 from pathlib import Path
@@ -11,98 +10,60 @@ from phs_xml import *
 from snips_readFromJSON import *
 from phs_addXmlMeta import *
 from phs_xmlTranslateTerms import *
+from snips_makeFromYaml import *
+from owl_xmlToOwl import *
+from phs_mainConvert import *
 
+# -----------------------------------------
+# Make snippets
+# -----------------------------------------
+
+yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
+make_vscodeSnips(yaml_file)
 
 # -----------------------------------------
 # ARGUMENTS
 # -----------------------------------------
-file_phs = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Gryonoides/phs/gryo.phs'  # 'data/Gryonoides.phs'
-yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
 
-base_iri = 'https://' + 'urn:uuid:' + str(uuid.uuid1())  # https://urn:uuid:2348c8b6-c31c-11ed-876a-acde48001122
-
-xml_save = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data' \
-           '/phs_xml.xml'
+phs_file    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Gryonoides/phs/gryo.phs'
+yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
+save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/'
+save_pref   = 'gryo'
 
 # -----------------------------------------
-# Read yaml
+# Quick conversion
 # -----------------------------------------
 
-print(f"{Fore.BLUE}Reading yaml file...{Style.RESET_ALL}")
-with open(yaml_file, 'r') as f_yaml:
-    phs_yaml = yaml.safe_load(f_yaml)
-# print(phs_yaml)
-print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
+phsToOWL(phs_file, yaml_file, save_dir, save_pref)
+
+
 
 
 # -----------------------------------------
-# Read phs file
+# Manual conversion:
 # -----------------------------------------
-print('Reading in PhenoScript file', file_phs, '...', flush=True)
-txt = Path(file_phs).read_text()
-print(txt)
-# check if brackets are balanced
-is_balan = is_balanced(txt)
-print('-', is_balan, flush=True)
-
-# -----------------------------------------
+xml_save = os.path.join(save_dir, save_pref + '.xml')
+owl_save = os.path.join(save_dir, save_pref + '.owl')
+# ----------------------------------------
 # Parse phs file
 # -----------------------------------------
-
-print('Parsing PhenoScript file ...', flush=True)
-print('The following OTUs found:', flush=True)
-out = grammar1.parseString(txt)
-print(out)
-# global var_countOTU reset
-var_countOTU.reset(prefix='', starting_id=1)
-
+out = parsePHS(phs_file)
 # -----------------------------------------
 # phs to XML
 # -----------------------------------------
-print('Converting PhenoScript to XML ...', flush=True)
-out_xml = phenoscript2xml(out, base_iri)
-print(out_xml)
-
+xml_str, base_iri = phenoscriptToXML(out)
+xml_final = xmlTranslateTermsMeta(xml_str, base_iri, yaml_file)
 # -----------------------------------------
-# Translate XML terms into IRIs from ontology
-#  and add translation to XML
+# Save XML
 # -----------------------------------------
-
-tree = ET.ElementTree(ET.fromstring(out_xml))
-ET.register_namespace('phs', 'https://github.com/sergeitarasov/PhenoScript')
-root = tree.getroot()
-
-dic_iri, dic_type, dic_lab = make_dicsFromSnips(yaml_file)
-snipsDic = snipsLabelDictionary(dic_iri, dic_type, dic_lab)
-
-xmlTranslateTerms(root, snipsDic)
-
-# -----------------------------------------
-# Add Meta
-# -----------------------------------------
-
-#tree = ET.ElementTree(ET.fromstring(root))
-#ET.register_namespace('phs', 'https://github.com/sergeitarasov/PhenoScript')
-root = tree.getroot()
-xml_add_YamlMeta(root, phs_yaml, base_iri)
-
-# Pretty-print the combined XML tree
-xml_string = ET.tostring(root, encoding='unicode')
-xml_string = xmldom.parseString(xml_string).toprettyxml(indent="\t", newl="\n", encoding=None)
-xml_string = "\n".join([ll.rstrip() for ll in xml_string.splitlines() if ll.strip()])
-print(xml_string)
-
-# -----------------------------------------
-# Save
-# -----------------------------------------
-
-# tree.write(xml_save, encoding="utf-8")
-print('Saving file ...', flush=True)
 with open(xml_save, 'w') as f:
-    f.write(xml_string)
+    f.write(xml_final)
     f.close()
-
-print('DONE! The instances are saved to:', xml_save, flush=True)
-
-
+# -----------------------------------------
+# XML to OWL
+# -----------------------------------------
+# tree = ET.parse(xml_save)
+tree = ET.ElementTree(ET.fromstring(xml_final))
+# set_log_level(0)
+xmlToOwl(tree, owl_save)
 

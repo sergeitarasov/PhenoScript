@@ -107,7 +107,8 @@ def countOTUobjects(string, location, tokens):
     # substr = string[location:len(string)]
     ednOfLine = string[location:len(string)].find('\n')
     ednOfLine = ednOfLine + location
-    print('- Reading', var_countOTU.makeId(), ':', string[location:ednOfLine], flush=True)
+    # print('- Reading', var_countOTU.makeId(), ':', string[location:ednOfLine], flush=True)
+    print(f"{Fore.GREEN}- Reading OTU",  var_countOTU.makeId(), ':', f"{Style.RESET_ALL}", string[location:ednOfLine])
     return tokens
 
 

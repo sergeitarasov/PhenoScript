@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/taxrank/releases/2016-04-15/taxrank.owl" uri="http://purl.obolibrary.org/obo/taxrank.owl"/>
-    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/iao/2020-12-09/iao.owl" uri="https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1679676337078" name="duplicate:https://github.com/sergeitarasov/PhenoScript/" uri="phenoscript.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1679676337078" name="duplicate:https://github.com/sergeitarasov/PhenoScript/" uri="test.owl"/>
-    </group>
-</catalog>
