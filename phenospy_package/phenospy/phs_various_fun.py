@@ -5,7 +5,9 @@
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
 import uuid
-from snips_fun import *
+
+from phenospy.snips_fun import *
+
 
 # print(uuid_n(6))  # For example, da86ce
 def uuid_n(string_length=6):

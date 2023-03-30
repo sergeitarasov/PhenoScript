@@ -1,9 +1,8 @@
 # -----------------------------------------
 # Settings for using owlready and Phenoscript
 # -----------------------------------------
+from phenospy.owl_owlready_config import *
 from owlready2 import *
-from owl_owlready_config import *
-
 
 # -----------------------------------------
 # Functions

@@ -1,5 +1,0 @@
-colorama==0.4.6
-Owlready2==0.38
-pyparsing==2.4.2
-PyYAML==6.0
-setuptools==61.2.0

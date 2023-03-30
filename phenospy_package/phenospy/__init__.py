@@ -1,8 +1,7 @@
-# from . import somePython
-# from phenospy.somePython import *
-
-# from phenospy.snips_makeFromYaml import *
-# from phenospy.snips_readFromJSON import *
-# from phenospy.snips_fun import *
-# from phenospy import *
-from phenospy.phs_test import my_function
+from .phs_mainConvert import phsToOWL
+from .owl_xmlToOwl import  xmlToOwl
+from .phs_grammar  import parsePHS
+from .phs_xml import phenoscriptToXML
+from .phs_xmlTranslateTerms import xmlTranslateTerms, xmlTranslateTermsMeta
+from .snips_makeFromYaml import make_vscodeSnips
+from .snips_fun import printUniqueIRIs

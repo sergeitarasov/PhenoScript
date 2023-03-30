@@ -1,8 +1,10 @@
-from snips_fun import *
-from snips_readFromJSON import *
-from phs_addXmlMeta import *
 import xml.dom.minidom as xmldom
 import xml.etree.ElementTree as ET
+
+from phenospy.phs_addXmlMeta import *
+from phenospy.snips_fun import *
+from phenospy.snips_readFromJSON import *
+
 
 def xmlTranslateTerms(root, snipsDic):
   print(f"{Fore.BLUE}Translating terms using JSON snippets...{Style.RESET_ALL}")

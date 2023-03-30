@@ -4,9 +4,10 @@
 # (C) 2023 Sergei Tarasov
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
+from phenospy.phs_various_fun import *
 from pyparsing import *
 from pyparsing import pyparsing_common as ppc
-from phs_various_fun import *
+
 
 # Get odd mubers in range
 def oddNum(start, end):

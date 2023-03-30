@@ -4,18 +4,18 @@
 #
 #------------
 
+from colorama import Fore, Style
 from colorama import init as colorama_init
-from colorama import Fore
-from colorama import Style
+
 colorama_init()
 
+import os
+import tempfile
 import xml.etree.ElementTree as ET
 from datetime import date
-import tempfile
-import os
 
-from owl_xml2owl_fun import *
-from xml_recodeThis import *
+from phenospy.owl_xml2owl_fun import *
+from phenospy.xml_recodeThis import *
 
 # -----------------------------------------
 # Config: imported from owl_xml2owl_fun

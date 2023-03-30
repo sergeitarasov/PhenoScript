@@ -1,13 +1,14 @@
 # former namespace_functions.py
 
-import yaml
 import json
 import os
 from sys import exit
-from owlready2 import *
+
+import yaml
+from colorama import Fore, Style
 from colorama import init as colorama_init
-from colorama import Fore
-from colorama import Style
+from owlready2 import *
+
 # import importlib.resources as importlib_resources
 
 colorama_init()

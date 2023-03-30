@@ -4,15 +4,15 @@
 # ---- new imports
 # from pathlib import Path
 import os
-from phs_various_fun import *
-from phs_grammar import *
-from phs_xml import *
-from snips_readFromJSON import *
-from phs_addXmlMeta import *
-from phs_xmlTranslateTerms import *
-from snips_makeFromYaml import *
-from owl_xmlToOwl import *
 
+from phenospy.owl_xmlToOwl import *
+from phenospy.phs_addXmlMeta import *
+from phenospy.phs_grammar import *
+from phenospy.phs_various_fun import *
+from phenospy.phs_xml import *
+from phenospy.phs_xmlTranslateTerms import *
+from phenospy.snips_makeFromYaml import *
+from phenospy.snips_readFromJSON import *
 
 # -----------------------------------------
 # Converts phs file to owl

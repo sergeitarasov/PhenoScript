@@ -1,4 +1,4 @@
-from snips_fun import *
+from phenospy.snips_fun import *
 
 # -----------------------------------------
 # Read VScode snips in JSON and make dictionaries

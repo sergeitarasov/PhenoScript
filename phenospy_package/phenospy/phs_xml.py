@@ -4,14 +4,13 @@
 # (C) 2023 Sergei Tarasov
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
-from phs_various_fun import *
-from phs_parser_fun import *
-from datetime import datetime
-# import xml.dom.minidom
-from phs_various_fun import *
 import xml.dom.minidom as xmldom
-from snips_fun import *
+from datetime import datetime
 from sys import exit
+
+from phenospy.phs_parser_fun import *
+from phenospy.phs_various_fun import *
+from phenospy.snips_fun import *
 
 # ------ This is the wrapper to make xml output nice
 

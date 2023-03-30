@@ -1,0 +1,48 @@
+#   Win: `%USERPROFILE%\.vscode\extensions`
+#   Mac:`$HOME/.vscode/extensions`
+#   Linux: `$HOME/.vscode/extensions`
+snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.11/snippets/
+authors:
+  'First1 Last1': https://orcid.org/0000-0001-xxxx-xxxx
+  'First2 Last2': https://orcid.org/0000-0001-xxxx-xxxx
+importOntologies:
+  - https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl
+  - https://raw.githubusercontent.com/hymao/hao/master/hao.owl
+  - https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl
+  - https://raw.githubusercontent.com/pato-ontology/pato/master/pato.owl
+  - https://raw.githubusercontent.com/obophenotype/biological-spatial-ontology/master/bspo.owl
+  - https://raw.githubusercontent.com/evoinfo/cdao/master/cdao.owl
+  - https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl
+  - https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl
+  - https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl
+  - http://camwebb.info/dsw/dsw.owl
+  - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/main/owl/taxonomy-repo.owl # taxonomy
+  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl # phenoscript
+  - https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl # Biological Collections Ontology
+namespace:
+  default:    http://www.w3.org/2002/07/owl#
+  others:
+    rdfs:     http://www.w3.org/2000/01/rdf-schema#
+    formats:  http://www.geneontology.org/formats/oboInOwl#
+    dc:       http://purl.org/dc/
+    hao:      http://purl.obolibrary.org/obo/HAO_
+    aism:     http://purl.obolibrary.org/obo/AISM_
+    clao:     http://purl.obolibrary.org/obo/COLAO_
+    bfo:      http://purl.obolibrary.org/obo/BFO_
+    ro:       http://purl.obolibrary.org/obo/RO_
+    obi:      http://purl.obolibrary.org/obo/OBI_
+    ncbi:     http://purl.obolibrary.org/obo/NCBITaxon_
+    iao:      http://purl.obolibrary.org/obo/IAO_
+    bspo:     http://purl.obolibrary.org/obo/BSPO_
+    pato:     http://purl.obolibrary.org/obo/PATO_
+    pato2:    http://purl.obolibrary.org/obo/pato#
+    caro:     http://purl.obolibrary.org/obo/CARO_
+    cdao:     http://purl.obolibrary.org/obo/CDAO_
+    unit:     http://purl.obolibrary.org/obo/UO_
+    dsw:      http://purl.org/dsw/
+    dwc:      http://rs.tdwg.org/dwc/terms/
+    zoo:      http://zoobank.org/
+    gbif:     https://www.gbif.org/species/
+    phs:      https://github.com/sergeitarasov/PhenoScript/PHS_
+    # uberon: http://purl.obolibrary.org/obo/UBERON_
+    # obo: http://purl.obolibrary.org/obo/

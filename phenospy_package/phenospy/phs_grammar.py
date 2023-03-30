@@ -5,15 +5,15 @@
 # email sergei.tarasov@helsinki.fi
 # -----------------------------------------------------------
 from pathlib import Path
+
+from colorama import Fore, Style
 from colorama import init as colorama_init
-from colorama import Fore
-from colorama import Style
+
 colorama_init()
 
+from phenospy.phs_parser_fun import *
 from pyparsing import *
 from pyparsing import pyparsing_common as ppc
-from phs_parser_fun import *
-
 
 LPARAN, RPARAN, LBRACK, RBRACK, LBRACE, RBRACE, COLON, EQAL = map(Suppress, "()[]{}:=")
 

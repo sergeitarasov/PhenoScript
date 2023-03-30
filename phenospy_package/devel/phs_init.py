@@ -1,21 +1,21 @@
-# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
-# /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
 import sys
 sys.path.append('/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy')
 
 # ---- new imports
 from pathlib import Path
-from phs_various_fun import *
+
+from owl_xmlToOwl import *
+from phs_addXmlMeta import *
 # from phs_parser_fun import *
 from phs_grammar import *
+from phs_mainConvert import *
+from phs_various_fun import *
 from phs_xml import *
-from snips_readFromJSON import *
-from phs_addXmlMeta import *
 from phs_xmlTranslateTerms import *
 from snips_makeFromYaml import *
-from owl_xmlToOwl import *
-from phs_mainConvert import *
+from snips_readFromJSON import *
+
 # from phs_test import *
 
 # my_function()
