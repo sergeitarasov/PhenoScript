@@ -1,4 +1,4 @@
-# PhenoScript
+# Phenoscript & Phenospy
  The computer language for describing species and phenotypes 
 
 
