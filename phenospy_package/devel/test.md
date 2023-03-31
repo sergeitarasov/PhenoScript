@@ -1,0 +1,14 @@
+
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [radicle](http://purl.obolibrary.org/obo/HAO_0000889): [yellow](http://purl.obolibrary.org/obo/PATO_0000324);
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [hind wing](http://purl.obolibrary.org/obo/HAO_0000400) [has element count](https://github.com/sergeitarasov/PhenoScript/PHS_0000016) 2;
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [hind leg](http://purl.obolibrary.org/obo/HAO_0000399)
+	- [hind leg](http://purl.obolibrary.org/obo/HAO_0000399): [red](http://purl.obolibrary.org/obo/PATO_0000322);
+	- [hind leg](http://purl.obolibrary.org/obo/HAO_0000399): [elongated](http://purl.obolibrary.org/obo/PATO_0001154);
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [mid coxa](http://purl.obolibrary.org/obo/HAO_0000635)
+	- [mid coxa](http://purl.obolibrary.org/obo/HAO_0000635), [dorsal side](http://purl.obolibrary.org/obo/BSPO_0000063), [seta](http://purl.obolibrary.org/obo/HAO_0002299): present;
+	- [mid coxa](http://purl.obolibrary.org/obo/HAO_0000635), [seta](http://purl.obolibrary.org/obo/HAO_0002299)
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [aedeagus](http://purl.obolibrary.org/obo/HAO_0000091): [triangular](http://purl.obolibrary.org/obo/PATO_0001875);
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [dorsal side](http://purl.obolibrary.org/obo/BSPO_0000063): [black](http://purl.obolibrary.org/obo/PATO_0000317);
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [leg](http://purl.obolibrary.org/obo/HAO_0000494): [length](http://purl.obolibrary.org/obo/PATO_0000122) [larger than](http://purl.obolibrary.org/obo/RO_0015007) [length](http://purl.obolibrary.org/obo/PATO_0000122)scsdcsdcs
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028) [fore tibia](http://purl.obolibrary.org/obo/HAO_0000350): absent;
+- [female organism](http://purl.obolibrary.org/obo/HAO_0000028), [length](http://purl.obolibrary.org/obo/PATO_0000122) = 2.3, unit: [millimeter](http://purl.obolibrary.org/obo/UO_0000016);

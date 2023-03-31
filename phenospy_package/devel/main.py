@@ -1,13 +1,12 @@
+# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+# /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
 import sys
 sys.path.append('/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy')
 
 # ---- new imports
-from pathlib import Path
-
 from owl_xmlToOwl import *
 from phs_addXmlMeta import *
-# from phs_parser_fun import *
 from phs_grammar import *
 from phs_mainConvert import *
 from phs_various_fun import *
@@ -15,25 +14,23 @@ from phs_xml import *
 from phs_xmlTranslateTerms import *
 from snips_makeFromYaml import *
 from snips_readFromJSON import *
-
-# from phs_test import *
-
-# my_function()
+# from phs_parser_fun import *
+# from pathlib import Path
 
 # -----------------------------------------
 # Make snippets
 # -----------------------------------------
-yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
-make_vscodeSnips(yaml_file)
+# yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
+# make_vscodeSnips(yaml_file)
 
 
 # -----------------------------------------
 # ARGUMENTS
 # -----------------------------------------
-phs_file    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Gryonoides/phs/gryo.phs'
-yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
-save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/'
-save_pref   = 'gryo'
+phs_file    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs/Grebennikovius.phs'
+yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs-config.yaml'
+save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/output/'
+save_pref   = 'Grebennikovius'
 
 # -----------------------------------------
 # Quick conversion

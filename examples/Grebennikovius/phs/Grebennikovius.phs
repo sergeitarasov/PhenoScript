@@ -39,6 +39,7 @@ OTU = { # Grebennikovius
     
     this > bspo-dorsal_side >> pato-black;
     this > hao-leg >> pato-length:id-185304;
+    pato-blue .ro-characteristic_of clao-elytral_disc;
   }
 
 }
