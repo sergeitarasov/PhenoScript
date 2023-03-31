@@ -20,7 +20,9 @@ OTU = { # Grebennikovius_basilewskyi
     hao-female_organism:id-4e3742 > hao-mid_coxa > (bspo-dorsal_side > hao-seta_0002299);
     this > hao-aedeagus >> pato-triangular;
     this > bspo-dorsal_side >> pato-black;
-    this > hao-leg >> pato-length |>| pato-length:id-185304[exclude = True];
+    this > hao-leg:id-8766bb >> pato-length:id-4884ac |>| pato-length:id-185304[exclude = True];
+    # this > hao-leg:id-8766bb >> pato-length:id-4884ac |>| pato-length:id-185304[exclude = True] << hao-leg:id-5dd598[exclude = True];
+    # this > aism-cuticle_of_protibia:id-30957c >>  pato-width:id-e9b4cd |<| pato-width:id-0b9f06[exclude = True] << aism-cuticle_of_protibia:id-2ef65c[exclude = True];
 
   }
 
@@ -38,8 +40,10 @@ OTU = { # Grebennikovius
   TRAITS = {
     
     this > bspo-dorsal_side >> pato-black;
-    this > hao-leg >> pato-length:id-185304;
+    this > hao-leg:id-5dd598 >> pato-length:id-185304 |<| pato-length:id-4884ac[exclude = True];
+    # this > hao-leg:id-5dd598 >> pato-length:id-185304 |<| pato-length:id-4884ac[exclude = True] << hao-leg:id-8766bb[exclude = True];
     pato-blue .ro-characteristic_of clao-elytral_disc;
+    # this > aism-cuticle_of_protibia:id-2ef65c >> pato-width:id-0b9f06 |>| pato-width:id-e9b4cd[exclude = True] << aism-cuticle_of_protibia:id-30957c[exclude = True];
   }
 
 }

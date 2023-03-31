@@ -1,4 +1,4 @@
-# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/devel
 # /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
 import sys
@@ -27,50 +27,6 @@ onto = get_ontology(ontoFile).load(reload_if_newer=True, reload=True)
 obo = onto.get_namespace("http://purl.obolibrary.org/obo/")
 phs_ns = onto.get_namespace('https://github.com/sergeitarasov/PhenoScript/')
 from nl_fun import *
-
-# -----------------------------------------
-# Debug
-# -----------------------------------------
-i1 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/_1e96f5_13-5']
-i2 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/id-185304']
-
-
-phs_original_assertion[i1, obo.RO_0015007, i2] = []
-i1.RO_0015007 = []
-CL = i1.is_a.first()
-fake_ind = CL('https://temp/tmp/')
-fake_ind.iri = 'https://temp/tmp/' + i1.label.first() + '/fake_ind'
-fake_ind.phs_original_class = CL
-fake_ind.phs_NL.append('scsdcsdcs')
-#fake_ind.phs_original_class(CL)
-i1.RO_0015007 = [fake_ind]
-phs_original_assertion[i1, obo.RO_0015007, fake_ind] = True
-
-#----
-CompProp = obo.RO_0015007
-q1 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/_1e96f5_13-5']
-q2 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/id-185304']
-txt = 'some txt'
-
-def make_fakeInd(q1, q2, CompProp, txt):
-    # remove annotation
-    phs_original_assertion[q1, CompProp, q2] = []
-    # remove CompProp link q1.CompProp
-    CompProp[q1] = []
-    # make fake individual
-    CL = q1.is_a.first()
-    fake_ind = CL('https://temp/tmp/')
-    fake_ind.iri = 'https://temp/tmp/' + q1.label.first() + '/fake_ind'
-    fake_ind.phs_original_class.append(CL)
-    fake_ind.phs_NL.append(txt)
-    # make a link between q1 and fake_ind
-    CompProp[q1] = [fake_ind]
-    phs_original_assertion[q1, CompProp, fake_ind] = True
-
-# ----
-
-onto.save(file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/devel/test1.owl', format = "rdfxml")
-
 
 # -----------------------------------------
 # Add absence
@@ -114,16 +70,14 @@ compProp = obo.RO_0015007
 if bool(compProp):
     query_RelatComp = sparql_RelatComp(default_world, comparative_prop = obo.RO_0015007.iri)
     dic_RelatComp = tmpRelatToDic(query_RelatComp)
-    dic_Relat_ToNLinOWL(dic_RelatComp, onto)
+    dic_Relat_ToNLinOWL(dic_RelatComp)
 
 # decreased in magnitude relative to
 compProp = obo.RO_0015008
 if bool(compProp):
     query_RelatComp = sparql_RelatComp(default_world, comparative_prop = obo.RO_0015008.iri)
     dic_RelatComp = tmpRelatToDic(query_RelatComp)
-    dic_Relat_ToNLinOWL(dic_RelatComp, onto)
-
-#onto.save(file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/devel/test1.owl', format = "rdfxml")
+    dic_Relat_ToNLinOWL(dic_RelatComp)
 
 
 # makeNLGraph(onto)
@@ -133,7 +87,7 @@ if bool(compProp):
 print(f"{Fore.BLUE}Traversing RDF graph...{Style.RESET_ALL}")
 
 ind0 = onto.search(label = 'org_Grebennikovius_basilewskyi')
-# ind0 = onto.search(label = 'org_Grebennikovius')
+ind0 = onto.search(label = 'org_Grebennikovius')
 ind0 = ind0[0]
 tabs="\t"
 visited_nodes=set()

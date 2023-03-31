@@ -144,6 +144,30 @@ def sparql_RelatComp(default_world, comparative_prop):
     #print(query)
     return query
 
+# -----------------------------------------
+#  q1 |CompProp| q2. This functions removes |CompProp|
+# between ind: q1 and q2. Creates a fake ind that is connected to q1
+# -----------------------------------------
+# CompProp = obo.RO_0015007
+# q1 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/_1e96f5_13-5']
+# q2 = IRIS['https://urn:uuid:a0f607de-cee2-11ed-a2ca-acde48001122/id-185304']
+# txt = 'some txt'
+def make_fakeInd(q1, q2, CompProp, txt):
+    # remove annotation
+    phs_original_assertion[q1, CompProp, q2] = []
+    # remove CompProp link q1.CompProp
+    CompProp[q1] = []
+    # make fake individual
+    CL = q1.is_a.first()
+    fake_ind = CL('https://temp/tmp/')
+    fake_ind.iri = 'https://temp/tmp/' + q1.label.first() + '/fake_ind'
+    fake_ind.phs_original_class.append(CL)
+    fake_ind.phs_NL.append(txt)
+    # make a link between q1 and fake_ind
+    CompProp[q1] = [fake_ind]
+    phs_original_assertion[q1, CompProp, fake_ind] = True
+
+
 def tmpRelatToDic(query):
     # [{'Q1': length:_1e96f5_13-5, 'Org1': org_Grebennikovius_basilewskyi, 
     #   'Q2': length:id-185304, 'E2': leg:_1e96f5_18-3, 'Org2': org_Grebennikovius}]
@@ -160,7 +184,7 @@ def tmpRelatToDic(query):
         dic_RelatComp.append(dict_templ)
     return dic_RelatComp
 
-def dic_Relat_ToNLinOWL(dic_RelatComp, onto):
+def dic_Relat_ToNLinOWL(dic_RelatComp):
     # We need to:
     # 1. delete inherence_in prop if Q2 inherence in E2 delete inherence_in
     # 2. construct the relative comparison phs_NL only is spp are different
@@ -172,24 +196,12 @@ def dic_Relat_ToNLinOWL(dic_RelatComp, onto):
         if (item['Org1'].iri != item['Org2'].iri):
             # txt = " %s of %s in _%s_" % \
             # ( nodeToNL(item['Q2']), nodeToNL(item['E2']), item['Org2'].label.first() )
-            txt = " %s of %s in _%s_;" % \
-            (nodeToNL(item['Q2']), nodeToNL(item['E2']), item['Org2'].label.first())
+            txt = " of %s in _%s_;" % \
+            (nodeToNL(item['E2']), item['Org2'].label.first())
             # print(txt)
-            # # DELETE and REARRANGE
-            # create fake ind
-            CL = item['Q1'].is_a.first()
-            fake_ind = CL('https://temp/tmp/')
-            fake_ind.iri = 'https://temp/tmp/' + item['Q1'].label.first() + '/fake_ind'
-            # remove link between Q1 and Q2
-            exec("item['Q1'].%s = []" % item['CompProp'].python_name)
-            # make link between Q1 and fake ind
-            # item['Q1'].RO_0015007.append(fake_ind)
-            # item['Q1'].RO_0015007 = [fake_ind]
-            # exec("item['Q1'].%s.append(fake_ind)" % item['CompProp'].python_name)
-            exec("item['Q1'].%s.append(fake_ind)" % item['CompProp'].python_name)
-            # add phs Nl to fake ind
-            # item['Q1'].phs_NL.append(txt)
-            fake_ind.phs_NL.append(txt)
+            # substitute Q1 with fake ind that is not connected to Q2
+            make_fakeInd(q1=item['Q1'], q2=item['Q2'], 
+            CompProp =item['CompProp'], txt=txt)
 
 
 # -----------------------------------------
@@ -400,14 +412,14 @@ def makeNLGraph(onto):
     if bool(compProp):
         query_RelatComp = sparql_RelatComp(default_world, comparative_prop = obo.RO_0015007.iri)
         dic_RelatComp = tmpRelatToDic(query_RelatComp)
-        dic_Relat_ToNLinOWL(dic_RelatComp, onto)
+        dic_Relat_ToNLinOWL(dic_RelatComp)
     #
     # decreased in magnitude relative to
     compProp = obo.RO_0015008
     if bool(compProp):
         query_RelatComp = sparql_RelatComp(default_world, comparative_prop = obo.RO_0015008.iri)
         dic_RelatComp = tmpRelatToDic(query_RelatComp)
-        dic_Relat_ToNLinOWL(dic_RelatComp, onto)
+        dic_Relat_ToNLinOWL(dic_RelatComp)
     #
     print(f"{Fore.GREEN}Done!{Style.RESET_ALL}")
 
