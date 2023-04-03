@@ -17,7 +17,7 @@ The Phenoscript language allows rapid coding of morphological and ecological tra
 
 - Create snippets based on selected ontologies for writing semantic phenotypes with the VS Code Phenoscript extension.
 - Convert the Phenoscript description into an OWL file.
-- Convert the Phenoscript description into an annotated Natural Language description.
+- Convert the Phenoscript description into an annotated Natural Language description (Markdown format).
 - Automatically compare species and phenotypes (under development).
 
 ## Requirements
