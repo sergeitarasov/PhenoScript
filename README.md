@@ -1,7 +1,7 @@
 # Phenospy (= Phenoscript Python tools)
 
  <p align="left">
-  <img src="https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy.png" width="200" title="Phenoscript logo">
+  <img src="https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy.png" width="300" title="Phenospy logo">
 </p> 
 
 
