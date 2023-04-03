@@ -22,7 +22,7 @@ The Phenoscript language allows rapid coding of morphological and ecological tra
 
 ## Requirements
 
-* **Python >=3.0**
+* `Python >=3.0`
 
 If you are a new user with Python 2 installed, you should uninstall it and install Python 3 instead. For more information, please refer to [this discussion](https://stackoverflow.com/questions/3819449/how-to-uninstall-python-2-7-on-a-mac-os-x-10-6-4).
 
