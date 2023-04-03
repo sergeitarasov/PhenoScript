@@ -5,3 +5,4 @@ from .phs_xml import phenoscriptToXML
 from .phs_xmlTranslateTerms import xmlTranslateTerms, xmlTranslateTermsMeta
 from .snips_makeFromYaml import make_vscodeSnips
 from .snips_fun import printUniqueIRIs
+from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown

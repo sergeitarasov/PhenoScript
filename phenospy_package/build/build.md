@@ -18,7 +18,7 @@ conda activate PhenoScript
 
 python setup.py sdist
 
-/Users/taravser/opt/anaconda3/envs/PhenoScript/bin/pip install dist/phenospy-0.11.tar.gz --upgrade
+/Users/taravser/opt/anaconda3/envs/PhenoScript/bin/pip install dist/phenospy-0.12.tar.gz --upgrade
 
 pip install /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/dist/phenospy-0.11.tar.gz --upgrade
 

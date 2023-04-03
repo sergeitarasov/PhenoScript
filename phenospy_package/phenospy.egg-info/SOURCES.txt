@@ -3,6 +3,9 @@ MANIFEST.in
 README.md
 setup.py
 phenospy/__init__.py
+phenospy/nl_fun.py
+phenospy/nl_owlToMd.py
+phenospy/nl_owlToMd_fun.py
 phenospy/owl_make_phsOntology.py
 phenospy/owl_owlready_config.py
 phenospy/owl_xml2owl_fun.py
@@ -11,7 +14,6 @@ phenospy/phs_addXmlMeta.py
 phenospy/phs_grammar.py
 phenospy/phs_mainConvert.py
 phenospy/phs_parser_fun.py
-phenospy/phs_test.py
 phenospy/phs_various_fun.py
 phenospy/phs_xml.py
 phenospy/phs_xmlTranslateTerms.py
@@ -30,5 +32,3 @@ phenospy/package-data/phenoscript.owl
 phenospy/package-data/phenoscript.properties
 phenospy/package-data/phs-config.yaml
 phenospy/package-data/snippets-default.json
-tests/test.py
-tests/test_snips.py

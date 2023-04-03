@@ -4,6 +4,7 @@
 import sys
 sys.path.append('/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy')
 
+import os
 # ---- new imports
 from owl_xmlToOwl import *
 from phs_addXmlMeta import *
@@ -16,6 +17,9 @@ from snips_makeFromYaml import *
 from snips_readFromJSON import *
 # from phs_parser_fun import *
 # from pathlib import Path
+
+# nl descriptions
+from nl_owlToMd_fun import *
 
 # -----------------------------------------
 # Make snippets
@@ -32,15 +36,43 @@ yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/
 save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/output/'
 save_pref   = 'Grebennikovius'
 
+
 # -----------------------------------------
-# Quick conversion
+# Quick conversions:
+#
+# -----------------------------------------
+# Quick conversion: phs to owl
 # -----------------------------------------
 phsToOWL(phs_file, yaml_file, save_dir, save_pref)
 
 
 # -----------------------------------------
-# Manual conversion:
+# owl to Md
 # -----------------------------------------
+
+# get owl file
+owl_file = os.path.join(save_dir, save_pref + '.owl')
+
+# Making NL graph
+onto = owlToNLgraph(owl_file)
+
+# NL graph to Markdown
+taxon = 'org_Grebennikovius_basilewskyi'
+file_md = os.path.join(save_dir, 'md', taxon + '.md')
+ind0 = onto.search(label = taxon)[0]
+NLgraphToMarkdown(onto, ind0, file_save = file_md, verbose =True)
+
+taxon = 'org_Grebennikovius'
+file_md = os.path.join(save_dir, 'md', taxon + '.md')
+ind0 = onto.search(label = taxon)[0]
+NLgraphToMarkdown(onto, ind0, file_save = file_md, verbose =True)
+
+
+
+
+# ----------------------------------------------------------------------------------
+# Slow, Manual conversion:
+# ----------------------------------------------------------------------------------
 xml_save = os.path.join(save_dir, save_pref + '.xml')
 owl_save = os.path.join(save_dir, save_pref + '.owl')
 # ----------------------------------------
