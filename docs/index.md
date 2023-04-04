@@ -1,6 +1,4 @@
-layout: page
-title: "PAGE-TITLE"
-permalink: /https://sergeitarasov.github.io/PhenoScript/about
+
 
 [Return to TOC](/_sidebar.md)
 
