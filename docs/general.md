@@ -1,3 +1,5 @@
+[Return to TOC](/_sidebar.md)
+
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/phenospy?color=blue&label=PyPI%20Downloads)
 
 # Phenospy (= Phenoscript Python tools)
