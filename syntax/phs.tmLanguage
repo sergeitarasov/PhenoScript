@@ -1,0 +1,214 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Phenoscript",
+  "scopeName": "source.phs",
+  "patterns": [
+    {
+      "match": "\\b(OTU|DATA|TRAITS|linksTraits|this|cls|exclude|function|if|break|next|repeat|else|for|return|switch|while|in|invisible)\\b",
+      "name": "support.class.phs"
+    },
+    {
+      "match": "\\b(library|require)\\b",
+      "name": "keyword.control.import.phs"
+    },
+    {
+      "match": "(;|,)",
+      "name": "keyword.control.colon.phs"
+    },
+    {
+      "match": "(:=)",
+      "name": "keyword.control.import.phs"
+    },
+    {
+      "begin": "#",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.phs"
+        }
+      },
+      "end": "\\n",
+      "name": "comment.line.number-sign.phs"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "comment.line.pragma.phs"
+        },
+        "2": {
+          "name": "entity.name.pragma.name.phs"
+        }
+      },
+      "match": "^(#pragma[ \\t]+mark)[ \\t](.*)",
+      "name": "comment.line.pragma-mark.phs"
+    },
+    {
+      "begin": "#\\[ ]?(@[a-zA-Z0-9]+)",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.comment.roxygen.phs"
+        },
+        "1": {
+          "name": "keyword.roxygen.phs"
+        }
+      },
+      "end": "\\n",
+      "name": "comment.line.number-sign.roxygen.phs"
+    },
+    {
+      "match": "\\b(logical|numeric|character|complex|matrix|array|data\\.frame|list|factor)(?=\\s*\\()",
+      "name": "storage.type.phs"
+    },
+    {
+      "match": "\\b(library|require)\\b",
+      "name": "keyword.control.import.phs"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "entity.name.function.phs"
+        }
+      },
+      "match": "([[:alpha:].][[:alnum:]._]*)\\("
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "entity.name.function.phs"
+        }
+      },
+      "match": "(\\.[[:alpha:].][[:alnum:]_-]*)"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "instance.tag.phs"
+        }
+      },
+      "match": "(:[[:alpha:].][[:alnum:]._-]*)"
+    },
+    {
+      "match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)(i|L|l|UL|ul|u|U|F|f|ll|LL|ull|ULL)?\\b",
+      "name": "constant.numeric.phs"
+    },
+    {
+      "match": "\\b(True|False|NULL|NA|Inf|NaN)\\b",
+      "name": "constant.language.phs"
+    },
+    {
+      "match": "\\b(pi|letters|LETTERS|month\\.abb|month\\.name)\\b",
+      "name": "support.constant.misc.phs"
+    },
+    {
+      "match": "(\\+|\\*|\\/|%\\/%|%%|%\\*%|%in%|%o%|%x%|%>%|\\^)",
+      "name": "keyword.operator.arithmetic.phs"
+    },
+    {
+      "match": "(= *{|})",
+      "name": "support.class.phs"
+    },
+    {
+      "match": "(> |< | >> | << |<- | <<- |-> | ->> | [|]=[|] | [|]>[|] | [|]<[|] )",
+      "name": "entity.name.function.phs"
+    },
+    {
+      "match": "(=)",
+      "name": "keyword.operator.assignment.phs"
+    },
+    {
+      "match": "(!)",
+      "name": "keyword.operator.exclamation.phs"
+    },
+    {
+      "match": "(\\(|\\)|\\[|\\])",
+      "name": "constant.language.phs"
+    },
+    {
+      "match": "(\\.\\.\\.|\\$|@|:|\\~)",
+      "name": "keyword.other.phs"
+    },
+    {
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.phs"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.phs"
+        }
+      },
+      "name": "string.quoted.double.phs",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.phs"
+        }
+      ]
+    },
+    {
+      "begin": "'",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.phs"
+        }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.phs"
+        }
+      },
+      "name": "string.quoted.single.phs",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.phs"
+        }
+      ]
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "entity.name.tag.phs"
+        },
+        "4": {
+          "name": "entity.name.type.phs"
+        }
+      },
+      "match": "(setMethod|setReplaceMethod|setGeneric|setGroupGeneric|setClass)\\s*\\(\\s*([[:alpha:]\\d]+\\s*=\\s*)?(\"|\\x{27})([a-zA-Z._\\[\\$@][a-zA-Z0-9._\\[]*?)\\3.*",
+      "name": "meta.method.declaration.phs"
+    },
+    {
+      "captures": {
+        "1": {
+          "name": "support.class.phs"
+        },
+        "2": {
+          "name": "keyword.operator.assignment.phs"
+        }
+      },
+      "match": "([[:alpha:].][[:alnum:]._]*)\\s*(=)(?=[^=])"
+    },
+    {
+      "match": "\\b([[:alnum:]_]+)(?=::)",
+      "name": "entity.namespace.phs"
+    },
+    {
+      "begin": "\\{",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.section.block.begin.phs"
+        }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.block.end.phs"
+        }
+      },
+      "name": "meta.block.phs"
+    }
+  ]
+}
