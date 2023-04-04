@@ -9,7 +9,7 @@ OTU = { # Grebennikovius_basilewskyi
 
   }
   
-  TRAITS = {
+  TRAITS = { # efce
     
     hao-female_organism:id-4e3742 > hao-radicle >> pato-yellow;
     hao-female_organism:id-4e3742 >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-8ff5d4 .iao-has_measurement_unit_label unit-millimeter;
