@@ -1,3 +1,5 @@
 title: My Website
 description: This is my website.
 theme: jekyll-theme-cayman
+plugins:
+  - jekyll-mermaid
