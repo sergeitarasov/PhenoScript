@@ -1,0 +1,16 @@
+# Site settings
+title: My GitHub Pages Site
+description: A simple website created using GitHub Pages
+
+# Build settings
+theme: jekyll-theme-minimal
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+# GitHub Pages settings
+remote_theme: "mmistakes/minimal-mistakes"
