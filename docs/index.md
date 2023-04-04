@@ -1,3 +1,15 @@
+---
+layout: default
+title: Home
+---
+
+# Welcome to my website!
+
+This is my website. Here's a list of the pages available:
+
+- [Home](/)
+- [About](/about)
+- [Contact](/contact)
 
 
 [Return to TOC](/_sidebar.md)
