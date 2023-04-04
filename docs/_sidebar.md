@@ -1,2 +1,2 @@
-- [Home](home.md)
+- [Home](about.md)
 - [general](general.md)
