@@ -78,6 +78,7 @@ with open('/Users/taravser/Downloads/backbone/output.ttl', 'w') as ttl_file:
 grep '1086468' Taxon.tsv > filtered_rows.tsv
 grep 'Parachorius' taxon.txt
 
+grep 'anyrow' Insecta.tsv > filtered_rows.tsv
 # subsample
 awk -F'\t' '$(20) == "Insecta" {print}' Taxon.tsv > Insecta.tsv # this is without header
 awk -F'\t' 'NR==1 || $(20) == "Insecta" {print}' Taxon.tsv > Insecta.tsv
@@ -98,7 +99,7 @@ conn = sqlite3.connect(':memory:')
 
 
 # Read the first chunk of the TSV file
-first_chunk = pd.read_csv("/Users/taravser/Downloads/backbone/Insecta.tsv", sep='\t', nrows=10)
+first_chunk = pd.read_csv("/Users/taravser/Documents/My_papers/taxonomy-repo/gbif/backbone/Insecta.tsv", sep='\t', nrows=20)
 
 # Print the first chunk
 print(first_chunk)

@@ -1,7 +1,7 @@
 #   Win: `%USERPROFILE%\.vscode\extensions`
 #   Mac:`$HOME/.vscode/extensions`
 #   Linux: `$HOME/.vscode/extensions`
-snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.11/snippets/
+snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
 authors:
   'First1 Last1': https://orcid.org/0000-0001-xxxx-xxxx
   'First2 Last2': https://orcid.org/0000-0001-xxxx-xxxx

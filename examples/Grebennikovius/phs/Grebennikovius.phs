@@ -1,5 +1,20 @@
 # Phenoscript description
 
+OTU = { # ADD SP NAME
+  
+  DATA = {
+    hao-male_organism[this = True] .rdfs-label 'my_species'; 
+  }
+  
+  TRAITS = {
+    this > hao-fore_tibia >> pato-black;
+    this !> hao-antenna;
+    this >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-d6502c .iao-has_measurement_unit_label unit-millimeter;
+																					iao-measurement_datum:md-d6502c .iao-has_measurement_value 2.1;
+  }
+
+}
+
 OTU = { # Grebennikovius_basilewskyi
   
   DATA = {
@@ -32,7 +47,7 @@ OTU = { # Grebennikovius_basilewskyi
 OTU = { # Grebennikovius
   
   DATA = {
-    cdao-TU:id-4f03cd .iao-denotes hao-female_organism:id-2c5eb8[linksTraits = True, this=True, cls='dwc-Organism'] .rdfs-label 'org_Grebennikovius';
+    cdao-TU:id-4f03cd .iao-denotes hao-female_organism:id-2c5eb8[linksTraits = True, this=True, cls='dwc-Organism'] .rdfs-label 'org_Grebennikovius_sp2';
     cdao-TU:id-4f03cd .rdfs-label 'otu_Grebennikovius';
     cdao-TU:id-4f03cd .iao-denotes gbif-Grebennikovius;
   }
@@ -47,46 +62,3 @@ OTU = { # Grebennikovius
   }
 
 }
-
-
-
-# OTU={ # Gryonoides_brasiliensis
-
-#   DATA={
-#     cdao-TU:a1['to_Ophu_List'='has_phenotype', 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
-#     hao-female_organism:G_brasiliensis['rdfs:label'= 'female_org-Gryonoides_brasiliensis'];
-    
-#   }
-
-#   TRAITS={
-
-#      hao-female_organism:G_brasiliensis > hao-radicle >> pato-yellow;
-#      hao-female_organism:G_brasiliensis !> hao-leg;
-#      hao-female_organism:G_brasiliensis |>| hao-radicle |<| pato-yellow;
-#      hao-female_organism:G_brasiliensis > hao-radicle >> pato-yellow;
-#      hao-female_organism:G_brasiliensis -> hao-radicle <- pato-yellow;
-#      # ao-female_organism:G_brasiliensis .ao-denotes patllow;
-
-#   }
-# }
-
-
-# OTU={ # Gryonoides_brasiliensis2
-# DATA = {
-#   cdao-TU:a2['to_Ophu_List' = true, 'rdfs:label'='TU-Gryonoides_brasiliensis'] .iao-denotes 
-#   hao-female_organism:G_brasiliensis['rdfs:label'= 'female_org-Gryonoides_brasiliensis'];   
-#   }
-
-# TRAITS = {
-
-#   hao-female_organism:G_brasiliensis1 > hao-radicle >> pato-yellow;
-#   hao-female_organism:G_brasiliensis1 !> hao-leg >> pato-yellow;
-#   hao-female_organism:G_brasiliensis1 |>| hao-radicle |<| pato-yellow;
-#   hao-female_organism:G_brasiliensis1 > hao-radicle >> pato-yellow;
-#   hao-female_organism:G_brasiliensis1 -> hao-radicle <- pato-yellow;
-#   hao-female_organism .iao-has_measurement_value 2.0;
-#   hao-female_organism > (hao-aedeagus > hao-seta_0000935);
-#   hao-female_organism > (hao-aedeagus, hao-seta_0000935);
-#   hao-female_organism .rdfs-label 'asa a s';
-#   }
-# }
