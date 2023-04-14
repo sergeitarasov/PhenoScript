@@ -1,13 +1,4 @@
-# Phenoscript description
-OTU = { # ADD SP NAME
-  DATA = {
-    hao-female_organism:id1 .rdfs-label 'org_Grebennikovius_basilewskyi';
-  }
 
-  TRAITS = {
-    hao-female_organism:id1 > hao-radicle >> pato-yellow;
-  }
-}
 
 OTU = { # ADD SP NAME
   

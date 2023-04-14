@@ -1,0 +1,11 @@
+# Phenoscript description
+
+OTU = {
+  DATA = {
+    hao-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    hao-male_organism:id-1 > hao-radicle >> pato-yellow;
+  }
+}
