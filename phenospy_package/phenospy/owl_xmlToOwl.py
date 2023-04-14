@@ -16,6 +16,7 @@ from datetime import date
 
 from phenospy.owl_xml2owl_fun import *
 from phenospy.xml_recodeThis import *
+#from xml_recodeThis import *
 
 # -----------------------------------------
 # Config: imported from owl_xml2owl_fun
@@ -43,7 +44,6 @@ def xmlToOwl(tree, owl_file):
     # -----------------------------------------
     # Convert 'this' keyword
     # -----------------------------------------
-    print(f"{Fore.RED}This in OWL 2 XML{Style.RESET_ALL}")
     xmlRecodeThis(root, ns)
 
     # -----------------------------------------

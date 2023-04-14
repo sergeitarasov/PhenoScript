@@ -1,4 +1,5 @@
 # cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/devel
 # /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 
 import sys
