@@ -5,12 +5,15 @@ import xml.etree.ElementTree as ET
 # -----------------------------------------
 
 def xmlRecodeThis(root, ns):
+    print(f"{Fore.RED}This!{Style.RESET_ALL}")
     phs = '{https://github.com/sergeitarasov/PhenoScript}'
     # make mapping to extract parents quickly
     parent_map = {c:p for p in root.iter() for c in p}
     OTUs=root.findall(".//phs:otu_object", ns)
     for otu in OTUs:
+        print('THIS START')
         this_node=otu.find(".//phs:otu_properties//phs:node_property[@phs:var-iri='KeyWord:this'][@phs:value-iri='KeyWord:True']", ns)
+        print('THIS:', this_node)
         this_parent = parent_map[this_node]
         # <phs:node phs:node_id="https://urn:uuid:8f7fbcbc-ccbb-11ed-beb4-acde48001122/id-4e3742" phs:triple_pos="3" phs:node_name="hao-female_organism" 
         # phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/HAO_0000028" phs:label_original="female organism" phs:type_onto="C">

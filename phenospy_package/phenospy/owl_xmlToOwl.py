@@ -43,6 +43,7 @@ def xmlToOwl(tree, owl_file):
     # -----------------------------------------
     # Convert 'this' keyword
     # -----------------------------------------
+    print(f"{Fore.RED}This in OWL 2 XML{Style.RESET_ALL}")
     xmlRecodeThis(root, ns)
 
     # -----------------------------------------
