@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: phenospy
-Version: 0.12
+Version: 0.14
 Summary: Tools for making and processing computable phenotype descriptions
 Home-page: https://github.com/sergeitarasov/PhenoScript
 Author: Sergei Tarasov
@@ -24,6 +24,7 @@ License-File: LICENSE.txt
 
  <p align="left">
   <img src="https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy.png" width="300" title="Phenospy logo">
+  <img src="https://raw.githubusercontent.com/sergeitarasov/vscode-phenoscript/main/icon.png" width="300" title="Phenoscript logo">
 </p> 
 
 
@@ -53,43 +54,10 @@ Phenospy can be installed directly from the [PyPI repository](https://pypi.org/p
 ```{bash}
 pip install phenospy
 ```
-### Troubleshooting
-Pip is usually pre-installed with Python on macOS and Windows. However, if pip is not installed or you want to upgrade it to the latest version, you can follow these steps:
 
-**For macOS:**
-1. In your terminal type the following command to download the get-pip.py script:
-```{bash}
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-```
-2. Type the following command to run the get-pip.py script and install pip:
+## Issues
 
-```{bash}
-sudo python get-pip.py
-````
-3. Verify that pip is installed by typing the following command:
-```{bash}
-pip --version
-```
-
-**For Windows:**
-
-Open a command prompt by clicking on the "Start" menu, typing "cmd" into the search box, and selecting "Command Prompt" from the search results.
-
-1. Type the following command to install pip:
-```
-py -m ensurepip --default-pip
-```
-
-2. Type the following command to upgrade pip to the latest version:
-```
-py -m pip install --upgrade pip
-```
-
-
-
-
-
-
+-  Phenospy is dependent on [Owlready2](https://github.com/pwin/owlready2), which uses the sqlite library. The latest versions of sqlite library (e.g., 3.40.0) are known to be very slow. If Phenospy package is slow, for example, when you make your snippets, downgrade your sqlite library version. In my case, 3.39.0 worked fine.
 
 ## Quick start guide
 

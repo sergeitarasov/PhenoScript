@@ -1,0 +1,13 @@
+# Phenoscript description
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > aism-protibia >> pato-black;
+    uberon-male_organism:id-1 > aism-pronotum >> pato-convex;
+  }
+}
+

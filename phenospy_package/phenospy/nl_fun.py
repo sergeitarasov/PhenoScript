@@ -316,10 +316,14 @@ def makeNLGraph_basic(onto):
     # SPARQL:  Absolute and Relative Mesuarements
     # -----------------------------------------
     print(f"{Fore.BLUE}Adding Absolute and Relative Mesuarements...{Style.RESET_ALL}")
-    query_tmpMesuare = sparql_tmpMeasurements(default_world)
-    dic_mesuare = tmpMeasureToDic(query_tmpMesuare)
-    # dic_mesuare obtained from sparql query to NL in OWL
-    dic_mesuare_ToNLinOWL(dic_mesuare)
+    
+    # check is meserument entities are present, othervise sparql does not work
+    is_mesure_present = IRIS['http://purl.obolibrary.org/obo/IAO_0000417']
+    if bool(is_mesure_present):
+        query_tmpMesuare = sparql_tmpMeasurements(default_world)
+        dic_mesuare = tmpMeasureToDic(query_tmpMesuare)
+        # dic_mesuare obtained from sparql query to NL in OWL
+        dic_mesuare_ToNLinOWL(dic_mesuare)
 
     # -----------------------------------------
     # SPARQL:  Relative Comparison

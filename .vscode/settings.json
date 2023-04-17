@@ -1,4 +1,4 @@
 {
-    "terminal.integrated.cwd": "\"${fileDirname}\"",
+    "terminal.integrated.cwd": "${workspaceFolder}",
     "python.terminal.executeInFileDir": true
 }

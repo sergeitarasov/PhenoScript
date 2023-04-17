@@ -1,7 +1,7 @@
 #   Win: `%USERPROFILE%\.vscode\extensions`
 #   Mac:`$HOME/.vscode/extensions`
 #   Linux: `$HOME/.vscode/extensions`
-snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.11/snippets/
+snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
 authors:
   'First1 Last1': https://orcid.org/0000-0001-xxxx-xxxx
   'First2 Last2': https://orcid.org/0000-0001-xxxx-xxxx
@@ -27,7 +27,7 @@ namespace:
     dc:       http://purl.org/dc/
     hao:      http://purl.obolibrary.org/obo/HAO_
     aism:     http://purl.obolibrary.org/obo/AISM_
-    clao:     http://purl.obolibrary.org/obo/COLAO_
+    colao:     http://purl.obolibrary.org/obo/COLAO_
     bfo:      http://purl.obolibrary.org/obo/BFO_
     ro:       http://purl.obolibrary.org/obo/RO_
     obi:      http://purl.obolibrary.org/obo/OBI_
@@ -44,5 +44,5 @@ namespace:
     zoo:      http://zoobank.org/
     gbif:     https://www.gbif.org/species/
     phs:      https://github.com/sergeitarasov/PhenoScript/PHS_
-    # uberon: http://purl.obolibrary.org/obo/UBERON_
+    uberon: http://purl.obolibrary.org/obo/UBERON_
     # obo: http://purl.obolibrary.org/obo/

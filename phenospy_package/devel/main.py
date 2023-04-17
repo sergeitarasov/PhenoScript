@@ -1,6 +1,6 @@
 # cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
 # cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/devel
-# /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
+# /Users/taravser/anaconda3/envs/Phenoscript/bin/python
 
 import sys
 sys.path.append('/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy')

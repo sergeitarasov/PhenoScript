@@ -4,12 +4,14 @@
 
  <p align="left">
   <img src="https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy.png" width="300" title="Phenospy logo">
+  <img src="https://raw.githubusercontent.com/sergeitarasov/vscode-phenoscript/main/icon.png" width="300" title="Phenoscript logo">
 </p> 
 
 
 [Phenospy](https://pypi.org/project/phenospy/) is a Python package that facilitates the automatic analysis and comparison of ontology-based (= semantic) descriptions of species and phenotypes. Phenospy works with descriptions written in [Phenoscript](https://github.com/sergeitarasov/vscode-phenoscript), a computer language designed for describing species (support for other semantic approaches is under development). 
 
 The Phenoscript language allows rapid coding of morphological and ecological traits using an individual-based approach (ontology's A-box). You can efficiently code Phenoscript by using the [VS Code Phenoscript extension](https://marketplace.visualstudio.com/items?itemName=Tarasov-Lab.phenoscript) that provides syntax highlighting and snippet support. It can be installed from the Marketplace from within the VS Code. Its GitHub repository can be accessed [here](https://github.com/sergeitarasov/vscode-phenoscript). Afterward, Phenospy can be used to analyze and process the semantic descriptions.
+
 
 
 ## What can I do with Phenospy?
@@ -32,43 +34,10 @@ Phenospy can be installed directly from the [PyPI repository](https://pypi.org/p
 ```{bash}
 pip install phenospy
 ```
-### Troubleshooting
-Pip is usually pre-installed with Python on macOS and Windows. However, if pip is not installed or you want to upgrade it to the latest version, you can follow these steps:
 
-**For macOS:**
-1. In your terminal type the following command to download the get-pip.py script:
-```{bash}
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-```
-2. Type the following command to run the get-pip.py script and install pip:
+## Issues
 
-```{bash}
-sudo python get-pip.py
-````
-3. Verify that pip is installed by typing the following command:
-```{bash}
-pip --version
-```
-
-**For Windows:**
-
-Open a command prompt by clicking on the "Start" menu, typing "cmd" into the search box, and selecting "Command Prompt" from the search results.
-
-1. Type the following command to install pip:
-```
-py -m ensurepip --default-pip
-```
-
-2. Type the following command to upgrade pip to the latest version:
-```
-py -m pip install --upgrade pip
-```
-
-
-
-
-
-
+-  Phenospy is dependent on [Owlready2](https://github.com/pwin/owlready2), which uses the sqlite library. The latest versions of sqlite library (e.g., 3.40.0) are known to be very slow. If Phenospy package is slow, for example, when you make your snippets, downgrade your sqlite library version. In my case, 3.39.0 worked fine.
 
 ## Quick start guide
 

@@ -1,5 +1,5 @@
 # cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
-# /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
+# /Users/taravser/anaconda3/envs/Phenoscript/bin/python
 
 from phenospy import *
 import os
@@ -14,16 +14,16 @@ print(version)
 # Make snippets
 # -----------------------------------------
 
-# yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-config.yaml'
-# make_vscodeSnips(yaml_file)
+yaml_file = '/Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs-config.yaml'
+make_vscodeSnips(yaml_file)
 
 
 # -----------------------------------------
 # ARGUMENTS
 # -----------------------------------------
-phs_file    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs/Grebennikovius.phs'
-yaml_file   = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs-config.yaml'
-save_dir    = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/output/'
+phs_file    = '/Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/Grebennikovius.phs'
+yaml_file   = '/Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/phs-config.yaml'
+save_dir    = '/Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/Grebennikovius/output/'
 save_pref   = 'Grebennikovius'
 
 # -----------------------------------------
