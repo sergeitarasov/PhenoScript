@@ -21,6 +21,10 @@ The Phenoscript language allows rapid coding of morphological and ecological tra
 - Convert the Phenoscript description into an annotated Natural Language description (Markdown format).
 - Automatically compare species and phenotypes (under development).
 
+## Documentation
+
+See [Wiki for details](https://github.com/sergeitarasov/PhenoScript/wiki).
+
 ## Requirements
 
 * `Python >=3.0`
@@ -37,16 +41,4 @@ pip install phenospy
 
 ## Issues
 
--  Phenospy is dependent on [Owlready2](https://github.com/pwin/owlready2), which uses the sqlite library. The latest versions of sqlite library (e.g., 3.40.0) are known to be very slow. If Phenospy package is slow, for example, when you make your snippets, downgrade your sqlite library version. In my case, 3.39.0 worked fine.
-
-## Quick start guide
-
-Coming soon.
-
-### Let's create snippets
-
-Coming soon.
-
-### Let's convert Phenoscript into OWL
-
-Coming soon.
+See [issues for details](https://github.com/sergeitarasov/PhenoScript/wiki/Issues).
