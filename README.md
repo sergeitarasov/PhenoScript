@@ -21,6 +21,10 @@ The Phenoscript language allows rapid coding of morphological and ecological tra
 - Convert the Phenoscript description into an annotated Natural Language description (Markdown format).
 - Automatically compare species and phenotypes (under development).
 
+## Documentation
+
+See [Wiki for details](https://github.com/sergeitarasov/PhenoScript/wiki).
+
 ## Requirements
 
 * `Python >=3.0`
