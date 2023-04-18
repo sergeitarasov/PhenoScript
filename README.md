@@ -42,15 +42,3 @@ pip install phenospy
 ## Issues
 
 -  Phenospy is dependent on [Owlready2](https://github.com/pwin/owlready2), which uses the sqlite library. The latest versions of sqlite library (e.g., 3.40.0) are known to be very slow. If Phenospy package is slow, for example, when you make your snippets, downgrade your sqlite library version. In my case, 3.39.0 worked fine.
-
-## Quick start guide
-
-Coming soon.
-
-### Let's create snippets
-
-Coming soon.
-
-### Let's convert Phenoscript into OWL
-
-Coming soon.
