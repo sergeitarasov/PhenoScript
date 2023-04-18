@@ -1,0 +1,68 @@
+# Phenoscript description
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > aism-protibia >> pato-yellow;
+    # uberon-male_organism:id-1 >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-92e99a .iao-has_measurement_unit_label unit-millimeter;
+		# 																			iao-measurement_datum:md-92e99a .iao-has_measurement_value 2.0;
+  }
+}
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > (aism-protibia, aism-mesotibia) >> pato-red; 
+  }
+}
+
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > (aism-protibia > aism-cuticular_seta); 
+  }
+}
+
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 !> aism-protibia; 
+  }
+}
+
+
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-1 .rdfs-label 'Helictopleurus sicardi';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > aism-protibia >> pato-length:id-1L |>| pato-length:id-2L[exclude = True]; 
+  }
+}
+
+
+OTU = {
+  DATA = {
+    uberon-male_organism:id-2 .rdfs-label 'Helictopleurus quadripunctatus';
+  }
+
+  TRAITS = {
+    uberon-male_organism:id-1 > aism-protibia >> pato-length:id-2L |<| pato-length:id-1L[exclude = True];
+  }
+}

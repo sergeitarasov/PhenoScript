@@ -1,17 +1,10 @@
-# Specify the snippet directory that is used by your VS code
-# It looks something like: /.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
-# Depending on your system it is located in:
 #   Win: `%USERPROFILE%\.vscode\extensions`
 #   Mac:`$HOME/.vscode/extensions`
 #   Linux: `$HOME/.vscode/extensions`
-# ADD CORRECT DIRECTORY
-snippet-dir: /.../.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
-# ADD the names of the authors
+snippet-dir: /Users/taravser/.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
 authors:
   'First1 Last1': https://orcid.org/0000-0001-xxxx-xxxx
   'First2 Last2': https://orcid.org/0000-0001-xxxx-xxxx
-# ADD a short title for your project
-project-title: "My New species"
 importOntologies:
   - https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl
   - https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl
@@ -23,10 +16,10 @@ importOntologies:
   - https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl
   - https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl
   - http://camwebb.info/dsw/dsw.owl
-  # - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/main/owl/taxonomy-repo.owl                                  # taxonomy
-  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl     # phenoscript
-  - https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl                                                 # Biological Collections Ontology
-  - http://purl.obolibrary.org/obo/uberon/uberon-base.owl                                                                       # UBERON
+  # - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/main/owl/taxonomy-repo.owl # taxonomy
+  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl # phenoscript
+  - https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl # Biological Collections Ontology
+  - http://purl.obolibrary.org/obo/uberon/uberon-base.owl
 namespace:
   default:    http://www.w3.org/2002/07/owl#
   others:
@@ -35,7 +28,7 @@ namespace:
     dc:       http://purl.org/dc/
     hao:      http://purl.obolibrary.org/obo/HAO_
     aism:     http://purl.obolibrary.org/obo/AISM_
-    colao:    http://purl.obolibrary.org/obo/COLAO_
+    colao:     http://purl.obolibrary.org/obo/COLAO_
     bfo:      http://purl.obolibrary.org/obo/BFO_
     ro:       http://purl.obolibrary.org/obo/RO_
     obi:      http://purl.obolibrary.org/obo/OBI_
@@ -52,5 +45,5 @@ namespace:
     zoo:      http://zoobank.org/
     gbif:     https://www.gbif.org/species/
     phs:      https://github.com/sergeitarasov/PhenoScript/PHS_
-    uberon:   http://purl.obolibrary.org/obo/UBERON_
+    uberon: http://purl.obolibrary.org/obo/UBERON_
     # obo: http://purl.obolibrary.org/obo/

@@ -1,0 +1,108 @@
+<?xml version="1.0" ?>
+<Phenoscript xmlns:phs="https://github.com/sergeitarasov/PhenoScript">
+	<phs-config-yaml>
+		<base-iri>https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f</base-iri>
+		<authors>
+			<author name="First1 Last1">https://orcid.org/0000-0001-xxxx-xxxx</author>
+			<author name="First2 Last2">https://orcid.org/0000-0001-xxxx-xxxx</author>
+		</authors>
+		<importOntologies>
+			<importOntology>https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/pato-ontology/pato/master/pato.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/obophenotype/biological-spatial-ontology/master/bspo.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/evoinfo/cdao/master/cdao.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl</importOntology>
+			<importOntology>http://camwebb.info/dsw/dsw.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl</importOntology>
+			<importOntology>https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl</importOntology>
+			<importOntology>http://purl.obolibrary.org/obo/uberon/uberon-base.owl</importOntology>
+		</importOntologies>
+	</phs-config-yaml>
+	<phs:otu_objects_list>
+		<phs:otu_object>
+			<phs:otu_properties>
+				<phs:ophu_statement>
+					<phs:triple_node>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
+						</phs:node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="rdfs-label" phs:iri="http://www.w3.org/2000/01/rdf-schema#label" phs:label_original="label" phs:type_onto="AP"/>
+						<phs:quoted_node phs:triple_pos="3" phs:node_name="Helictopleurus sicardi"/>
+					</phs:triple_node>
+				</phs:ophu_statement>
+			</phs:otu_properties>
+			<phs:ophu_list>
+				<phs:ophu_statement>
+					<phs:triple_node>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
+						</phs:node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_g_" phs:iri="http://purl.obolibrary.org/obo/BFO_0000051" phs:label_original="has part" phs:type_onto="OP"/>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/_861af5_2-3" phs:triple_pos="3" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+							<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
+						</phs:node>
+					</phs:triple_node>
+					<phs:triple_node>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/_861af5_2-3" phs:triple_pos="1" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+							<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
+						</phs:node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_gg_" phs:iri="http://purl.obolibrary.org/obo/RO_0000053" phs:label_original="bearer of" phs:type_onto="OP"/>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/_861af5_2-5" phs:triple_pos="3" phs:node_name="pato-yellow" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000324" phs:label_original="yellow" phs:type_onto="C">
+							<phs:node_property phs:value="pato-yellow">node_name</phs:node_property>
+						</phs:node>
+					</phs:triple_node>
+				</phs:ophu_statement>
+			</phs:ophu_list>
+		</phs:otu_object>
+		<phs:otu_object>
+			<phs:otu_properties>
+				<phs:ophu_statement>
+					<phs:triple_node>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-2" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
+						</phs:node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="rdfs-label" phs:iri="http://www.w3.org/2000/01/rdf-schema#label" phs:label_original="label" phs:type_onto="AP"/>
+						<phs:quoted_node phs:triple_pos="3" phs:node_name="Helictopleurus sicardi-2"/>
+					</phs:triple_node>
+				</phs:ophu_statement>
+			</phs:otu_properties>
+			<phs:ophu_list>
+				<phs:ophu_statement>
+					<phs:triple_node>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-2" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
+						</phs:node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_g_" phs:iri="http://purl.obolibrary.org/obo/BFO_0000051" phs:label_original="has part" phs:type_onto="OP"/>
+						<phs:list_node phs:triple_pos="3">
+							<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-865f06" phs:triple_pos="NO" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+								<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
+							</phs:node>
+							<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-4658de" phs:triple_pos="NO" phs:node_name="aism-mesotibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000068" phs:label_original="mesotibia" phs:type_onto="C">
+								<phs:node_property phs:value="aism-mesotibia">node_name</phs:node_property>
+							</phs:node>
+						</phs:list_node>
+					</phs:triple_node>
+				</phs:ophu_statement>
+				<phs:ophu_statement>
+					<phs:triple_node>
+						<phs:list_node phs:triple_pos="1">
+							<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-865f06" phs:triple_pos="NO" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+								<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
+							</phs:node>
+							<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/id-4658de" phs:triple_pos="NO" phs:node_name="aism-mesotibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000068" phs:label_original="mesotibia" phs:type_onto="C">
+								<phs:node_property phs:value="aism-mesotibia">node_name</phs:node_property>
+							</phs:node>
+						</phs:list_node>
+						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_gg_" phs:iri="http://purl.obolibrary.org/obo/RO_0000053" phs:label_original="bearer of" phs:type_onto="OP"/>
+						<phs:node phs:node_id="https://urn:uuid:1fc5296c-dd63-11ed-acda-aabb8a6a973f/_861af5_5-3" phs:triple_pos="3" phs:node_name="pato-red" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000322" phs:label_original="red" phs:type_onto="C">
+							<phs:node_property phs:value="pato-red">node_name</phs:node_property>
+						</phs:node>
+					</phs:triple_node>
+				</phs:ophu_statement>
+			</phs:ophu_list>
+		</phs:otu_object>
+	</phs:otu_objects_list>
+</Phenoscript>
