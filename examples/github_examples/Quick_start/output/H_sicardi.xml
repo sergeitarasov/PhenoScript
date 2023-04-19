@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <Phenoscript xmlns:phs="https://github.com/sergeitarasov/PhenoScript">
 	<phs-config-yaml>
-		<base-iri>https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f</base-iri>
+		<base-iri>https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f</base-iri>
 		<authors>
 			<author name="First1 Last1">https://orcid.org/0000-0001-xxxx-xxxx</author>
 			<author name="First2 Last2">https://orcid.org/0000-0001-xxxx-xxxx</author>
@@ -26,7 +26,7 @@
 			<phs:otu_properties>
 				<phs:ophu_statement>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
 							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="rdfs-label" phs:iri="http://www.w3.org/2000/01/rdf-schema#label" phs:label_original="label" phs:type_onto="AP"/>
@@ -37,40 +37,40 @@
 			<phs:ophu_list>
 				<phs:ophu_statement>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
 							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_g_" phs:iri="http://purl.obolibrary.org/obo/BFO_0000051" phs:label_original="has part" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_2-3" phs:triple_pos="3" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_2-3" phs:triple_pos="3" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
 							<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_2-3" phs:triple_pos="1" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_2-3" phs:triple_pos="1" phs:node_name="aism-protibia" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000067" phs:label_original="protibia" phs:type_onto="C">
 							<phs:node_property phs:value="aism-protibia">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_gg_" phs:iri="http://purl.obolibrary.org/obo/RO_0000053" phs:label_original="bearer of" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_2-5" phs:triple_pos="3" phs:node_name="pato-black" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000317" phs:label_original="black" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_2-5" phs:triple_pos="3" phs:node_name="pato-black" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0000317" phs:label_original="black" phs:type_onto="C">
 							<phs:node_property phs:value="pato-black">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 				</phs:ophu_statement>
 				<phs:ophu_statement>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/id-1" phs:triple_pos="1" phs:node_name="uberon-male_organism" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/UBERON_0003101" phs:label_original="male organism" phs:type_onto="C">
 							<phs:node_property phs:value="uberon-male_organism">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_g_" phs:iri="http://purl.obolibrary.org/obo/BFO_0000051" phs:label_original="has part" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_3-3" phs:triple_pos="3" phs:node_name="aism-pronotum" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000059" phs:label_original="pronotum" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_3-3" phs:triple_pos="3" phs:node_name="aism-pronotum" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000059" phs:label_original="pronotum" phs:type_onto="C">
 							<phs:node_property phs:value="aism-pronotum">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>
 					<phs:triple_node>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_3-3" phs:triple_pos="1" phs:node_name="aism-pronotum" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000059" phs:label_original="pronotum" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_3-3" phs:triple_pos="1" phs:node_name="aism-pronotum" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/AISM_0000059" phs:label_original="pronotum" phs:type_onto="C">
 							<phs:node_property phs:value="aism-pronotum">node_name</phs:node_property>
 						</phs:node>
 						<phs:edge phs:triple_pos="2" phs:negative_prop="False" phs:edge_name="_gg_" phs:iri="http://purl.obolibrary.org/obo/RO_0000053" phs:label_original="bearer of" phs:type_onto="OP"/>
-						<phs:node phs:node_id="https://urn:uuid:0171a70e-dd3d-11ed-87fa-aabb8a6a973f/_e68963_3-5" phs:triple_pos="3" phs:node_name="pato-convex" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0001355" phs:label_original="convex" phs:type_onto="C">
+						<phs:node phs:node_id="https://urn:uuid:d02bf08e-de98-11ed-ab40-aabb8a6a973f/_65ab2c_3-5" phs:triple_pos="3" phs:node_name="pato-convex" phs:fromNegativeEdge="False" phs:iri="http://purl.obolibrary.org/obo/PATO_0001355" phs:label_original="convex" phs:type_onto="C">
 							<phs:node_property phs:value="pato-convex">node_name</phs:node_property>
 						</phs:node>
 					</phs:triple_node>

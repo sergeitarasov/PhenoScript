@@ -62,3 +62,7 @@ OTU = { # Grebennikovius
   }
 
 }
+
+
+'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-30a3a7 .iao-has_measurement_unit_label 'Q2';
+																					iao-measurement_datum:md-30a3a7 .iao-has_measurement_value 'Real';

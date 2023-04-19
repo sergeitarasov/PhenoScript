@@ -66,3 +66,22 @@ OTU = {
     uberon-male_organism:id-1 > aism-protibia >> pato-length:id-2L |<| pato-length:id-1L[exclude = True];
   }
 }
+
+
+
+
+
+OTU = { # ADD SP NAME
+  
+  DATA = {
+    uberon-male_organism:id-623b26 >> pato-length .iao-is_quality_measured_as iao-measurement_datum:md-aa2e63 .iao-has_measurement_unit_label 'Q2';
+																					iao-measurement_datum:md-aa2e63 .iao-has_measurement_value 2.0;
+    'E1' >> 'Q1' |>| 'Q2' << 'E2';
+    uberon-male_organism:id-623b26
+  }
+  
+  TRAITS = {}
+
+}
+
+

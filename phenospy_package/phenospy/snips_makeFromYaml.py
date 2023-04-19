@@ -270,7 +270,7 @@ def make_vscodeSnips(yaml_file):
     f_out = os.path.join(f_out, "phs-snippets.json")
     print(f"{Fore.BLUE}Saving snippets to:{Style.RESET_ALL}", f_out)
     # f_out = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy/package-data/phs-snippets.json'
-    with open(f_out, 'w') as f:
+    with open(f_out, 'w', encoding='utf-8') as f:
         f.write(snips_out)
         f.close()
 

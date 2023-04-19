@@ -5,10 +5,10 @@ from phenospy import *
 import os
 # import phenospy
 
-# versions
-import pkg_resources
-version = pkg_resources.get_distribution("phenospy").version
-print(version)
+# # versions
+# import pkg_resources
+# version = pkg_resources.get_distribution("phenospy").version
+# print(version)
 
 # -----------------------------------------
 # Make snippets
