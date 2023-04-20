@@ -1,3 +1,4 @@
+import codecs
 from phenospy.snips_fun import *
 
 # -----------------------------------------
@@ -25,9 +26,11 @@ def make_dicsFromSnips(phs_yaml):
     f_path = os.path.join(f_path, "phs-snippets.json")
     print(f"{Fore.BLUE}Reading snippets from JSON:{Style.RESET_ALL}", f_path)
 
-    f = open(f_path)
-    json_file = json.load(f)
-    f.close()
+    with codecs.open(f_path, 'r', encoding='utf-8') as f:
+        json_file = json.load(f)
+    # f = open(f_path)
+    # json_file = json.load(f)
+    # f.close()
     print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
 
     # for i in json_file:

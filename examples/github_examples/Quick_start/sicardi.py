@@ -1,8 +1,15 @@
 # cd ~/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/github_examples/Quick_start
 # /Users/taravser/anaconda3/envs/Phenoscript/bin/python
+# /Users/taravser/anaconda3/envs/Phenoscript/bin/pip install /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package/dist/phenospy-0.15.tar.gz
 
 from phenospy import *
 import os
+
+
+# versions
+import pkg_resources
+version = pkg_resources.get_distribution("phenospy").version
+print(version)
 
 # Get the current directory
 current_dir = os.getcwd()

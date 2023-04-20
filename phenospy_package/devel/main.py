@@ -99,3 +99,10 @@ tree = ET.ElementTree(ET.fromstring(xml_final))
 # set_log_level(0)
 xmlToOwl(tree, owl_save)
 
+
+
+import codecs
+import json
+
+with codecs.open(f_path, 'r', encoding='utf-8') as f:
+    json_file = json.load(f)
