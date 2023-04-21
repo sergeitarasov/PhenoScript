@@ -66,12 +66,19 @@ def xmlToOwl(tree, owl_file):
     # Save tmp file and then open
     # -----------------------------------------
     # Save the ontology to a temporary file
-    with tempfile.NamedTemporaryFile() as f:
-        onto.save(file=f.name, format="rdfxml")
-        # print("Ontology saved to:", f.name)
-        onto.destroy()
-        onto = get_ontology(f.name).load()
-
+    # with tempfile.NamedTemporaryFile() as f:
+    #     onto.save(file=f.name, format="rdfxml")
+    #     # print("Ontology saved to:", f.name)
+    #     onto.destroy()
+    #     onto = get_ontology(f.name).load()
+    # #
+    temp = tempfile.NamedTemporaryFile(suffix=".owl", delete=False)
+    onto.save(file=temp.name, format="rdfxml")
+    temp.close()
+    onto.destroy()
+    onto = get_ontology(temp.name).load()
+    os.unlink(temp.name)
+    #
     obo = onto.get_namespace("http://purl.obolibrary.org/obo/")
     phs_ns = onto.get_namespace('https://github.com/sergeitarasov/PhenoScript/')
 
