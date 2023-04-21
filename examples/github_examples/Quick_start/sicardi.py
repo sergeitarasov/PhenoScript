@@ -1,6 +1,6 @@
 # cd ~/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/examples/github_examples/Quick_start
 # /Users/taravser/anaconda3/envs/Phenoscript/bin/python
-# /Users/taravser/anaconda3/envs/Phenoscript/bin/pip install /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package/dist/phenospy-0.15.tar.gz
+# /Users/taravser/anaconda3/envs/Phenoscript/bin/pip install /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package/dist/phenospy-0.17.tar.gz --upgrade
 
 from phenospy import *
 import os
