@@ -28,8 +28,10 @@ pip install /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phe
 # Build python for test pypi and pypi
 [Help](https://realpython.com/pypi-publish-python-package/)
 
-```bash
 
+
+```bash
+cd /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package
 python -m build
 # check if description renders ok
 twine check dist/*

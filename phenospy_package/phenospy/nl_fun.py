@@ -100,7 +100,8 @@ def dic_mesuare_ToNLinOWL(dic_mesuare):
     # DELETE
     # dic_mesuare
     for item in dic_mesuare:
-        destroy_ListEntities([item['Q'], item['Unit']])
+        # destroy_ListEntities([item['Q'], item['Unit']])
+        destroy_ListEntities([item['Q']])
         if item['x'] is not None:
             # print(item['x'])
             destroy_entity(item['x'])
@@ -297,14 +298,25 @@ def makeNLGraph_basic(onto):
     # -----------------------------------------
     print(f"{Fore.BLUE}Adding absence traits...{Style.RESET_ALL}")
 
+    # for ind in onto.individuals():
+    #     #print(ind)
+    #     if (len(ind.phs_implies_absence_of)>0):
+    #         # print(ind, "---", ind.phs_implies_absence_of)
+    #         abs_class=ind.phs_implies_absence_of[0]
+    #         txt=" [%s](%s): absent;" % (abs_class.label.first(), abs_class.iri)
+    #         # print(txt)
+    #         ind.phs_NL.append(txt)
+    
     for ind in onto.individuals():
         #print(ind)
         if (len(ind.phs_implies_absence_of)>0):
-            # print(ind, "---", ind.phs_implies_absence_of)
-            abs_class=ind.phs_implies_absence_of[0]
-            txt=" [%s](%s): absent;" % (abs_class.label.first(), abs_class.iri)
-            # print(txt)
-            ind.phs_NL.append(txt)
+            #print(len(ind.phs_implies_absence_of))
+            #print(ind, "---", ind.phs_implies_absence_of)
+            for index in range(0, len(ind.phs_implies_absence_of)):
+                abs_class=ind.phs_implies_absence_of[index]
+                #print('\t', abs_class)
+                txt=", [%s](%s): absent;" % (abs_class.label.first(), abs_class.iri)
+                ind.phs_NL.append(txt)
 
     # -----------------------------------------
     # Pattern: add chracter prsence
@@ -411,6 +423,13 @@ def traverseGraphForNL(onto, ind0, tabs="\t", tab_char="\t", visited_nodes=set()
         # print('TRIPR len=0')
         return ";"
 
+
+
+def check_string_pattern_complete(s):
+    if (s.startswith(',') or s.startswith(':')):
+        return True
+    return False
+
 # -----------------------------------------
 # Render NL when traversing graph
 # -----------------------------------------
@@ -436,7 +455,12 @@ def renderNL(x, onto):
     elif isinstance(x, (int, float)):
         return " %s;" % str(x)
     elif isinstance(x, str):
-        return x
+        #return x
+        #return "%s" % x
+        if check_string_pattern_complete(x):
+           return "%s" % x
+        else:
+            return  " %s" % x
 
 
 # -----------------------------------------

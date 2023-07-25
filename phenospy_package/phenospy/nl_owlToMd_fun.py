@@ -2,7 +2,7 @@ from colorama import Fore, Style
 from colorama import init as colorama_init
 colorama_init()
 from phenospy.owl_owlready_config import *
-
+import re
 
 # -----------------------------------------
 # Make NL Graph for Md rendering from OWL: high-level wrapper
@@ -27,6 +27,27 @@ def owlToNLgraph(owl_file):
     return onto
 
 
+def substitute_unwanted_combinations(string):
+    modified_string = string.replace(" ,", ",")
+    modified_string = modified_string.replace(" :", ":")
+    return modified_string
+
+# finds lines that belong to metadata and placces them first
+def find_and_move_lines(huge_string):
+    # pattern = r'\)\s\['
+    pattern = '^- [^\]]+\]\([^\)]+\) [^\]]+\]\([^\)]+\)'
+    #lines = huge_string.split('\n')
+    lines=re.split(r'\n(?!\t)', huge_string)
+    matched_lines = []
+
+    for line in lines:
+        if re.search(pattern, line):
+            matched_lines.append(line)
+
+    modified_string = '\n'.join(matched_lines) + '\n' + '---' + '\n'.join(line for line in lines if line not in matched_lines)
+
+    return modified_string
+
 # -----------------------------------------
 # Make NL desciptions in Md format
 # -----------------------------------------
@@ -44,14 +65,19 @@ def NLgraphToMarkdown(onto, ind0, file_save=None, verbose=False):
     md_out = md.replace("\t [", " [")
     md_out = md_out.replace("\t [", "\t- [")
     md_out = md_out.replace("\n [", "\n- [")
+    # remove unwanted combbinations of characters
+    md_out = substitute_unwanted_combinations(md_out)
+    # finds lines that belong to metadata and placces them first
+    md_out = find_and_move_lines(md_out)
     # Add species name as comment
-    header = '<!-- ' + ind0.label.first() + ' -->'
+    header = '<!-- ' + ind0.label.first() + ' -->\n'
     md_out = header + md_out
     #print(md_out)
     #
     visited_nodes=set()
     phenospy.nl_fun.visited_triples=list()
-    #
+
+    
     if file_save is not None:
         print(f"{Fore.BLUE}Saving Markdown to:{Style.RESET_ALL}", file_save)
         fl = open(file_save, "w+")
