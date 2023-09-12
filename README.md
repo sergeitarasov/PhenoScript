@@ -1,4 +1,4 @@
-[![Downloads](https://static.pepy.tech/badge/phenospy)](https://pepy.tech/project/phenospy)
+[![PyPI - Downloads](https://static.pepy.tech/badge/phenospy)](https://pepy.tech/project/phenospy)
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/phenospy?color=blue&label=PyPI%20Downloads)
 
