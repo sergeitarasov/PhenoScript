@@ -1,8 +1,5 @@
 [![PyPI - Downloads](https://static.pepy.tech/badge/phenospy)](https://pepy.tech/project/phenospy) [![Downloads](https://static.pepy.tech/badge/phenospy/month)](https://pepy.tech/project/phenospy)
 
-<!--
-![PyPI - Downloads](https://img.shields.io/pypi/dm/phenospy?color=blue&label=PyPI%20Downloads)
--->
 
 # Phenospy (= Phenoscript Python tools)
 
@@ -46,3 +43,7 @@ pip install phenospy
 ## Issues
 
 See [issues for details](https://github.com/sergeitarasov/PhenoScript/wiki/Issues).
+
+<!--
+![PyPI - Downloads](https://img.shields.io/pypi/dm/phenospy?color=blue&label=PyPI%20Downloads)
+-->
