@@ -3,6 +3,7 @@ MANIFEST.in
 README.md
 setup.py
 phenospy/__init__.py
+phenospy/cli.py
 phenospy/nl_fun.py
 phenospy/nl_owlToMd.py
 phenospy/nl_owlToMd_fun.py
@@ -20,10 +21,12 @@ phenospy/phs_xmlTranslateTerms.py
 phenospy/snips_fun.py
 phenospy/snips_makeFromYaml.py
 phenospy/snips_readFromJSON.py
+phenospy/utils.py
 phenospy/xml_recodeThis.py
 phenospy.egg-info/PKG-INFO
 phenospy.egg-info/SOURCES.txt
 phenospy.egg-info/dependency_links.txt
+phenospy.egg-info/entry_points.txt
 phenospy.egg-info/requires.txt
 phenospy.egg-info/top_level.txt
 phenospy/package-data/.DS_Store

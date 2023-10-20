@@ -1,0 +1,265 @@
+@prefix : <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix Phen: <https://github.com/sergeitarasov/PhenoScript/> .
+@prefix oboI: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix term: <http://purl.org/dc/terms/> .
+@prefix x_1.1: <http://purl.org/dc/elements/1.1/> .
+@base <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f#> .
+
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f> rdf:type owl:Ontology ;
+                                                         x_1.1:contributor "First1 Last1 https://orcid.org/0000-0001-xxxx-xxxx" ,
+                                                                           "First2 Last2 https://orcid.org/0000-0001-xxxx-xxxx" ;
+                                                         term:requires "http://camwebb.info/dsw/dsw.owl" ,
+                                                                       "http://purl.obolibrary.org/obo/uberon/uberon-base.owl" ,
+                                                                       "https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl" ,
+                                                                       "https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl" ,
+                                                                       "https://raw.githubusercontent.com/evoinfo/cdao/master/cdao.owl" ,
+                                                                       "https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl" ,
+                                                                       "https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl" ,
+                                                                       "https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl" ,
+                                                                       "https://raw.githubusercontent.com/obophenotype/biological-spatial-ontology/master/bspo.owl" ,
+                                                                       "https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl" ,
+                                                                       "https://raw.githubusercontent.com/pato-ontology/pato/master/pato.owl" ,
+                                                                       "https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/contributor
+x_1.1:contributor rdf:type owl:AnnotationProperty ;
+                  rdfs:label "contributor" .
+
+
+###  http://purl.org/dc/elements/1.1/source
+x_1.1:source rdf:type owl:AnnotationProperty ;
+             rdfs:label "source" .
+
+
+###  http://purl.org/dc/terms/requires
+term:requires rdf:type owl:AnnotationProperty ;
+              rdfs:label "requires" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#created_by
+oboI:created_by rdf:type owl:AnnotationProperty ;
+                rdfs:label "created_by" .
+
+
+###  http://www.geneontology.org/formats/oboInOwl#creation_date
+oboI:creation_date rdf:type owl:AnnotationProperty ;
+                   rdfs:label "creation_date" .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000001
+Phen:PHS_0000001 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "phenoscript_annotations" .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000002
+Phen:PHS_0000002 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "phs_original_class" ;
+                 rdfs:subPropertyOf Phen:PHS_0000001 .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000003
+Phen:PHS_0000003 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "phs_implies_absence_of" ;
+                 rdfs:subPropertyOf Phen:PHS_0000001 .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000004
+Phen:PHS_0000004 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "phs_NL" ;
+                 rdfs:subPropertyOf Phen:PHS_0000001 .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000005
+Phen:PHS_0000005 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "phs_original_assertion" ;
+                 rdfs:subPropertyOf Phen:PHS_0000001 .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000017
+Phen:PHS_0000017 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "has_trait" .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000018
+Phen:PHS_0000018 rdf:type owl:AnnotationProperty ;
+                 rdfs:label "project_id" .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.obolibrary.org/obo/BFO_0000051
+obo:BFO_0000051 rdf:type owl:ObjectProperty ;
+                rdfs:label "has part" .
+
+
+###  http://purl.obolibrary.org/obo/RO_0000053
+obo:RO_0000053 rdf:type owl:ObjectProperty ;
+               rdfs:label "bearer of" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.obolibrary.org/obo/AISM_0000059
+obo:AISM_0000059 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:label "pronotum" .
+
+
+###  http://purl.obolibrary.org/obo/AISM_0000067
+obo:AISM_0000067 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:label "protibia" .
+
+
+###  http://purl.obolibrary.org/obo/PATO_0000317
+obo:PATO_0000317 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:label "black" .
+
+
+###  http://purl.obolibrary.org/obo/PATO_0001355
+obo:PATO_0001355 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:label "convex" .
+
+
+###  http://purl.obolibrary.org/obo/UBERON_0003101
+obo:UBERON_0003101 rdf:type owl:Class ;
+                   rdfs:subClassOf owl:Thing ;
+                   rdfs:label "male organism" .
+
+
+###  https://github.com/sergeitarasov/PhenoScript/PHS_0000019
+Phen:PHS_0000019 rdf:type owl:Class ;
+                 rdfs:subClassOf owl:Thing ;
+                 rdfs:label "project" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-3
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-3> rdf:type owl:NamedIndividual ,
+                                                                             obo:AISM_0000067 ;
+                                                                    obo:RO_0000053 <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-5> ;
+                                                                    x_1.1:source <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> ;
+                                                                    oboI:created_by "phenospy v. 1.0.0" ;
+                                                                    oboI:creation_date "21/04/2023" ;
+                                                                    rdfs:label "protibia:_2f1236_2-3" ;
+                                                                    Phen:PHS_0000002 obo:AISM_0000067 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-3> ;
+   owl:annotatedProperty obo:RO_0000053 ;
+   owl:annotatedTarget <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-5> ;
+   Phen:PHS_0000005 "true"^^xsd:boolean
+ ] .
+
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-5
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-5> rdf:type owl:NamedIndividual ,
+                                                                             obo:PATO_0000317 ;
+                                                                    x_1.1:source <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> ;
+                                                                    oboI:created_by "phenospy v. 1.0.0" ;
+                                                                    oboI:creation_date "21/04/2023" ;
+                                                                    rdfs:label "black:_2f1236_2-5" ;
+                                                                    Phen:PHS_0000002 obo:PATO_0000317 .
+
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-3
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-3> rdf:type owl:NamedIndividual ,
+                                                                             obo:AISM_0000059 ;
+                                                                    obo:RO_0000053 <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-5> ;
+                                                                    x_1.1:source <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> ;
+                                                                    oboI:created_by "phenospy v. 1.0.0" ;
+                                                                    oboI:creation_date "21/04/2023" ;
+                                                                    rdfs:label "pronotum:_2f1236_3-3" ;
+                                                                    Phen:PHS_0000002 obo:AISM_0000059 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-3> ;
+   owl:annotatedProperty obo:RO_0000053 ;
+   owl:annotatedTarget <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-5> ;
+   Phen:PHS_0000005 "true"^^xsd:boolean
+ ] .
+
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-5
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-5> rdf:type owl:NamedIndividual ,
+                                                                             obo:PATO_0001355 ;
+                                                                    x_1.1:source <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> ;
+                                                                    oboI:created_by "phenospy v. 1.0.0" ;
+                                                                    oboI:creation_date "21/04/2023" ;
+                                                                    rdfs:label "convex:_2f1236_3-5" ;
+                                                                    Phen:PHS_0000002 obo:PATO_0001355 .
+
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/id-1
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/id-1> rdf:type owl:NamedIndividual ,
+                                                                      obo:UBERON_0003101 ;
+                                                             obo:BFO_0000051 <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-3> ,
+                                                                             <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-3> ;
+                                                             x_1.1:source <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> ;
+                                                             oboI:created_by "phenospy v. 1.0.0" ;
+                                                             oboI:creation_date "21/04/2023" ;
+                                                             rdfs:label "Helictopleurus sicardi" ;
+                                                             Phen:PHS_0000002 obo:UBERON_0003101 .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/id-1> ;
+   owl:annotatedProperty obo:BFO_0000051 ;
+   owl:annotatedTarget <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_2-3> ;
+   Phen:PHS_0000005 "true"^^xsd:boolean
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/id-1> ;
+   owl:annotatedProperty obo:BFO_0000051 ;
+   owl:annotatedTarget <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/_2f1236_3-3> ;
+   Phen:PHS_0000005 "true"^^xsd:boolean
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/id-1> ;
+   owl:annotatedProperty rdfs:label ;
+   owl:annotatedTarget "Helictopleurus sicardi" ;
+   Phen:PHS_0000005 "true"^^xsd:boolean
+ ] .
+
+
+###  https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project
+<https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f/project> rdf:type owl:NamedIndividual ,
+                                                                         Phen:PHS_0000019 ;
+                                                                x_1.1:contributor "First1 Last1 https://orcid.org/0000-0001-xxxx-xxxx" ,
+                                                                                  "First2 Last2 https://orcid.org/0000-0001-xxxx-xxxx" ;
+                                                                term:requires "http://camwebb.info/dsw/dsw.owl" ,
+                                                                              "http://purl.obolibrary.org/obo/uberon/uberon-base.owl" ,
+                                                                              "https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl" ,
+                                                                              "https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl" ,
+                                                                              "https://raw.githubusercontent.com/evoinfo/cdao/master/cdao.owl" ,
+                                                                              "https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl" ,
+                                                                              "https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl" ,
+                                                                              "https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl" ,
+                                                                              "https://raw.githubusercontent.com/obophenotype/biological-spatial-ontology/master/bspo.owl" ,
+                                                                              "https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl" ,
+                                                                              "https://raw.githubusercontent.com/pato-ontology/pato/master/pato.owl" ,
+                                                                              "https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl" ;
+                                                                Phen:PHS_0000018 "https://urn:uuid:2bfc85c6-e01b-11ed-95a6-aabb8a6a973f" .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

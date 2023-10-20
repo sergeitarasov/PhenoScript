@@ -30,6 +30,7 @@ with onto:
     class purl_source(AnnotationProperty): pass
     class creation_date(AnnotationProperty): pass
     class cls_project(Thing): pass
+    class title(AnnotationProperty): pass
 
 has_trait.iri       = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000017'
 has_trait.label     = 'has_trait'
@@ -47,4 +48,6 @@ cls_project.iri     = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000019'
 cls_project.label   = 'project'
 creation_date.iri   = 'http://www.geneontology.org/formats/oboInOwl#creation_date'
 creation_date.label = 'creation_date'
+title.iri           = 'http://purl.org/dc/elements/1.1/title'
+title.label         = 'title'
 #  return(onto)

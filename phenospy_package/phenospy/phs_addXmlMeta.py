@@ -21,6 +21,10 @@ def xml_add_YamlMeta(root, phs_yaml, base_iri):
         author = ET.SubElement(authors, "author")
         author.set("name", name)
         author.text = orcid
+    
+    # add project title
+    project_title = ET.SubElement(meta, "project-title")
+    project_title.text = data["project-title"]
 
     # add the importOntologies element and its subelements
     import_ontologies = ET.SubElement(meta, "importOntologies")

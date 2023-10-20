@@ -3,7 +3,7 @@
 # -----------------------------------------
 from phenospy.owl_owlready_config import *
 from owlready2 import *
-
+from urllib.parse import urlparse
 # -----------------------------------------
 # Functions
 # -----------------------------------------
@@ -125,3 +125,35 @@ def phsNumbersToOWL(str_value, type):
     else:
         warnings.warn('Unknown numeric type, see: phsNumbersToOWL()')
     return out
+
+# check is a string is URI
+def is_valid_uri(uri_string):
+    try:
+        parsed_uri = urlparse(uri_string)
+        return all([parsed_uri.scheme, parsed_uri.netloc])
+    except ValueError:
+        return False
+
+#--------------------- Declare new datatype for ontology: xsd:anyURI
+class anyURI(str):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return str(self.value)
+    
+    def __add__(self, other):
+        if isinstance(other, str):
+            return str(self.value) + other
+        else:
+            raise TypeError("Unsupported operand type")
+
+def anyURI_parser(s):
+    return anyURI(s)
+
+def anyURI_unparser(x):
+    return x.value
+
+
+declare_datatype(anyURI, "http://www.w3.org/2001/XMLSchema#anyURI", anyURI_parser, anyURI_unparser)
+#---------------------

@@ -48,6 +48,21 @@ def find_and_move_lines(huge_string):
 
     return modified_string
 
+
+# Checks if there any URLS coming from quoted nodes that are not hyperlinked. Next, it hyperlinks them.
+# html_output = convert_text_urls_to_links(markdown_text)
+# print(html_output)
+def convert_text_urls_to_links(markdown_text):
+    # Define a regular expression pattern to match URLs that are not already in [link text](URL) format
+    url_pattern = r'https?://[^\s()]+(?![^\s]*\))'
+    # Find all URLs in the Markdown text that are not in [link text](URL) format
+    urls_to_convert = re.findall(url_pattern, markdown_text)
+    # Iterate through the found URLs and convert them to clickable hyperlinks
+    for url in urls_to_convert:
+        #print(url)
+        markdown_text = re.sub(re.escape(url), f'[{url}]({url})', markdown_text)
+    return markdown_text
+
 # -----------------------------------------
 # Make NL desciptions in Md format
 # -----------------------------------------
@@ -69,6 +84,8 @@ def NLgraphToMarkdown(onto, ind0, file_save=None, verbose=False):
     md_out = substitute_unwanted_combinations(md_out)
     # finds lines that belong to metadata and placces them first
     md_out = find_and_move_lines(md_out)
+    # hyperlink unhyperlinked URL
+    md_out = convert_text_urls_to_links(md_out)
     # Add species name as comment
     header = '<!-- ' + ind0.label.first() + ' -->\n'
     md_out = header + md_out

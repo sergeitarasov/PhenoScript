@@ -6,3 +6,4 @@ from .phs_xmlTranslateTerms import xmlTranslateTerms, xmlTranslateTermsMeta
 from .snips_makeFromYaml import make_vscodeSnips
 from .snips_fun import printUniqueIRIs
 from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
+from .utils import download_ontologies_from_yaml

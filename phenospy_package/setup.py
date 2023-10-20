@@ -2,10 +2,10 @@ from setuptools import setup, find_packages
 
 setup(
     name='phenospy',
-    version='0.195',
+    version='0.210',
     packages=find_packages(exclude=['tests*', 'devel*', 'build*']),
     license='MIT',
-    description='Tools for making and processing computable phenotype descriptions',
+    description='Tools for making and processing computable phenotypes',
     long_description_content_type="text/markdown",
     long_description=open('README.md').read(),
     install_requires=['Owlready2',
@@ -30,4 +30,10 @@ setup(
         "Topic :: Scientific/Engineering :: Bio-Informatics",
     ],
     
+    # Define entry points for command-line tools
+    entry_points={
+        "console_scripts": [
+            "phenospy = phenospy.cli:main",  # Replace with your CLI entry point
+        ],
+    },
 )

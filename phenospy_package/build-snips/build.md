@@ -32,6 +32,7 @@ pip install /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phe
 
 ```bash
 cd /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package
+conda activate PhenoScript
 python -m build
 # check if description renders ok
 twine check dist/*

@@ -13,7 +13,7 @@ def make_vscodeSnips(yaml_file):
     # Read configuration yaml
     # -----------------------------------------
 
-    print(f"{Fore.BLUE}Reading yaml file...{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}Reading yaml file: {Style.RESET_ALL}{yaml_file}")
     with open(yaml_file, 'r') as f_yaml:
         phs_yaml = yaml.safe_load(f_yaml)
     # print(phs_yaml)

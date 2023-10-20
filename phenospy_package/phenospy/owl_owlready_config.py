@@ -2,11 +2,12 @@
 # Settings for using owlready and Phenoscript
 # -----------------------------------------
 from owlready2 import *
-
+import pkg_resources
 # -----------------------------------------
 # Arguments
 # -----------------------------------------
-phsVersion = "1.0.0"
+
+phsVersion = pkg_resources.get_distribution("phenospy").version
 
 # -----------------------------------------
 # owlready

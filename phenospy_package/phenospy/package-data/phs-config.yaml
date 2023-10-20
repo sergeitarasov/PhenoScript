@@ -1,32 +1,29 @@
-# Specify the snippet directory that is used by your VS code
-# It looks something like: /.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
+# ADD snippet directory
+# Specify the snippet directory that is used by your VS code, something like: C:\Users\giuli\.vscode\extensions\tarasov-lab.phenoscript-0.0.14\snippets\
 # Depending on your system it is located in:
 #   Win: `%USERPROFILE%\.vscode\extensions`
 #   Mac:`$HOME/.vscode/extensions`
 #   Linux: `$HOME/.vscode/extensions`
-# ADD CORRECT DIRECTORY
-snippet-dir: /.../.vscode/extensions/tarasov-lab.phenoscript-0.0.12/snippets/
-# ADD the names of the authors
+snippet-dir: ~/.vscode/extensions/tarasov-lab.phenoscript-0.0.16/snippets
+# ADD the names of the authors and ORCID
 authors:
-  'First1 Last1': https://orcid.org/0000-0001-xxxx-xxxx
-  'First2 Last2': https://orcid.org/0000-0001-xxxx-xxxx
-# ADD a short title for your project
-project-title: "My New species"
+  'Giulio Montanaro': https://orcid.org/0000-0003-0836-1364
+  'Sergei Tarasov': https://orcid.org/0000-0001-5237-2330
+# ADD a short title of your project
+project-title: "Testing Phenoscript Language: four species of Grebennikovius (Coleoptera: Scarabaeinae) from the Eastern Arc Mountains"
 importOntologies:
-  - https://raw.githubusercontent.com/insect-morphology/aism/master/aism.owl
-  - https://raw.githubusercontent.com/insect-morphology/colao/master/colao.owl
-  # - https://raw.githubusercontent.com/hymao/hao/master/hao.owl
-  - https://raw.githubusercontent.com/pato-ontology/pato/master/pato.owl
-  - https://raw.githubusercontent.com/obophenotype/biological-spatial-ontology/master/bspo.owl
-  - https://raw.githubusercontent.com/evoinfo/cdao/master/cdao.owl
-  - https://raw.githubusercontent.com/information-artifact-ontology/IAO/v2020-12-09/iao.owl
-  - https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl
-  - https://raw.githubusercontent.com/bio-ontology-research-group/unit-ontology/master/uo.owl
-  - http://camwebb.info/dsw/dsw.owl
-  # - https://raw.githubusercontent.com/sergeitarasov/taxonomy-repo/main/owl/taxonomy-repo.owl                                  # taxonomy
-  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl     # phenoscript
-  - https://raw.githubusercontent.com/BiodiversityOntologies/bco/master/bco.owl                                                 # Biological Collections Ontology
-  - http://purl.obolibrary.org/obo/uberon/uberon-base.owl                                                                       # UBERON
+  - https://raw.githubusercontent.com/sergeitarasov/aism/devel/src/ontology/aism-edit.owl
+  - https://raw.githubusercontent.com/sergeitarasov/colao/devel/src/ontology/colao-edit.owl
+  - https://raw.githubusercontent.com/sergeitarasov/PhenoScript/main/phenospy_package/phenospy/package-data/phenoscript.owl
+  - http://purl.obolibrary.org/obo/pato.owl
+  - http://purl.obolibrary.org/obo/bspo.owl
+  - http://purl.obolibrary.org/obo/cdao.owl
+  - http://purl.obolibrary.org/obo/iao.owl
+  - http://purl.obolibrary.org/obo/ro.owl
+  - http://purl.obolibrary.org/obo/uo.owl
+  - http://purl.obolibrary.org/obo/bco.owl
+  - http://purl.obolibrary.org/obo/uberon/uberon-base.owl
+  - http://purl.obolibrary.org/obo/taxrank.owl
 namespace:
   default:    http://www.w3.org/2002/07/owl#
   others:
@@ -53,4 +50,5 @@ namespace:
     gbif:     https://www.gbif.org/species/
     phs:      https://github.com/sergeitarasov/PhenoScript/PHS_
     uberon:   http://purl.obolibrary.org/obo/UBERON_
+    taxrank:  http://purl.obolibrary.org/obo/TAXRANK_
     # obo: http://purl.obolibrary.org/obo/

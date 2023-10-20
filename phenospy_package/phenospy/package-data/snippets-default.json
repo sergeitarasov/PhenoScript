@@ -7,13 +7,13 @@
     },
     "Tmp-relM": {
     "prefix": ["Tmp relative Measurement"],
-    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .iao-has_measurement_unit_label 'Q2' << 'E2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2' << 'E2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
     "description": "Describes measurement of one structure relative to another (in some units): Pronotum twice as long as head",
     "type": "Tmp"
     },
     "Tmp-absM": {
     "prefix": ["Tmp absolute Measurement"],
-    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .iao-has_measurement_unit_label 'Q2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
     "description": "Describes absolute measurement of a structure in some units: Pronotum length 2mm.",
     "type": "Tmp"
     },

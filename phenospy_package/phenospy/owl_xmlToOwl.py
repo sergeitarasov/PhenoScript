@@ -12,7 +12,8 @@ colorama_init()
 import os
 import tempfile
 import xml.etree.ElementTree as ET
-from datetime import date
+# from datetime import date
+import datetime
 
 from phenospy.owl_xml2owl_fun import *
 from phenospy.xml_recodeThis import *
@@ -97,20 +98,26 @@ def xmlToOwl(tree, owl_file):
     # Add ontology metadata
     # -----------------------------------------
   
-    this_Project = cls_project()
+    this_Project = cls_project() # assign project to class "project"
     this_Project.iri = base_iri_text + '/project'
     this_Project.project_id.append(base_iri_text)
+    # project title
+    xml_project_title = root.find("./phs-config-yaml/project-title", ns)
+    this_Project.title.append(xml_project_title.text)
+    this_Project.label.append('project: ' + xml_project_title.text[:35] + '...') # truncate ptoject title for label
 
     yaml_authors = root.find("./phs-config-yaml/authors", ns)
     for author in yaml_authors:
-        auct_name = author.get('name') + ' ' + author.text
+        # auct_name = author.get('name') + ' ' + author.text
+        auct_name = anyURI(author.text)
         onto.metadata.contributor.append(auct_name)
         this_Project.contributor.append(auct_name)
+        label[this_Project, contributor, auct_name] = author.get('name')
 
     yaml_ontos = root.find("./phs-config-yaml/importOntologies", ns)
     for i in yaml_ontos:
-        onto.metadata.purl_requires.append(i.text)
-        this_Project.purl_requires.append(i.text)
+        onto.metadata.purl_requires.append(anyURI(i.text))
+        this_Project.purl_requires.append(anyURI(i.text))
 
 
 
@@ -155,11 +162,13 @@ def xmlToOwl(tree, owl_file):
         newNode.label = className[0]+':'+ ni.rsplit('/', 1)[-1]
 
         # add annotations
-        newNode.created_by = "phenospy v. " + phsVersion
+        newNode.created_by = "phenospy-" + phsVersion
         # add date
-        today = date.today()
-        dt_string = today.strftime("%d/%m/%Y")
-        newNode.creation_date = dt_string
+        # today = date.today()
+        # dt_string = today.strftime("%d/%m/%Y")
+        # newNode.creation_date = dt_string
+        newNode.creation_date = datetime.datetime.now()
+        #
         # add original class annotation
         newNode.phs_original_class.append(nodeClassObj)
         newNode.purl_source.append(this_Project)
@@ -279,6 +288,10 @@ def xmlToOwl(tree, owl_file):
                 if 'http://www.w3.org/2000/01/rdf-schema#label' in Ed.iri:
                     exec('N1.%s = N2' % Ed.name)
                     phs_original_assertion[N1, Ed, N2] = True
+                elif (is_valid_uri(N2)):
+                    # ins2.new_dp.append(anyURI('https://www.gbif.org/species/10360397'))
+                    exec('N1.%s.append(anyURI(N2))' % Ed.name)
+                    phs_original_assertion[N1, Ed, anyURI(N2)] = True
                 else:
                     exec('N1.%s.append(N2)' % Ed.name)
                     phs_original_assertion[N1, Ed, N2] = True
