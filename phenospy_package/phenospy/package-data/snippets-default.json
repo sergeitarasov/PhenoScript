@@ -19,7 +19,7 @@
     },
     "Tmp-OTU": {
     "prefix": ["Tmp insert OTU"],
-    "body": ["OTU = { # ADD SP NAME\n\t\n\tDATA = {$1}\n\t\n\tTRAITS = {}\n\n}"],
+    "body": ["OTU = { #// OTUName:  Addd OTU/SPECIES NAME HERE\n\t\n\tDATA = {$1}\n\t\n\tTRAITS = {}\n\n}"],
     "description": "Inserts OTU block",
     "type": "Tmp"
     },
@@ -27,6 +27,24 @@
     "prefix": ["id tag"],
     "body": ["id-${RANDOM_HEX}"],
     "description": "Inserts id tag for an individual: head:id-78a0f8",
+    "type": "Tmp"
+    },
+    "Tmp-com": {
+    "prefix": ["Tmp colorful comment"],
+    "body": ["#/ "],
+    "description": "Inserts colorful comment",
+    "type": "Tmp"
+    },
+    "Tmp-comFIXIT": {
+    "prefix": ["Tmp FIXIT comment"],
+    "body": ["#// FIXIT: "],
+    "description": "Inserts FIXIT comment",
+    "type": "Tmp"
+    },
+    "Tmp-comRES": {
+    "prefix": ["Tmp RES comment"],
+    "body": ["#// RES: "],
+    "description": "Inserts RES comment",
     "type": "Tmp"
     },
     "(OP alias) bfo-0000051": {
@@ -94,7 +112,7 @@
     },
     "(OP alias) aism-0000078": {
     "prefix": ["-> (.encircles)"],
-    "body": ["->"],
+    "body": [" -> "],
     "description": "(OP) obo.AISM_0000078: x encircles y if both x and y are regions of the 2D structure z, or 2D cross-sections of a 3D object z, and the boundary of y on z is exclusively continuous with x.",
     "iri": "http://purl.obolibrary.org/obo/AISM_0000078",
     "label_4_translation": ["_hg_"],
@@ -103,7 +121,7 @@
     },
     "(OP alias) aism-0000079": {
     "prefix": ["<- (.encircled_by)"],
-    "body": ["<-"],
+    "body": [" <- "],
     "description": "(OP) obo.AISM_0000079: y is encircled by x if both x and y are regions of the 2D structure z, or 2D cross-sections of a 3D object z, and the boundary of y on z is exclusively continuous with y.",
     "iri": "http://purl.obolibrary.org/obo/AISM_0000079",
     "label_4_translation": ["_gh_"],
