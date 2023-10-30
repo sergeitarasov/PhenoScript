@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='phenospy',
-    version='0.220',
+    version='0.223',
     packages=find_packages(exclude=['tests*', 'devel*', 'build*']),
     license='MIT',
     description='Tools for making and processing computable phenotypes',
@@ -11,6 +11,7 @@ setup(
     install_requires=['Owlready2',
                       'PyYAML',
                       'colorama',
+                      'markdown',
                       'pyparsing==2.4.2'],
     include_package_data=True,
     url='https://github.com/sergeitarasov/PhenoScript',

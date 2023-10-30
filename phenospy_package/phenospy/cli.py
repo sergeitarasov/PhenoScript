@@ -1,17 +1,44 @@
 from .phs_mainConvert import phsToOWL
-from .utils import download_ontologies_from_yaml, print_phenoscript_extensions
+from .utils import download_ontologies_from_yaml, print_phenoscript_extensions, save_to_file
 from .snips_makeFromYaml import make_vscodeSnips
+from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
 import argparse
 import os
-
 import warnings
 # Set the warning filter to suppress all warnings
 warnings.filterwarnings("ignore")
+import markdown
+
+from colorama import Fore, Style
+from colorama import init as colorama_init
+
+colorama_init()
 
 
-def owl2md(args):
-    # Implement logic for command 1
-    print(f"Executing command 1 with arguments: {args.arg1}")
+#---------
+
+def owl2text(args):
+    if not os.path.exists(args.save_dir):
+        os.makedirs(args.save_dir)
+    # Make NL graph
+    onto = owlToNLgraph(args.owl_file)
+    # Get species/entry points for rendering
+    entry_points = onto.search(label = args.search)
+    print(f"{Fore.GREEN}Found OTUs: {Style.RESET_ALL}{len(entry_points)}")
+    for point in entry_points:
+        print(f"{Fore.BLUE}OTU: {Style.RESET_ALL}{point.label.first()}")
+        md = NLgraphToMarkdown(onto, point, verbose = True)
+        if args.format == "md":
+            point_str = point.label.first()
+            point_str = point_str.replace(" ", "_") + '.md'
+            file_save = os.path.join(args.save_dir, point_str)
+            save_to_file(md, file_save)
+        elif args.format == 'html':
+            html = markdown.markdown(md)
+            point_str = point.label.first()
+            point_str = point_str.replace(" ", "_") + '.html'
+            file_save = os.path.join(args.save_dir, point_str)
+            save_to_file(html, file_save)
 
 def phs2owl(args):
     print("Executing phs2owl ... ")
@@ -54,9 +81,14 @@ def main():
         "phenospy phs2owl 'input.phs' 'file_out'\n" \
         "phenospy phs2owl 'input.phs' 'output/file_out"
     
-    # owl2md
-    parser_command2 = subparsers.add_parser("owl2md", help="Convert OWL file to Markdown.")
-    parser_command2.add_argument("arg1", help="Argument for command 1.")
+    # owl2text
+    parser_command2 = subparsers.add_parser("owl2text", help="Convert OWL file to Markdown or HTML.")
+    parser_command2.add_argument("-f", "--format", choices=["md", "html"], help="Output format: Markdown or HTML.")
+    parser_command2.add_argument("-s", "--search", help="OTU label search pattern.")
+    parser_command2.add_argument("-o", "--owl_file", help="Input OWL file.")
+    parser_command2.add_argument("-d", "--save_dir", help="Output directory.")
+    parser_command2.epilog = "Examples:\n" \
+        "phenospy owl2text -f 'html' -s 'org_*' -o grebennikovius.owl -d NL\n"
 
     # fetch-ontos
     parser_command3 = subparsers.add_parser("fetch-ontos", help="Download ontologies from phs-config.yaml file.")
@@ -66,8 +98,8 @@ def main():
         "phenospy fetch-ontos 'phs-config.yaml' '/source_ontologies'\n"
     
     args = parser.parse_args()
-    if args.command == "owl2md":
-        owl2md(args)
+    if args.command == "owl2text":
+        owl2text(args)
     elif args.command == "phs2owl":
         phs2owl(args)
     elif args.command == "fetch-ontos":

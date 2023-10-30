@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: phenospy
-Version: 0.220
+Version: 0.223
 Summary: Tools for making and processing computable phenotypes
 Home-page: https://github.com/sergeitarasov/PhenoScript
 Author: Sergei Tarasov
@@ -20,6 +20,7 @@ License-File: LICENSE.txt
 Requires-Dist: Owlready2
 Requires-Dist: PyYAML
 Requires-Dist: colorama
+Requires-Dist: markdown
 Requires-Dist: pyparsing==2.4.2
 
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/phenospy?color=blue&label=PyPI%20Downloads)

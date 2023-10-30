@@ -76,3 +76,8 @@ def print_phenoscript_extensions():
         print(f"{Fore.BLUE}Other versions:\n{Style.RESET_ALL}{others}")
     else:
         print(f"{Fore.RED}No extension found. This function currently works on Mac only.{Style.RESET_ALL}")
+
+
+def save_to_file(file_content, output_file):
+    with open(output_file, 'w', encoding='utf-8') as fl:
+        fl.write(file_content)
