@@ -42,7 +42,7 @@ def sparql_tmpMeasurements(default_world):
             WHERE {?E0 obo:RO_0000053 ?Q .
                 ?Q obo:IAO_0000417 ?x .
                 ?x obo:IAO_0000004 ?Val .
-                ?x obo:IAO_0000039 ?Unit .
+                ?x obo:AISM_0000404 ?Unit .
                 optional {
                     ?Unit obo:RO_0000052 ?Unit_loc .
                     }

@@ -17,6 +17,7 @@ import datetime
 
 from phenospy.owl_xml2owl_fun import *
 from phenospy.xml_recodeThis import *
+from phenospy.phs_various_fun import *
 #from xml_recodeThis import *
 
 # -----------------------------------------
@@ -105,6 +106,8 @@ def xmlToOwl(tree, owl_file):
     xml_project_title = root.find("./phs-config-yaml/project-title", ns)
     this_Project.title.append(xml_project_title.text)
     this_Project.label.append('project: ' + xml_project_title.text[:35] + '...') # truncate ptoject title for label
+    this_Project.created_by = "phenospy-" + phsVersion
+    this_Project.creation_date = datetime.datetime.now()
 
     yaml_authors = root.find("./phs-config-yaml/authors", ns)
     for author in yaml_authors:
@@ -236,7 +239,7 @@ def xmlToOwl(tree, owl_file):
                 N1 = IRIS[nodeXML.get(phs + 'node_id')]
                 Ed = IRIS[edgeXML[0].get(phs + 'iri')]
                 childrenXML = Pos3XML[0].findall(".//phs:node[@phs:triple_pos='NO']", ns)
-
+                
                 for child in childrenXML:
                     N2 = IRIS[child.get(phs + 'node_id')]
                     if owl.FunctionalProperty in Ed.is_a:
@@ -368,7 +371,7 @@ def xmlToOwl(tree, owl_file):
 
 
     ##  ............................................................................
-    ##  Linking OTU and OPHUs    ####
+    ##  Linking OTU and OPHUs: linksTraits    ####
 
     print(f"{Fore.BLUE}Linking OTU's DATA with TRAITS...{Style.RESET_ALL}")
 
@@ -406,6 +409,57 @@ def xmlToOwl(tree, owl_file):
                     # else:
                     exec('N1.%s.append(N2)' % Ed)
                     phs_original_assertion[N1, Ed, N2] = True
+    
+    ##  ............................................................................
+    ##  Linking TRAITS and DATA Block with OTU Block and nodes    ####
+    print(f"{Fore.BLUE}Linking OTU's Blocks...{Style.RESET_ALL}")
+    #OTUs=root.findall(".//phs:otu_object", ns)
+    # loop over otu_objects
+    # otu = OTUs[0]
+    for otu in OTUs:
+        ClassOTU    =IRIS['https://github.com/sergeitarasov/PhenoScript/PHS_0000022']
+        ClassDATA   =IRIS['https://github.com/sergeitarasov/PhenoScript/PHS_0000020']
+        ClassTRAITS =IRIS['https://github.com/sergeitarasov/PhenoScript/PHS_0000021']
+        
+        #otu_block = ClassOTU(base_iri_text + '/_' + uuid_n(6))
+        otu_block           = ClassOTU('https://temp/tmp')
+        #otu_block.iri       = 'https://github.com/2323222344dsd'
+        otu_block.iri       = base_iri_text + '/_' + uuid_n(6)
+        data_block          = ClassDATA('https://temp/tmp')
+        #data_block.iri      = 'https://github.com/2323222344dsdsdsdc'
+        data_block.iri      = base_iri_text + '/_' + uuid_n(6)
+        traits_block        = ClassTRAITS('https://temp/tmp')
+        traits_block.iri    = base_iri_text + '/_' + uuid_n(6)
+        #
+        otu_block.label     = ClassOTU.label.first() +':'+ otu_block.iri.rsplit('/', 1)[-1]
+        data_block.label    = ClassDATA.label.first() +':'+ data_block.iri.rsplit('/', 1)[-1]
+        traits_block.label  = ClassTRAITS.label.first() +':'+ traits_block.iri.rsplit('/', 1)[-1]
+        #
+        otu_block.purl_source.append(this_Project)
+        data_block.purl_source.append(this_Project)
+        traits_block.purl_source.append(this_Project)
+        #
+        data_block.purl_source.append(otu_block)
+        traits_block.purl_source.append(otu_block)
+        #
+        #add annotations
+        # otu_block.created_by = "phenospy-" + phsVersion
+        # otu_block.creation_date = datetime.datetime.now()
+        #
+        # get ophuList nodes and link them with DATA block
+        ophuList = otu.findall(".//phs:ophu_list", ns)
+        ophuNodes_noFil = ophuList[0].findall(".//phs:node[@phs:fromNegativeEdge='False']", ns)
+        for node in ophuNodes_noFil:
+            N1 = IRIS[node.get(phs+'node_id')]
+            N1.purl_source.append(traits_block)
+        #
+        # get otu_properties nodes and link them with DATA block
+        otu_props = otu.findall(".//phs:otu_properties", ns)
+        otuNodes_noFil = otu_props[0].findall(".//phs:node[@phs:fromNegativeEdge='False']", ns)
+        for node in otuNodes_noFil:
+            N1 = IRIS[node.get(phs+'node_id')]
+            N1.purl_source.append(data_block)
+            #phs_original_assertion[N1, purl_source, data_block] = True
 
 
     #-----------------------
