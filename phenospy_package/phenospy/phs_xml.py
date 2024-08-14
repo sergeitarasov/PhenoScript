@@ -30,7 +30,7 @@ def phenoscriptToXML(phs_string):
     # https://urn:uuid:2348c8b6-c31c-11ed-876a-acde48001122
     # base_iri = 'https://' + 'urn:uuid:' + str(uuid.uuid1())
      # https://2348c8b6-c31c-11ed-876a-acde48001122
-    base_iri = 'https://' +  str(uuid.uuid1())
+    base_iri = 'https://data.phenoscript.org/' +  str(uuid.uuid1())
 
     # identifier for to keep track on ophu statement and node coordinates
     global nid # _b3cbc5_N

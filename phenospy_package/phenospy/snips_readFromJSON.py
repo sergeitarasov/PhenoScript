@@ -84,7 +84,8 @@ def make_dicsFromSnips(phs_yaml):
             for la in lab:
                 json_iri.update({la: iri})
             json_type.update({iri: type})
-            json_lab.update({iri: lab_org})
+            if iri not in json_lab:
+                json_lab.update({iri: lab_org})
 
     print(f"{Fore.GREEN}Good! Dictionaries from JSON snippets are constructed!{Style.RESET_ALL}")
     # json_iri['<']
