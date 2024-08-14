@@ -2,4 +2,5 @@ Owlready2
 PyYAML
 colorama
 markdown
+requests
 pyparsing==2.4.2

@@ -98,6 +98,78 @@ class snippetInfo:
             '\t iri 4 snippet: ' + str(self.iri4snippet) + '\n'
         return str(ret)
 
+
+# Class for Markdown
+class snippetInfo_md:
+    def __init__(self, type, label = None, iri = None, prefix = None, trimmed_iri = None, definition='', sep='-'):
+        self.type = type
+        self.label = label
+        self.iri = iri
+        self.prefix = prefix
+        self.trimmed_iri = trimmed_iri
+        self.label_phs = None
+        # fixing defintion
+        self.definition = definition
+        self.definition =  self.definition.replace('\n', '  ')
+        self.definition = self.definition.replace('\t', '  ')
+        self.definition = self.definition.replace('"', "'")
+        self.definition = '(' + self.type + '): ' + self.definition
+        if (iri is None):
+            print('iri  is absent')
+        if  (label is None):
+            self.label = trimmed_iri
+        if (prefix is None):
+            print('prefix is absent')
+            self.prefix = 'NOPREF'
+        self.label_phs = self.prefix + sep + self.label
+        self.iri4snippet = self.prefix + sep + trimmed_iri
+        if  (prefix == 'Default'):
+            self.prefix = 'Default'
+            self.label_phs = self.label
+            self.iri4snippet = 'def' + sep +trimmed_iri
+        self.label_phs = self.label_phs.replace(' ', '_')
+        self.label_phs = self.label_phs.replace('/', '_')
+        self.label_4_translation = self.label_phs
+        self.label_no_ns = self.label.replace(' ', '_')
+        #self.label_no_ns = self.label_phs
+        if (type == 'OP') or (type == 'DP') or (type == 'AP'):
+            self.label_phs = '.' + self.label_phs
+    def printJson(self):
+        #  '"(%s) %s": {\n' \         self.type, self.iri4snippet
+        # '"prefix": ["%s"],\n' \     self.label_phs
+        # '"body": ["%s"],\n' \       self.label_phs
+        # '"description": "%s",\n' \  self.definition
+        # '"iri": "%s",\n' \          self.iri
+        # '"label_4_translation": ["%s"],\n' \    self.label_4_translation
+        # '"label_original": "%s",\n' \           self.label
+        # '"type": "%s"\n' \                      self.type
+        out = \
+        '"(%s) %s": {\n' \
+        '"prefix": ["%s"],\n' \
+        '"body": ["[%s](%s)"],\n' \
+        '"description": "%s",\n' \
+        '"iri": "%s",\n' \
+        '"label_4_translation": ["%s"],\n' \
+        '"label_original": "%s",\n' \
+        '"type": "%s"\n' \
+        '}' % (self.type, self.iri4snippet, self.label_phs, \
+            self.label, self.iri, \
+            self.definition, self.iri, \
+            self.label_4_translation, self.label, self.type)
+        return str(out)
+    def __repr__(self):
+        ret = 'type: ' + str(self.type) + '\n' +\
+            '\t original label: ' + str(self.label) + '\n' + \
+            '\t label phs-no-ns: ' + str(self.label_no_ns) + '\n' + \
+            '\t label phs: ' + str(self.label_phs)  + '\n' + \
+            '\t label 4 translation: ' + str(self.label_4_translation) + '\n' + \
+            '\t iri: ' + str(self.iri) + '\n' + \
+            '\t namespace pref: ' + str(self.prefix) + '\n' +\
+            '\t trimmed_iri: ' + str(self.trimmed_iri)  + '\n' +\
+            '\t definition: ' + str(self.definition) + '\n' + \
+            '\t iri 4 snippet: ' + str(self.iri4snippet) + '\n'
+        return str(ret)
+
 # yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/src/reasoning/phs-config.yaml'
 # printUniqueIRIs(yaml_file)
 def printUniqueIRIs(yaml_file):

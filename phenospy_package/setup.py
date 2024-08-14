@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='phenospy',
-    version='0.231',
+    version='0.250',
     packages=find_packages(exclude=['tests*', 'devel*', 'build*']),
     license='MIT',
     description='Tools for making and processing computable phenotypes',

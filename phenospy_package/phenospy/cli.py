@@ -1,6 +1,6 @@
 from .phs_mainConvert import phsToOWL
 from .utils import download_ontologies_from_yaml, print_phenoscript_extensions, save_to_file
-from .snips_makeFromYaml import make_vscodeSnips
+from .snips_makeFromYaml import make_vscodeSnips, make_mdSnips
 from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
 import argparse
 import os
@@ -66,11 +66,17 @@ def main():
     parser_commandPath.epilog = "Examples:\n" \
         "phenospy get-vsc\n"
     
-    # make snippets
+    # make snippets phs
     parser_commandSnip = subparsers.add_parser("make-snips", help="Make VS Code snippets.")
     parser_commandSnip.add_argument("yaml_file", help="Input yaml file.")
     parser_commandSnip.epilog = "Examples:\n" \
         "phenospy make-snips 'phs-config.yaml'\n"
+    
+    # make snippets Md
+    parser_commandSnipMd = subparsers.add_parser("make-md", help="Make Markdown snippets.")
+    parser_commandSnipMd.add_argument("yaml_file", help="Input yaml file.")
+    parser_commandSnipMd.epilog = "Examples:\n" \
+        "phenospy make-md 'phs-config.yaml'\n"
 
     # phs2owl
     parser_command1 = subparsers.add_parser("phs2owl", help="Convert PHS file to OWL.")
@@ -106,6 +112,8 @@ def main():
         download_ontologies_from_yaml(args.yaml_file, args.output_dir)
     elif args.command == "make-snips":
         make_vscodeSnips(args.yaml_file)
+    elif args.command == "make-md":
+        make_mdSnips(args.yaml_file)
     elif args.command == "get-vsc":
         print_phenoscript_extensions()
     else:
