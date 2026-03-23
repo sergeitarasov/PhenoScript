@@ -24,8 +24,11 @@ phs_original_class.python_name      = 'phs_original_class'
 # global phs_original_assertion 
 # global phs_original_class     
 
+
+
+
 # -----------------------------------------
-# Tmp 1: sparql Absolute and Relative Mesuarements
+# Tmp 1: sparql Absolute Relative Mesuarements
 # -----------------------------------------
 
 # obo.PATO_0000122 # length
@@ -36,19 +39,93 @@ phs_original_class.python_name      = 'phs_original_class'
 # obo.RO_0000052 # characteristic of
 # obo.RO_0000053 # has characteristic, bearer of
 # obo.BFO_0000051 has part
+#
+# WHERE {?E0 obo:RO_0000053 ?Q .  # >> 
+#     ?Q obo:IAO_0000417 ?x .     # is qual measured as
+#     ?x obo:IAO_0000004 ?Val .   # has measurement value
+#     ?x obo:AISM_0000404 ?Unit . # aism-has_unit
+#     optional {
+#         ?Unit obo:RO_0000052 ?Unit_loc . # <<
+#         }
+# def sparql_tmpMeasurements(default_world):
+#     query=list(default_world.sparql("""
+#             SELECT ?E0 ?Q ?Val ?x ?Unit ?Unit_loc
+#             WHERE {?E0 obo:RO_0000053 ?Q .
+#                 ?Q obo:IAO_0000417 ?x .
+#                 ?x obo:IAO_0000004 ?Val .
+#                 ?x obo:AISM_0000404 ?Unit .
+#                 optional {
+#                     ?Unit obo:RO_0000052 ?Unit_loc .
+#                     }
+#                 }
+#     """))
+#     return query
+
+
+# obo.RO_0000053 # has_characterristi
+# obo.IAO_0000417 # is qual measured as
+# obo:OBI_0001938 .obi-has_value_specification
+# obo:IAO_0000004 .iao-has_measurement_value
+# obo:IAO_0000039 .iao-has_measurement_unit_label
+
 def sparql_tmpMeasurements(default_world):
     query=list(default_world.sparql("""
-            SELECT ?E0 ?Q ?Val ?x ?Unit ?Unit_loc
-            WHERE {?E0 obo:RO_0000053 ?Q .
-                ?Q obo:IAO_0000417 ?x .
-                ?x obo:IAO_0000004 ?Val .
-                ?x obo:AISM_0000404 ?Unit .
-                optional {
-                    ?Unit obo:RO_0000052 ?Unit_loc .
-                    }
+            SELECT ?E0 ?Q ?Val ?x ?Unit
+            WHERE {
+                    ?E0 obo:RO_0000053 ?Q .
+                    ?Q  obo:IAO_0000417 ?x .
+                    ?x  obo:OBI_0001938 ?scalar_value_specification .
+                    ?scalar_value_specification obo:IAO_0000004 ?Val .
+                    ?scalar_value_specification obo:IAO_0000039 ?Unit .
                 }
     """))
     return query
+
+
+# -----------------------------------------
+# Tmp 1: sparql Relative Mesuarements
+# -----------------------------------------
+
+# obo:RO_0020202 .ro-has_numerator
+# obo:RO_0020203 .ro-has_denominator
+# obo:IAO_0000417 # is qual measured as
+# obo:OBI_0001938 .obi-has_value_specification
+# obo:IAO_0000004 .iao-has_measurement_value
+# obo:RO_0000052 # <<
+# # [{'E0': fore leg:_bc7a84_9-1, 'Q': length:_bc7a84_9-3, 'Val': 5.0, 'x': measurement datum:md-7a7f18, 'Unit': length:_bc7a84_9-7, 'Unit_loc': mid leg:_bc7a84_9-9}]
+
+def sparql_tmpRelativeMeasurements(default_world):
+    query=list(default_world.sparql("""
+            SELECT  ?E1 ?Q1 ?Val ?scalar_measurement_datum ?Q2 ?E2
+            WHERE {
+                    ?Q1 obo:RO_0000052 ?E1 .
+                    ?Q2 obo:RO_0000052 ?E2 .
+                    ?ratio obo:RO_0020202 ?Q1 .
+                    ?ratio obo:RO_0020203 ?Q2 .
+                    ?ratio obo:IAO_0000417 ?scalar_measurement_datum .
+                    ?scalar_measurement_datum obo:OBI_0001938 ?scalar_value_specification .
+                    ?scalar_value_specification obo:IAO_0000004 ?Val .                    
+                }
+    """))
+    return query
+
+# [{'E0': fore leg:_bc7a84_9-1, 'Q': length:_bc7a84_9-3, 'Val': 5.0, 'x': measurement datum:md-7a7f18, 'Unit': length:_bc7a84_9-7, 'Unit_loc': mid leg:_bc7a84_9-9}]
+# def sparql_tmpRelativeMeasurements(default_world):
+#     query=list(default_world.sparql("""
+#             SELECT ?E0 ?Q ?Val ?x ?Unit ?Unit_loc
+#             WHERE {?E0 obo:RO_0000053 ?Q .
+#                 ?Q obo:IAO_0000417 ?x .
+#                 ?x obo:IAO_0000004 ?Val .
+#                 ?x obo:AISM_0000404 ?Unit .
+#                 optional {
+#                     ?Unit obo:RO_0000052 ?Unit_loc .
+#                     }
+#                 }
+#     """))
+#     return query
+
+
+
 
 
 # Structure: dict_templ={"E0":None, "Q":None, "Val":None, "x":None, "Unit":None, "Unit_loc":None}
@@ -88,7 +165,7 @@ def UnitLocToNL(ind):
 def dic_mesuare_ToNLinOWL(dic_mesuare):
     for item in dic_mesuare:
         txt = ", %s = %s, unit: %s%s" % \
-        ( nodeToNL(item['Q']),
+        (nodeToNL(item['Q']),
         item['Val'],
         nodeToNL(item['Unit']),
         UnitLocToNL(item['Unit_loc']) )
@@ -325,15 +402,31 @@ def makeNLGraph_basic(onto):
     add_presentTag_ToNLinOWL(default_world)
 
     # -----------------------------------------
-    # SPARQL:  Absolute and Relative Mesuarements
+    # SPARQL:  Absolute Mesuarements
     # -----------------------------------------
-    print(f"{Fore.BLUE}Adding Absolute and Relative Mesuarements...{Style.RESET_ALL}")
+    print(f"{Fore.BLUE}Adding Absolute Mesuarements...{Style.RESET_ALL}")
     
     # check is meserument entities are present, othervise sparql does not work
-    is_mesure_present = IRIS['http://purl.obolibrary.org/obo/IAO_0000417']
+    # IAO_0000039 .iao-has_measurement_unit_label
+    is_mesure_present = IRIS['http://purl.obolibrary.org/obo/IAO_0000039']
     if bool(is_mesure_present):
         query_tmpMesuare = sparql_tmpMeasurements(default_world)
         dic_mesuare = tmpMeasureToDic(query_tmpMesuare)
+        # dic_mesuare obtained from sparql query to NL in OWL
+        dic_mesuare_ToNLinOWL(dic_mesuare)
+    
+    # -----------------------------------------
+    # SPARQL: Relative Mesuarements
+    #   fore leg for times bigger than hind leg
+    # -----------------------------------------
+    print(f"{Fore.BLUE}Adding Relative Mesuarements...{Style.RESET_ALL}")
+    # check is meserument entities are present, othervise sparql does not work
+    # RO_0020202 .ro-has_numerator
+    is_mesure_present = IRIS['http://purl.obolibrary.org/obo/RO_0020202']
+    if bool(is_mesure_present):
+        query_tmpMesuare = sparql_tmpRelativeMeasurements(default_world)
+        dic_mesuare = tmpMeasureToDic(query_tmpMesuare)
+        #print(dic_mesuare)
         # dic_mesuare obtained from sparql query to NL in OWL
         dic_mesuare_ToNLinOWL(dic_mesuare)
 
