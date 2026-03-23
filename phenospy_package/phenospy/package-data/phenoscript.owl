@@ -338,6 +338,14 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://purl.obolibrary.org/obo/OBI_0001931 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001931">
+        <rdfs:label>scalar value specification</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/TAXRANK_0000000 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/TAXRANK_0000000"/>
@@ -399,14 +407,6 @@ We also have the outstanding issue of how to aim different definitions to differ
 
     <owl:Class rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000022">
         <rdfs:label>OTU Block</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- https://github.com/sergeitarasov/PhenoScript/http://purl.obolibrary.org/obo/OBI_0001931 -->
-
-    <owl:Class rdf:about="https://github.com/sergeitarasov/PhenoScript/http://purl.obolibrary.org/obo/OBI_0001931">
-        <rdfs:label>scalar value specification</rdfs:label>
     </owl:Class>
 </rdf:RDF>
 
