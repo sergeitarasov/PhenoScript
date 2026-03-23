@@ -47,7 +47,8 @@ class snippetInfo:
         self.trimmed_iri = trimmed_iri
         self.label_phs = None
         # fixing defintion
-        self.definition = definition
+        # self.definition = definition
+        self.definition = definition.replace('\\', '\\\\')
         self.definition =  self.definition.replace('\n', '  ')
         self.definition = self.definition.replace('\t', '  ')
         self.definition = self.definition.replace('"', "'")
@@ -109,7 +110,8 @@ class snippetInfo_md:
         self.trimmed_iri = trimmed_iri
         self.label_phs = None
         # fixing defintion
-        self.definition = definition
+        # self.definition = definition
+        self.definition = definition.replace('\\', '\\\\')
         self.definition =  self.definition.replace('\n', '  ')
         self.definition = self.definition.replace('\t', '  ')
         self.definition = self.definition.replace('"', "'")

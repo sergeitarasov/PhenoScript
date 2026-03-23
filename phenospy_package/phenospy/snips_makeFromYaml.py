@@ -254,6 +254,7 @@ def make_vscodeSnips(yaml_file):
 
 
     snips_default = json.dumps(json_default, indent=0)[1:-1]
+    #snips_default = json.dumps(json_default, indent=0, ensure_ascii=False)[1:-1]
     snips_default = snips_default.replace('\n]', ']')
     snips_default = snips_default.replace('[\n', '[')
     #print(snips_default)
@@ -530,6 +531,7 @@ def make_mdSnips(yaml_file):
 
 
     snips_default = json.dumps(json_default, indent=0)[1:-1]
+    # snips_default = json.dumps(json_default, indent=2, ensure_ascii=False)
     snips_default = snips_default.replace('\n]', ']')
     snips_default = snips_default.replace('[\n', '[')
     #print(snips_default)

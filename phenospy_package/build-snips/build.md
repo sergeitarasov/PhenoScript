@@ -2,13 +2,36 @@
 
 ```bash
 # go to dit
-cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+# cd /Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
+cd /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package/phenospy
 # activate
 conda activate PhenoScript
 
 ## run conda env
 /Users/taravser/opt/anaconda3/envs/PhenoScript/bin/python
 ```
+
+# Development mode: code changes are available immediately
+
+Use an editable install instead of building and reinstalling the tarball every time.
+
+```bash
+cd /Users/taravser/Library/CloudStorage/OneDrive-UniversityofHelsinki/My_papers/PhenoScript_main/PhenoScript/phenospy_package
+conda activate PhenoScript
+
+# remove old non-editable install if present
+python -m pip uninstall phenospy
+
+# install package in editable mode
+python -m pip install -e .
+```
+
+After that, changes in `phenospy/*.py` are picked up the next time you run Python or the `phenospy` CLI.
+
+Notes:
+
+- Reinstall with `python -m pip install -e .` if you change `setup.py` dependencies or `console_scripts`.
+- Restart the Python session only if you already imported the module in an interactive shell or notebook.
 
 # Build python in normal mode
 
