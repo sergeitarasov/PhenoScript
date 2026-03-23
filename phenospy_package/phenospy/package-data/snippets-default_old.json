@@ -5,15 +5,15 @@
     "description": "Describes if one structure is bigger or smaller relative to another: Scape is bigger than eye",
     "type": "Tmp"
     },
-    "Tmp-ratioM": {
+    "Tmp-relM": {
     "prefix": ["Tmp relative Measurement"],
-    "body": ["pato-ratio:ra-${RANDOM_HEX/(.*)/$1 .ro-has_numerator 'Q1' << 'E1';\n\tpato-ratio:ra-$1 .ro-has_denominator 'Q2' << 'E2';\n\tpato-ratio:ra-$1/} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification\n\t\tobi-scalar_value_specification .iao-has_measurement_value 'Real';"],
-    "description": "Describes a ratio measurement with numerator and denominator qualities and a scalar value.",
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2' << 'E2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
+    "description": "Describes measurement of one structure relative to another (in some units): Pronotum twice as long as head",
     "type": "Tmp"
     },
-    "Tmp-absM2": {
+    "Tmp-absM": {
     "prefix": ["Tmp absolute Measurement"],
-    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification\n\tobi-scalar_value_specification:md-${RANDOM_HEX/(.*)/$1 .iao-has_measurement_unit_label 'Unit';\n\tobi-scalar_value_specification:md-$1/} .iao-has_measurement_value 'Real';"],
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
     "description": "Describes absolute measurement of a structure in some units: Pronotum length 2mm.",
     "type": "Tmp"
     },
