@@ -463,8 +463,12 @@ def xmlToOwl(tree, owl_file):
 
 
     #-----------------------
-    # Save file
+    # Save owl file
     #-----------------------
     print(f"{Fore.BLUE}Saving owl file: {Style.RESET_ALL}", owl_file)
     onto.save(file = owl_file, format = "rdfxml")
     print(f"{Fore.GREEN}Done!{Style.RESET_ALL}")
+    #
+    #
+
+    
