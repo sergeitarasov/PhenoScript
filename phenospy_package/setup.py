@@ -13,6 +13,7 @@ setup(
                       'colorama',
                       'markdown',
                       'requests',
+                      'rdflib',
                       'pyparsing==2.4.2'],
     include_package_data=True,
     url='https://github.com/sergeitarasov/PhenoScript',
