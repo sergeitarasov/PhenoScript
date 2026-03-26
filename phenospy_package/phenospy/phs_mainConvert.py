@@ -16,14 +16,14 @@ from phenospy.snips_readFromJSON import *
 # Converts phs file to owl
 # -----------------------------------------
 
-def phsToOWL(phs_file, yaml_file, save_dir, save_pref, keep_raw=False):
+def phsToOWL(phs_file, yaml_file, save_dir, save_pref, keep_raw=False, enrich_gbif=False):
     #
     xml_save = os.path.join(save_dir, save_pref + '.xml')
     owl_save = os.path.join(save_dir, save_pref + '_raw.owl')
     # ----------------------------------------
     # Parse phs file
     # -----------------------------------------
-    out = parsePHS(phs_file)
+    out = parsePHS(phs_file, enrich_gbif)
     # -----------------------------------------
     # phs to XML
     # -----------------------------------------

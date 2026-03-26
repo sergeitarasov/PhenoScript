@@ -1,0 +1,92 @@
+templates:
+  specimen:
+    required:
+      - specimen.id
+      - specimen..rdfs-label
+      - specimen..is_a
+      #- specimen..dwc-Taxon_ID
+
+    generated_ids:
+      taxon_id:
+        prefix: "yml-"
+        length: 6
+        charset: "hex"
+
+    vars:
+      specimen_subject: "{{ specimen['.is_a'][0] }}:{{ specimen['id'] }}"
+      taxon_subject: "taxrank-species:{{ taxon_id }}"
+      org_label: "_ORG_{{ specimen['.rdfs-label'] }}"
+      taxrank_label: "tax_{{ specimen['.rdfs-label'] }}"
+
+    lines:
+      - "{{ specimen_subject }}[this = True, linksTraits = True{% for cls in specimen['.is_a'][1:] %}, cls = '{{ cls }}'{% endfor %}] .rdfs-label '{{ org_label }}';"
+
+      - if: "specimen..dwc-Catalog_Number"
+        for_each: "specimen..dwc-Catalog_Number"
+        template: "{{ specimen_subject }} .dwc-Catalog_Number {{ quote_mixed(item) }};"
+
+      - "{{ specimen_subject }} .ro-has_role_in_modeling cdao-TU .iao-denotes {{ taxon_subject }};"
+
+      - if: specimen..dwc-Taxon_ID
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ specimen['.dwc-Taxon_ID'] }}';"
+
+      - if: "specimen..dwc-Parent_Name_Usage_ID"
+        template: "{{ taxon_subject }} .dwc-Parent_Name_Usage_ID '{{ specimen['.dwc-Parent_Name_Usage_ID'] }}';"
+
+      - if: "specimen..ott_id"
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ specimen['.ott_id'] }}';"
+
+      - if: "specimen..gbif_id"
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ specimen['.gbif_id'] }}';"
+
+      - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
+
+
+
+
+  absolute_measurement:
+    required:
+      - absolute_measurement.measured_entity
+      - absolute_measurement.measured_quality
+      - absolute_measurement.value
+      - absolute_measurement.unit
+
+    generated_ids:
+      value_spec_id:
+        prefix: "id-"
+        length: 6
+        charset: "hex"
+
+    vars:
+      value_spec_subject: "obi-scalar_value_specification:{{ value_spec_id }}"
+
+    lines:
+      - "{{ absolute_measurement['measured_entity'] }} >> {{ absolute_measurement['measured_quality'] }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification {{ value_spec_subject }} .iao-has_measurement_value {{ absolute_measurement['value'] }};"
+      - "{{ value_spec_subject }} .iao-has_measurement_unit_label {{ absolute_measurement['unit'] }};"
+
+
+
+
+
+  relative_measurement:
+    required:
+      - relative_measurement.measured_trait.entity
+      - relative_measurement.measured_trait.quality
+      - relative_measurement.unit.entity
+      - relative_measurement.unit.quality
+
+    generated_ids:
+      ratio_id:
+        prefix: "ra-"
+        length: 6
+        charset: "hex"
+
+    vars:
+      ratio_subject: "pato-ratio:{{ ratio_id }}"
+
+    lines:
+      - "{{ ratio_subject }} .ro-has_numerator {{ relative_measurement['measured_trait']['quality'] }} << {{ relative_measurement['measured_trait']['entity'] }};"
+      - "{{ ratio_subject }} .ro-has_denominator {{ relative_measurement['unit']['quality'] }} << {{ relative_measurement['unit']['entity'] }};"
+
+      - if: "relative_measurement.value"
+        template: "{{ ratio_subject }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification obi-scalar_value_specification .iao-has_measurement_value {{ relative_measurement['value'] }};"

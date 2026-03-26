@@ -296,7 +296,11 @@ def xmlToOwl(tree, owl_file):
                     exec('N1.%s.append(anyURI(N2))' % Ed.name)
                     phs_original_assertion[N1, Ed, anyURI(N2)] = True
                 else:
-                    exec('N1.%s.append(N2)' % Ed.name)
+                    # !!! GPT suggested a new way getattr() to make triples without exec()
+                    # Seems like working but needs testing
+                    #-----------
+                    #exec('N1.%s.append(N2)' % Ed.name)
+                    getattr(N1, Ed.name).append(N2)
                     phs_original_assertion[N1, Ed, N2] = True
                 #
             else:

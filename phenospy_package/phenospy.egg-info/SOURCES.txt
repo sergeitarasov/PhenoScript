@@ -4,6 +4,7 @@ README.md
 setup.py
 phenospy/__init__.py
 phenospy/cli.py
+phenospy/gbif_enrich.py
 phenospy/nl_fun.py
 phenospy/nl_owlToMd.py
 phenospy/nl_owlToMd_fun.py
@@ -23,6 +24,7 @@ phenospy/snips_makeFromYaml.py
 phenospy/snips_readFromJSON.py
 phenospy/utils.py
 phenospy/xml_recodeThis.py
+phenospy/yphs.py
 phenospy.egg-info/PKG-INFO
 phenospy.egg-info/SOURCES.txt
 phenospy.egg-info/dependency_links.txt
@@ -33,5 +35,5 @@ phenospy/package-data/.DS_Store
 phenospy/package-data/phenoscript.obda
 phenospy/package-data/phenoscript.owl
 phenospy/package-data/phenoscript.properties
-phenospy/package-data/phs-config.yaml
 phenospy/package-data/snippets-default.json
+phenospy/package-data/snippets-default_old.json

@@ -7,3 +7,4 @@ from .snips_makeFromYaml import make_vscodeSnips, make_mdSnips
 from .snips_fun import printUniqueIRIs
 from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
 from .utils import download_ontologies_from_yaml
+from .gbif_enrich import enrich_phs_text_with_gbif, enrich_phs_file_with_gbif

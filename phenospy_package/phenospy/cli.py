@@ -3,6 +3,9 @@ from .utils import download_ontologies_from_yaml, print_phenoscript_extensions, 
 from .snips_makeFromYaml import make_vscodeSnips, make_mdSnips
 from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
 from .snips_fun import get_phenospyPath
+from .yphs import render_yphs_file
+from .gbif_enrich import gbif_enrich_cli
+
 import argparse
 import os
 import warnings
@@ -91,7 +94,7 @@ def owl2text(args):
 
 
 def phs2owl(args):
-    print("Executing phs2owl ... ")
+    print(f"{Fore.BLUE}Executing phs2owl ...{Style.RESET_ALL}")
     # Split the path into directory and filename
     directory, filename = os.path.split(args.output_base)
     # Handle case when no directory is provided (e.g., "file_out")
@@ -112,8 +115,56 @@ def phs2owl(args):
         yaml_file,
         save_dir,
         save_pref,
-        keep_raw=args.keep_raw
+        keep_raw=args.keep_raw,
+        enrich_gbif=args.enrich_gbif
     )
+
+
+def yphs2owl(args):
+    print(f"{Fore.BLUE}Executing yphs2owl ...{Style.RESET_ALL}")
+    # Inputs
+    # Remeber (for now) phs config-yaml and snippets.json must be in the same dir
+    save_dir_owl, filename_owl = os.path.split(args.output_base)
+    if save_dir_owl == "":
+        save_dir_owl = "."
+    os.makedirs(save_dir_owl, exist_ok=True)
+
+    dir_yphs, file_yphs = os.path.split(args.yphs_file)
+    name_yphs, ext_yphs = os.path.splitext(file_yphs)
+    dir_intermediate_phs = dir_yphs
+    if dir_intermediate_phs == "":
+        dir_intermediate_phs = "."
+    path_intermediate_phs = os.path.join(dir_intermediate_phs, f"{name_yphs}-yphs_inter.phs")
+    #
+    yaml_config_file = args.yaml_file
+    # Built-in YAML template file for YPHS -> PHS rendering
+    yaml_templates_file = os.path.join(get_phenospyPath(), "package-data", "yaml_temp", "phs_templates.yaml")
+    # -----------------------------------------
+    # yphs -> phs
+    # -----------------------------------------
+    render_yphs_file(
+        input_path=args.yphs_file,
+        template_path=yaml_templates_file,
+        output_path=path_intermediate_phs,
+    )
+    # -----------------------------------------
+    # phs -> OWL
+    # -----------------------------------------
+    phsToOWL(
+        path_intermediate_phs,
+        yaml_config_file,
+        save_dir_owl,
+        filename_owl,
+        keep_raw=args.keep_raw,
+        enrich_gbif=args.enrich_gbif
+    )
+    # -----------------------------------------
+    # Cleanup intermediate .phs unless requested
+    # -----------------------------------------
+    if not args.keep_phs:
+        if os.path.exists(path_intermediate_phs):
+            os.remove(path_intermediate_phs)
+
 
 
 
@@ -149,7 +200,7 @@ def main():
     # -----------------------------------------
     parser_command1 = subparsers.add_parser(
         "phs2owl",
-        help="Convert PHS file to OWL.",
+        help="Convert .phs file to OWL.",
         description=(
             "Convert a .phs file to OWL.\n\n"
             "Note:\n"
@@ -166,7 +217,7 @@ def main():
     )
     parser_command1.add_argument(
         "output_base",
-        help="Base name for output files; tree output files might be produced (xml, _raw.owl, owl)."
+        help="Base name for output files; three output files might be produced (xml, _raw.owl, owl)."
     )
     # YAML config (short + long)
     parser_command1.add_argument(
@@ -180,7 +231,12 @@ def main():
     parser_command1.add_argument(
         "-k", "--keep-raw",
         action="store_true",
-        help="Keep the intermediate raw OWL file (_raw.owl). Default: deleted."
+        help="Keep the intermediate raw OWL file (_raw.owl) generated before sparql unpdate. Default: deleted."
+    )
+    parser_command1.add_argument(
+        "-g", "--enrich-gbif",
+        action="store_true",
+        help="Enrich Phenoscript file with GBIF taxonomy. Default: disabled."
     )
     # Examples
     parser_command1.epilog = (
@@ -194,18 +250,70 @@ def main():
         phenospy phs2owl input.phs file_out -y configs/my.yaml -k
         """
     )
+
+    # -----------------------------------------
+    # yphs2owl
+    # -----------------------------------------
+    parser_yphs2owl = subparsers.add_parser(
+    "yphs2owl",
+    help="Convert a .yphs file to OWL.",
+    description=(
+        "Convert a .yphs file to OWL.\n\n"
+        "Note:\n"
+        "  This command requires four inputs:\n"
+        "    1. .yphs file (provided as argument)\n"
+        "    2. output_base (provided as argument)\n"
+        "    3. YAML config file (provided or default: phs-config.yaml)\n"
+        "    4. phs-snippets.json (path must be specified inside the YAML config)"
+    ),
+    formatter_class=argparse.RawTextHelpFormatter,)
+
+    parser_yphs2owl.add_argument(
+        "yphs_file",
+        help="Input yphs file.",
+    )
+
+    parser_yphs2owl.add_argument(
+        "output_base",
+        help="Base name for output files; three output files might be produced (xml, _raw.owl, owl).",
+    )
+
+    parser_yphs2owl.add_argument(
+        "-y", "--yaml",
+        dest="yaml_file",
+        default="phs-config.yaml",
+        metavar="FILE",
+        help="Path to YAML configuration file (default: phs-config.yaml).",
+    )
+
+    parser_yphs2owl.add_argument(
+        "-k", "--keep-raw",
+        action="store_true",
+        help="Keep the intermediate raw OWL file (_raw.owl). Default: deleted.",
+    )
+
+    parser_yphs2owl.add_argument(
+        "-P", "--keep-phs",
+        action="store_true",
+        help="Keep the intermediate phs file (-yphs_inter.phs). Default: deleted.",
+    )
+
+    #parser_yphs2owl.set_defaults(func=yphs2owl)
+    parser_yphs2owl.epilog = (
+        """Examples:
+        phenospy yphs2owl input.phs file_out
+        phenospy yphs2owl input.phs file_out -k -P
+        """
+    )
+    parser_yphs2owl.add_argument(
+        "-g", "--enrich-gbif",
+        action="store_true",
+        help="Enrich Phenoscript file with GBIF taxonomy. Default: disabled."
+    )
     
     # -----------------------------------------
     # owl2text
     # -----------------------------------------
-    # parser_command2 = subparsers.add_parser("owl2text", help="Convert OWL file to Markdown or HTML.")
-    # parser_command2.add_argument("-f", "--format", choices=["md", "html"], help="Output format: Markdown or HTML.")
-    # parser_command2.add_argument("-s", "--search", help="OTU label search pattern.")
-    # parser_command2.add_argument("-o", "--owl_file", help="Input OWL file.")
-    # parser_command2.add_argument("-d", "--save_dir", help="Output directory.")
-    # parser_command2.epilog = "Examples:\n" \
-    #     "phenospy owl2text -f 'html' -s 'org_*' -o grebennikovius.owl -d NL\n"
-
     parser_command2 = subparsers.add_parser(
     "owl2text",
     help="Convert an OWL file to Markdown or HTML.",
@@ -262,11 +370,54 @@ def main():
     parser_command3.epilog = "Examples:\n" \
         "phenospy fetch-ontos 'phs-config.yaml' '/source_ontologies'\n"
     
+    # -----------------------------------------
+    # gbif enrcih taxonomy
+    # -----------------------------------------
+    parser_gbif_enrich = subparsers.add_parser(
+        "gbif-enrich",
+        help="Enrich a .phs file with taxonomy from GBIF.",
+        description=(
+            "Read a .phs file, find GBIF taxon identifiers in "
+            ".dwc-Taxon_ID_taxonID lines, query GBIF, and insert "
+            "missing taxonomy such as scientific name, genus, family, "
+            "order, class, phylum, and kingdom."
+        ),
+        epilog="""
+            Examples:
+            phenospy gbif-enrich input.phs output_enriched.phs
+            phenospy gbif-enrich input.phs output.phs --timeout 10
+            phenospy gbif-enrich input.phs output.phs --no-blank-line
+            """,
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    parser_gbif_enrich.add_argument(
+        "phs_file",
+        help="Input .phs file.",
+    )
+    parser_gbif_enrich.add_argument(
+        "output_file",
+        help="Output enriched .phs file.",
+    )
+    parser_gbif_enrich.add_argument(
+        "--timeout",
+        type=int,
+        default=20,
+        help="HTTP timeout for GBIF requests in seconds (default: 20).",
+    )
+    parser_gbif_enrich.add_argument(
+        "--no-blank-line",
+        action="store_true",
+        help="Do not insert a blank line after added taxonomy lines.",
+    )
+    #parser_gbif_enrich.set_defaults(func=gbif_enrich_cli)
+    
     args = parser.parse_args()
     if args.command == "owl2text":
         owl2text(args)
     elif args.command == "phs2owl":
         phs2owl(args)
+    elif args.command == "yphs2owl":
+        yphs2owl(args)
     elif args.command == "fetch-ontos":
         download_ontologies_from_yaml(args.yaml_file, args.output_dir)
     elif args.command == "make-snips":
@@ -275,6 +426,8 @@ def main():
         make_mdSnips(args.yaml_file)
     elif args.command == "get-vsc":
         print_phenoscript_extensions()
+    elif args.command == "gbif-enrich":
+        gbif_enrich_cli(args)
     else:
         parser.print_help()
 

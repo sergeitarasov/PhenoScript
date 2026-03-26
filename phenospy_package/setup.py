@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='phenospy',
-    version='0.250',
+    version='0.25.0',
     packages=find_packages(exclude=['tests*', 'devel*', 'build*']),
     license='MIT',
     description='Tools for making and processing computable phenotypes',
@@ -14,6 +14,7 @@ setup(
                       'markdown',
                       'requests',
                       'rdflib',
+                      'jinja2',
                       'pyparsing==2.4.2'],
     include_package_data=True,
     url='https://github.com/sergeitarasov/PhenoScript',

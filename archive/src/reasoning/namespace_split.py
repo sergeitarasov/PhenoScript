@@ -7,7 +7,7 @@ from namespace_functions import *
 # Arguments
 # -----------------------------------------
 
-yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/src/reasoning/phs-config.yaml'
+# yaml_file = '/Users/taravser/Documents/My_papers/PhenoScript_main/PhenoScript/src/reasoning/phs-config.yaml'
 
 # -----------------------------------------
 # Read configuration yaml

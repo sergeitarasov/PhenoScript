@@ -12,6 +12,8 @@ from colorama import init as colorama_init
 colorama_init()
 
 from phenospy.phs_parser_fun import *
+from phenospy.gbif_enrich import enrich_phs_text_with_gbif
+
 from pyparsing import *
 from pyparsing import pyparsing_common as ppc
 
@@ -132,10 +134,14 @@ pyComment = pythonStyleComment
 grammar1.ignore(pyComment)
 
 # Parse phs string
-def parsePHS(file_phs):
+def parsePHS(file_phs, enrich_gbif: bool = False):
     print(f"{Fore.BLUE}Reading Phenoscript file:{Style.RESET_ALL}", file_phs)
     txt = Path(file_phs).read_text()
     print(f"{Fore.GREEN}Good! File is read!{Style.RESET_ALL}")
+    # Optional GBIF taxonomy enrichment
+    if enrich_gbif:
+        print(f"{Fore.BLUE}Enriching with GBIF taxonomy...{Style.RESET_ALL}")
+        txt = enrich_phs_text_with_gbif(txt)
     # check if brackets are balanced
     is_balanced(txt)
     # Parse
