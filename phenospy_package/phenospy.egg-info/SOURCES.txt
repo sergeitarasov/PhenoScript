@@ -37,3 +37,6 @@ phenospy/package-data/phenoscript.owl
 phenospy/package-data/phenoscript.properties
 phenospy/package-data/snippets-default.json
 phenospy/package-data/snippets-default_old.json
+phenospy/package-data/sparql-update/update-owl-core.ru
+phenospy/package-data/sparql-update/update-owl-nl.ru
+phenospy/package-data/yaml_temp/phs_templates.yaml

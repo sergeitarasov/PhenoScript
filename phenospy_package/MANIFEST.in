@@ -1,1 +1,1 @@
-include phenospy/package-data/*
+recursive-include phenospy/package-data *
