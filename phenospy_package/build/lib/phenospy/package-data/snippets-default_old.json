@@ -1,0 +1,203 @@
+{
+    "Tmp-relComp": {
+    "prefix": ["Tmp relative Comparison"],
+    "body": ["'E1' >> 'Q1' ${1|\\|>\\|,\\|<\\||} 'Q2' << 'E2';"],
+    "description": "Describes if one structure is bigger or smaller relative to another: Scape is bigger than eye",
+    "type": "Tmp"
+    },
+    "Tmp-relM": {
+    "prefix": ["Tmp relative Measurement"],
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2' << 'E2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
+    "description": "Describes measurement of one structure relative to another (in some units): Pronotum twice as long as head",
+    "type": "Tmp"
+    },
+    "Tmp-absM": {
+    "prefix": ["Tmp absolute Measurement"],
+    "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-measurement_datum:md-${RANDOM_HEX/(.*)/$1 .aism-has_unit 'Q2';\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tiao-measurement_datum:md-$1/} .iao-has_measurement_value 'Real';"],
+    "description": "Describes absolute measurement of a structure in some units: Pronotum length 2mm.",
+    "type": "Tmp"
+    },
+    "Tmp-OTU": {
+    "prefix": ["Tmp insert OTU"],
+    "body": ["OTU = { #// OTUName:  Addd OTU/SPECIES NAME HERE\n\t\n\tDATA = {$1}\n\t\n\tTRAITS = {}\n\n}"],
+    "description": "Inserts OTU block",
+    "type": "Tmp"
+    },
+    "Tmp-tag": {
+    "prefix": ["id tag"],
+    "body": ["id-${RANDOM_HEX}"],
+    "description": "Inserts id tag for an individual: head:id-78a0f8",
+    "type": "Tmp"
+    },
+    "Tmp-com": {
+    "prefix": ["Tmp colorful comment"],
+    "body": ["#/ "],
+    "description": "Inserts colorful comment",
+    "type": "Tmp"
+    },
+    "Tmp-comFIXIT": {
+    "prefix": ["Tmp FIXIT comment"],
+    "body": ["#// FIXIT: "],
+    "description": "Inserts FIXIT comment",
+    "type": "Tmp"
+    },
+    "Tmp-comRES": {
+    "prefix": ["Tmp RES comment"],
+    "body": ["#// RES: "],
+    "description": "Inserts RES comment",
+    "type": "Tmp"
+    },
+    "(OP alias) bfo-0000051": {
+    "prefix": ["> (.has_part)"],
+    "body": [" > "],
+    "description": "(OP) obo.BFO_0000051: a core relation that holds between a whole and its part",
+    "iri": "http://purl.obolibrary.org/obo/BFO_0000051",
+    "label_4_translation": ["_g_"],
+    "label_original": "has part",
+    "type": "OP"
+    },   
+    "(OP alias) bfo-0000050": {
+    "prefix": ["< (.part_of)"],
+    "body": [" < "],
+    "description": "(OP) obo.BFO_0000050: a core relation that holds between a part and its whole",
+    "iri": "http://purl.obolibrary.org/obo/BFO_0000050",
+    "label_4_translation": ["_l_"],
+    "label_original": "part of",
+    "type": "OP"
+    },
+    "(OP alias) ro-0000053": {
+    "prefix": [">> (.has_characteristic)", ">> (.bearer_of)"],
+    "body": [" >> "],
+    "description": "(OP) obo.RO_0000053: Inverse of characteristic_of; former label: bearer_of",
+    "iri": "http://purl.obolibrary.org/obo/RO_0000053",
+    "label_4_translation": ["_gg_"],
+    "label_original": "has characteristic",
+    "type": "OP"
+    },
+    "(OP alias) ro-0000052": {
+    "prefix": ["<< (.characteristic_of)", "<< (.inheres_in)"],
+    "body": [" << "],
+    "description": "(OP) obo.RO_0000052: a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence.",
+    "iri": "http://purl.obolibrary.org/obo/RO_0000052",
+    "label_4_translation": ["_ll_"],
+    "label_original": "characteristic of",
+    "type": "OP"
+    },
+    "(OP alias) ro-0015007": {
+    "prefix": ["|>| (.increased_in_magnitude_relative_to)"],
+    "body": [" |>| "],
+    "description": "(OP) obo.RO_0015007: q1 increased_in_magnitude_relative_to q2 if and only if magnitude(q1) > magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.",
+    "iri": "http://purl.obolibrary.org/obo/RO_0015007",
+    "label_4_translation": ["_vgv_"],
+    "label_original": "increased in magnitude relative to",
+    "type": "OP"
+    },
+    "(OP alias) ro-0015008": {
+    "prefix": ["|<| (.decreased_in_magnitude_relative_to)"],
+    "body": [" |<| "],
+    "description": "(OP) obo.RO_0015008: q1 decreased_in_magnitude_relative_to q2 if and only if magnitude(q1) < magnitude(q2). Here, magnitude(q) is a function that maps a quality to a unit-invariant scale.",
+    "iri": "http://purl.obolibrary.org/obo/RO_0015008",
+    "label_4_translation": ["_vlv_"],
+    "label_original": "decreased in magnitude relative to",
+    "type": "OP"
+    },
+    "(DP alias) PHS_0000016": {
+    "prefix": ["|=| (.has_element_count)"],
+    "body": ["="],
+    "description": "(DP) PHS_0000016: counts anatomical structures",
+    "iri": "https://github.com/sergeitarasov/PhenoScript/PHS_0000016",
+    "label_4_translation": ["_vev_"],
+    "label_original": "has element count",
+    "type": "DP"
+    },
+    "(OP alias) aism-0000078": {
+    "prefix": ["-> (.encircles)"],
+    "body": [" -> "],
+    "description": "(OP) obo.AISM_0000078: x encircles y if both x and y are regions of the 2D structure z, or 2D cross-sections of a 3D object z, and the boundary of y on z is exclusively continuous with x.",
+    "iri": "http://purl.obolibrary.org/obo/AISM_0000078",
+    "label_4_translation": ["_hg_"],
+    "label_original": "encircles",
+    "type": "OP"
+    },
+    "(OP alias) aism-0000079": {
+    "prefix": ["<- (.encircled_by)"],
+    "body": [" <- "],
+    "description": "(OP) obo.AISM_0000079: y is encircled by x if both x and y are regions of the 2D structure z, or 2D cross-sections of a 3D object z, and the boundary of y on z is exclusively continuous with y.",
+    "iri": "http://purl.obolibrary.org/obo/AISM_0000079",
+    "label_4_translation": ["_gh_"],
+    "label_original": "encircled by",
+    "type": "OP"
+    },
+    "(KeyWord) linksTraits": {
+    "prefix": ["linksTraits"],
+    "body": ["linksTraits = True"],
+    "description": "All entities in TRAITS scope will be linked with this node",
+    "iri": "KeyWord:linksTraits",
+    "label_4_translation": ["linksTraits"],
+    "label_original": "linksTraits",
+    "type": "KeyWord"
+    },
+    "(KeyWord) this": {
+    "prefix": ["this"],
+    "body": ["this = True"],
+    "description": "Serves as alias within its OTU scope",
+    "iri": "KeyWord:this",
+    "label_4_translation": ["this"],
+    "label_original": "this",
+    "type": "KeyWord"
+    },
+    "(KeyWord) cls": {
+    "prefix": ["cls"],
+    "body": ["cls = "],
+    "description": "Assigns the node to additional class",
+    "iri": "KeyWord:cls",
+    "label_4_translation": ["cls"],
+    "label_original": "cls",
+    "type": "KeyWord"
+    },
+    "(KeyWord) True": {
+    "prefix": ["True"],
+    "body": ["True"],
+    "description": "Boolean True operator",
+    "iri": "KeyWord:True",
+    "label_4_translation": ["True"],
+    "label_original": "True",
+    "type": "KeyWord"
+    },
+    "(KeyWord) False": {
+    "prefix": ["False"],
+    "body": ["False"],
+    "description": "Boolean False operator",
+    "iri": "KeyWord:False",
+    "label_4_translation": ["False"],
+    "label_original": "False",
+    "type": "KeyWord"
+    },
+    "(KeyWord) exclude": {
+    "prefix": ["exclude"],
+    "body": ["exclude = True"],
+    "description": "exclude an individual from linking with the DATA scope",
+    "iri": "KeyWord:exclude",
+    "label_4_translation": ["exclude"],
+    "label_original": "exclude",
+    "type": "KeyWord"
+    },
+    "(C phs) owl-Nothing": {
+    "prefix": ["owl-Nothing"],
+    "body": ["owl-Nothing"],
+    "description": "(C): ",
+    "iri": "http://www.w3.org/2002/07/owl#Nothing",
+    "label_4_translation": ["owl-Nothing"],
+    "label_original": "Nothing",
+    "type": "C"
+    },
+    "(C phs) owl-Thing": {
+    "prefix": ["owl-Thing"],
+    "body": ["owl-Thing"],
+    "description": "(C): ",
+    "iri": "http://www.w3.org/2002/07/owl#Thing",
+    "label_4_translation": ["owl-Thing"],
+    "label_original": "Thing",
+    "type": "C"
+    }
+}

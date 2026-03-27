@@ -1,8 +1,0 @@
-Owlready2
-PyYAML
-colorama
-markdown
-requests
-rdflib
-jinja2
-pyparsing==2.4.2

@@ -1,10 +1,10 @@
-from .phs_mainConvert import phsToOWL
-from .utils import download_ontologies_from_yaml, print_phenoscript_extensions, save_to_file
-from .snips_makeFromYaml import make_vscodeSnips, make_mdSnips
-from .nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
-from .snips_fun import get_phenospyPath
-from .yphs import render_yphs_file
-from .gbif_enrich import gbif_enrich_cli
+from phenospy.phs_mainConvert import phsToOWL
+from phenospy.utils import download_ontologies_from_yaml, print_phenoscript_extensions, save_to_file
+from phenospy.snips_makeFromYaml import make_vscodeSnips, make_mdSnips
+from phenospy.nl_owlToMd_fun import owlToNLgraph, NLgraphToMarkdown
+from phenospy.snips_fun import get_phenospyPath
+from phenospy.yphs import render_yphs_file
+from phenospy.gbif_enrich import gbif_enrich_cli
 
 import argparse
 import os
@@ -430,6 +430,10 @@ def main():
         gbif_enrich_cli(args)
     else:
         parser.print_help()
+
+
+
+
 
 if __name__ == "__main__":
     main()
