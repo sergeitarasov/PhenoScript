@@ -105,7 +105,7 @@ def xmlTranslateTerms(root, snipsDic):
 
   if toExit == True:
     print(f"{Fore.RED}Warning! Fix untralstated items and re-run.{Style.RESET_ALL}")
-    exit()
+    sys.exit(1)
 
 
 

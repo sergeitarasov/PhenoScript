@@ -47,11 +47,11 @@ iris = [i[2] for i in nmp_store]
 dupl = set([x for x in prefs if prefs.count(x) > 1])
 if len(dupl)>0:
     print(f"{Fore.RED}Warning! Yaml contains  duplicated namespace prefixes. Fix it!{Style.RESET_ALL}")
-    exit()
+    sys.exit(1)
 dupl = set([x for x in iris if iris.count(x) > 1])
 if len(dupl)>0:
     print(f"{Fore.RED}Warning! Yaml contains  duplicated namespace IRIs. Fix it!{Style.RESET_ALL}")
-    exit()
+    sys.exit(1)
 
 # -----------------------------------------
 # Processing ontologies
@@ -183,7 +183,7 @@ if len(iris_phs) == len(set(iris_phs)):
     print(f"\t{Fore.GREEN}Number of unique snippet IRIs is:{Style.RESET_ALL}", len(iris_phs))
 else:
     print(f"\t{Fore.GREEN}Warning! The snippet IRIs contain duplicates! Fix it!\n{Style.RESET_ALL}")
-    exit()
+    sys.exit(1)
 
 # -----------------------------------------
 # Duplicated snippet labels

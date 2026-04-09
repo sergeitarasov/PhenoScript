@@ -20,7 +20,7 @@ def make_Class(onto, iri, label):
         new_term.label = label
         if (new_term.iri != iri):
             print(f"{Fore.RED}Error: cannot set new class iri.{Style.RESET_ALL}")
-            exit()
+            sys.exit(1)
 
 def make_ObjectProperty(onto, iri, label):
      # check existence
@@ -32,7 +32,7 @@ def make_ObjectProperty(onto, iri, label):
         new_term.label = label
         if (new_term.iri != iri):
             print(f"{Fore.RED}Error: cannot set new class iri.{Style.RESET_ALL}")
-            exit()
+            sys.exit(1)
 
 def make_DataProperty(onto, iri, label):
     # check existence
@@ -44,7 +44,7 @@ def make_DataProperty(onto, iri, label):
         new_dp.label = label
         if (new_dp.iri != iri):
             print(f"{Fore.RED}Error: cannot set new class iri.{Style.RESET_ALL}")
-            exit()
+            sys.exit(1)
 
 def make_AnnotationProperty(onto, iri, label):
     # check existence
@@ -56,7 +56,7 @@ def make_AnnotationProperty(onto, iri, label):
         new_ap.label = label
         if (new_ap.iri != iri):
             print(f"{Fore.RED}Error: cannot set new class iri.{Style.RESET_ALL}")
-            exit()
+            sys.exit(1)
 
 
 # - get classes

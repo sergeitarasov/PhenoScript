@@ -176,7 +176,7 @@ class phsQuotedNode:
         if (self.triple_pos != 3):
             print(f"{Fore.RED}Error: a quoted node should be at triple position 3.{Style.RESET_ALL}")
             print(f"{Fore.RED}\tsome quoted node is at:{Style.RESET_ALL}", self.triple_pos)
-            exit()
+            sys.exit(1)
 
     def updateTriplePos(self, value):
         self.triple_pos = value
