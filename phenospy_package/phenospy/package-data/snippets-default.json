@@ -19,13 +19,13 @@
     },
     "Tmp-absM-yaml": {
     "prefix": ["Tmp: Absolute Measurement"],
-    "body": ["#>>>YAML absolute_measurement\nabsolute_measurement:\n    measured_entity: 'E'\n    measured_quality: 'Q'\n    value: 'Val'\n    unit: 'Unit'\n#<<<YAML"],
+    "body": ["#>>>YAML absolute_measurement\nabsolute_measurement:\n    .measured_entity: 'E'\n    .measured_quality: 'Q'\n    .value: 'Val'\n    .unit: 'Unit'\n#<<<YAML"],
     "description": "Inserts a YAML absolute measurement block with entity, quality, value, and unit.",
     "type": "Tmp"
     },
     "Tmp-relM-yaml": {
     "prefix": ["Tmp: Relative Measurement"],
-    "body": ["#>>>YAML relative_measurement\nrelative_measurement:\n  measured_trait:\n    entity: 'E1'\n    quality: 'Q1'\n  unit:\n    entity: 'E2'\n    quality: 'Q2'\n  value: 'Val'\n#<<<YAML"],
+    "body": ["#>>>YAML relative_measurement\nrelative_measurement:\n  .measured_trait:\n    .entity: 'E1'\n    .quality: 'Q1'\n  .unit:\n    .entity: 'E2'\n    .quality: 'Q2'\n  .value: 'Val'\n#<<<YAML"],
     "description": "Inserts a YAML relative measurement block comparing two traits.",
     "type": "Tmp"
     },

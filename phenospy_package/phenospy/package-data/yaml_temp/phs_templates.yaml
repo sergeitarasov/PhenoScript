@@ -116,11 +116,11 @@ templates:
       - if: new_species..dwc-Taxon_ID
         template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ new_species['.dwc-Taxon_ID'] }}';"
 
+      - if: "new_species..zoobank_id"
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ new_species['.zoobank_id'] }}';"
+      
       - if: "new_species..dwc-Parent_Name_Usage_ID"
         template: "{{ taxon_subject }} .dwc-Parent_Name_Usage_ID '{{ new_species['.dwc-Parent_Name_Usage_ID'] }}';"
-
-      - if: "new_species..zoobank_id"
-        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ new_species['.gbif_id'] }}';"
 
       - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
 
@@ -129,10 +129,10 @@ templates:
 
   absolute_measurement:
     required:
-      - absolute_measurement.measured_entity
-      - absolute_measurement.measured_quality
-      - absolute_measurement.value
-      - absolute_measurement.unit
+      - absolute_measurement..measured_entity
+      - absolute_measurement..measured_quality
+      - absolute_measurement..value
+      - absolute_measurement..unit
 
     generated_ids:
       value_spec_id:
@@ -144,8 +144,8 @@ templates:
       value_spec_subject: "obi-scalar_value_specification:{{ value_spec_id }}"
 
     lines:
-      - "{{ absolute_measurement['measured_entity'] }} >> {{ absolute_measurement['measured_quality'] }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification {{ value_spec_subject }} .iao-has_measurement_value {{ absolute_measurement['value'] }};"
-      - "{{ value_spec_subject }} .iao-has_measurement_unit_label {{ absolute_measurement['unit'] }};"
+      - "{{ absolute_measurement['.measured_entity'] }} >> {{ absolute_measurement['.measured_quality'] }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification {{ value_spec_subject }} .iao-has_measurement_value {{ absolute_measurement['.value'] }};"
+      - "{{ value_spec_subject }} .iao-has_measurement_unit_label {{ absolute_measurement['.unit'] }};"
 
 
 
@@ -153,10 +153,10 @@ templates:
 
   relative_measurement:
     required:
-      - relative_measurement.measured_trait.entity
-      - relative_measurement.measured_trait.quality
-      - relative_measurement.unit.entity
-      - relative_measurement.unit.quality
+      - relative_measurement..measured_trait..entity
+      - relative_measurement..measured_trait..quality
+      - relative_measurement..unit..entity
+      - relative_measurement..unit..quality
 
     generated_ids:
       ratio_id:
@@ -168,8 +168,8 @@ templates:
       ratio_subject: "pato-ratio:{{ ratio_id }}"
 
     lines:
-      - "{{ ratio_subject }} .ro-has_numerator {{ relative_measurement['measured_trait']['quality'] }} << {{ relative_measurement['measured_trait']['entity'] }};"
-      - "{{ ratio_subject }} .ro-has_denominator {{ relative_measurement['unit']['quality'] }} << {{ relative_measurement['unit']['entity'] }};"
+      - "{{ ratio_subject }} .ro-has_numerator {{ relative_measurement['.measured_trait']['.quality'] }} << {{ relative_measurement['.measured_trait']['.entity'] }};"
+      - "{{ ratio_subject }} .ro-has_denominator {{ relative_measurement['.unit']['.quality'] }} << {{ relative_measurement['.unit']['.entity'] }};"
 
-      - if: "relative_measurement.value"
-        template: "{{ ratio_subject }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification obi-scalar_value_specification .iao-has_measurement_value {{ relative_measurement['value'] }};"
+      - if: "relative_measurement..value"
+        template: "{{ ratio_subject }} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification obi-scalar_value_specification .iao-has_measurement_value {{ relative_measurement['.value'] }};"
