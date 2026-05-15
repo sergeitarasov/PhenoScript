@@ -1,24 +1,48 @@
 {
     "Tmp-relComp": {
-    "prefix": ["Tmp relative Comparison"],
+    "prefix": ["Tmp: Relative Comparison"],
     "body": ["'E1' >> 'Q1' ${1|\\|>\\|,\\|<\\||} 'Q2' << 'E2';"],
     "description": "Describes if one structure is bigger or smaller relative to another: Scape is bigger than eye",
     "type": "Tmp"
     },
+    "Tmp-species-yaml": {
+    "prefix": ["Tmp: Described Species "],
+    "body": ["#>>>YAML described_species\ndescribed_species:\n    .id: genus_species\n    .rdfs-label: 'Genus species'\n    .gbif_id: 'https://www.gbif.org/species/GBIF_ID'\n    .dwc-Catalog_Number:\n        - 'CATALOG_NUMBER'\n    .is_a:\n        - uberon-male_organism\n        - uberon-adult_organism\n        - dwc-Preserved_Specimen\n#<<<YAML"],
+    "description": "Inserts a YAML described_species block with id, label, GBIF id, catalog number, and taxonomic roles.",
+    "type": "Tmp"
+    },
+    "Tmp-new-species-yaml": {
+    "prefix": ["Tmp: New Species"],
+    "body": ["#>>>YAML new_species\nnew_species:\n    .id: genus_species\n    .rdfs-label: 'Genus species'\n    .zoobank_id: 'http://zoobank.org/ZOOBANK_ID'\n    .dwc-Parent_Name_Usage_ID: 'https://www.gbif.org/species/GBIF_ID_of-Parent-Genus'\n    .dwc-Catalog_Number:\n        - 'CATALOG_NUMBER'\n    .is_a:\n        - uberon-male_organism\n        - uberon-adult_organism\n        - dwc-Preserved_Specimen\n#<<<YAML"],
+    "description": "Inserts a YAML new_species block with id, label, ZooBank id, parent genus, catalog number, and taxonomic roles.",
+    "type": "Tmp"
+    },
+    "Tmp-absM-yaml": {
+    "prefix": ["Tmp: Absolute Measurement"],
+    "body": ["#>>>YAML absolute_measurement\nabsolute_measurement:\n    measured_entity: 'E'\n    measured_quality: 'Q'\n    value: 'Val'\n    unit: 'Unit'\n#<<<YAML"],
+    "description": "Inserts a YAML absolute measurement block with entity, quality, value, and unit.",
+    "type": "Tmp"
+    },
+    "Tmp-relM-yaml": {
+    "prefix": ["Tmp: Relative Measurement"],
+    "body": ["#>>>YAML relative_measurement\nrelative_measurement:\n  measured_trait:\n    entity: 'E1'\n    quality: 'Q1'\n  unit:\n    entity: 'E2'\n    quality: 'Q2'\n  value: 'Val'\n#<<<YAML"],
+    "description": "Inserts a YAML relative measurement block comparing two traits.",
+    "type": "Tmp"
+    },
     "Tmp-ratioM": {
-    "prefix": ["Tmp relative Measurement"],
+    "prefix": ["Graph: Relative Measurement"],
     "body": ["pato-ratio:ra-${RANDOM_HEX/(.*)/$1 .ro-has_numerator 'Q1' << 'E1';\n\tpato-ratio:ra-$1 .ro-has_denominator 'Q2' << 'E2';\n\tpato-ratio:ra-$1/} .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification\n\t\tobi-scalar_value_specification .iao-has_measurement_value 'Real';"],
     "description": "Describes a ratio measurement with numerator and denominator qualities and a scalar value.",
     "type": "Tmp"
     },
     "Tmp-absM2": {
-    "prefix": ["Tmp absolute Measurement"],
+    "prefix": ["Graph: Absolute Measurement"],
     "body": ["'E1' >> 'Q1' .iao-is_quality_measured_as iao-scalar_measurement_datum .obi-has_value_specification\n\tobi-scalar_value_specification:md-${RANDOM_HEX/(.*)/$1 .iao-has_measurement_unit_label 'Unit';\n\tobi-scalar_value_specification:md-$1/} .iao-has_measurement_value 'Real';"],
     "description": "Describes absolute measurement of a structure in some units: Pronotum length 2mm.",
     "type": "Tmp"
     },
     "Tmp-OTU": {
-    "prefix": ["Tmp insert OTU"],
+    "prefix": ["Tmp: Insert OTU block"],
     "body": ["OTU = { #// OTUName:  Addd OTU/SPECIES NAME HERE\n\t\n\tDATA = {$1}\n\t\n\tTRAITS = {}\n\n}"],
     "description": "Inserts OTU block",
     "type": "Tmp"
@@ -30,19 +54,19 @@
     "type": "Tmp"
     },
     "Tmp-com": {
-    "prefix": ["Tmp colorful comment"],
+    "prefix": ["Tmp: Colorful Comment"],
     "body": ["#/ "],
     "description": "Inserts colorful comment",
     "type": "Tmp"
     },
     "Tmp-comFIXIT": {
-    "prefix": ["Tmp FIXIT comment"],
+    "prefix": ["Tmp: FIXIT Comment"],
     "body": ["#// FIXIT: "],
     "description": "Inserts FIXIT comment",
     "type": "Tmp"
     },
     "Tmp-comRES": {
-    "prefix": ["Tmp RES comment"],
+    "prefix": ["Tmp: RES Comment"],
     "body": ["#// RES: "],
     "description": "Inserts RES comment",
     "type": "Tmp"

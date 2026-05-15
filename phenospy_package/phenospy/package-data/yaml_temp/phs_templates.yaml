@@ -42,6 +42,89 @@ templates:
       - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
 
 
+  described_species:
+    required:
+      - described_species..id
+      - described_species..rdfs-label
+      - described_species..is_a
+      #- described_species..dwc-Taxon_ID
+
+    generated_ids:
+      taxon_id:
+        prefix: "yml-"
+        length: 6
+        charset: "hex"
+
+    vars:
+      described_species_subject: "{{ described_species['.is_a'][0] }}:{{ described_species['.id'] }}"
+      taxon_subject: "taxrank-species:{{ taxon_id }}"
+      org_label: "_ORG_{{ described_species['.rdfs-label'] }}"
+      taxrank_label: "tax_{{ described_species['.rdfs-label'] }}"
+
+    lines:
+      - "{{ described_species_subject }}[this = True, linksTraits = True{% for cls in described_species['.is_a'][1:] %}, cls = '{{ cls }}'{% endfor %}] .rdfs-label '{{ org_label }}';"
+
+      - if: "described_species..dwc-Catalog_Number"
+        for_each: "described_species..dwc-Catalog_Number"
+        template: "{{ described_species_subject }} .dwc-Catalog_Number {{ quote_mixed(item) }};"
+
+      - "{{ described_species_subject }} .ro-has_role_in_modeling cdao-TU .iao-denotes {{ taxon_subject }};"
+
+      - if: described_species..dwc-Taxon_ID
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ described_species['.dwc-Taxon_ID'] }}';"
+
+      - if: "described_species..dwc-Parent_Name_Usage_ID"
+        template: "{{ taxon_subject }} .dwc-Parent_Name_Usage_ID '{{ described_species['.dwc-Parent_Name_Usage_ID'] }}';"
+
+      - if: "described_species..gbif_id"
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ described_species['.gbif_id'] }}';"
+
+      - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
+
+
+
+
+
+  new_species:
+    required:
+      - new_species..id
+      - new_species..rdfs-label
+      - new_species..is_a
+      #- new_species..dwc-Taxon_ID
+
+    generated_ids:
+      taxon_id:
+        prefix: "yml-"
+        length: 6
+        charset: "hex"
+
+    vars:
+      new_species_subject: "{{ new_species['.is_a'][0] }}:{{ new_species['.id'] }}"
+      taxon_subject: "taxrank-species:{{ taxon_id }}"
+      org_label: "_ORG_{{ new_species['.rdfs-label'] }}"
+      taxrank_label: "tax_{{ new_species['.rdfs-label'] }}"
+
+    lines:
+      - "{{ new_species_subject }}[this = True, linksTraits = True{% for cls in new_species['.is_a'][1:] %}, cls = '{{ cls }}'{% endfor %}] .rdfs-label '{{ org_label }}';"
+
+      - if: "new_species..dwc-Catalog_Number"
+        for_each: "new_species..dwc-Catalog_Number"
+        template: "{{ new_species_subject }} .dwc-Catalog_Number {{ quote_mixed(item) }};"
+
+      - "{{ new_species_subject }} .ro-has_role_in_modeling cdao-TU .iao-denotes {{ taxon_subject }};"
+
+      - if: new_species..dwc-Taxon_ID
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ new_species['.dwc-Taxon_ID'] }}';"
+
+      - if: "new_species..dwc-Parent_Name_Usage_ID"
+        template: "{{ taxon_subject }} .dwc-Parent_Name_Usage_ID '{{ new_species['.dwc-Parent_Name_Usage_ID'] }}';"
+
+      - if: "new_species..zoobank_id"
+        template: "{{ taxon_subject }} .dwc-Taxon_ID_taxonID '{{ new_species['.gbif_id'] }}';"
+
+      - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
+
+
 
 
   absolute_measurement:

@@ -1,0 +1,18 @@
+
+# This should be the snippet for ott_id
+# remember id -> .id
+
+
+#>>>YAML specimen
+specimen:
+    id: grebennikovius_armiger
+    .rdfs-label: 'Grebennikovius armiger'
+    .ott_id: 'ott_id:3328193'
+    .gbif_id: 'https://www.gbif.org/species/1094062'
+    .dwc-Catalog_Number:
+        - 'CNCCOLVG00001738'
+    .is_a:
+        - uberon-male_organism
+        - uberon-adult_organism
+        - dwc-Preserved_Specimen  
+#<<<YAML
