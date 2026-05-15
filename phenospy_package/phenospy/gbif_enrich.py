@@ -22,9 +22,30 @@ GBIF_SPECIES_URL_PATTERN = re.compile(
     r"^https?://www\.gbif\.org/species/(?P<gbif_id>\d+)$"
 )
 
+# Match any .dwc-Parent_Name_Usage_ID line
+PARENT_NAME_USAGE_ID_LINE_PATTERN = re.compile(
+    r"""^(?P<indent>\s*)
+        (?P<subject>[^\s]+)
+        \s+\.dwc-Parent_Name_Usage_ID\s+
+        (?P<quote>['"])(?P<value>.*?)(?P=quote);
+        \s*$
+    """,
+    re.VERBOSE,
+)
+
 # Order of inserted taxonomy lines
 GBIF_TO_DWC = [
     ("canonicalName", ".dwc-Scientific_Name"),
+    ("genus", ".dwc-Genus"),
+    ("family", ".dwc-Family"),
+    ("order", ".dwc-Order"),
+    ("class", ".dwc-Class"),
+    ("phylum", ".dwc-Phylum"),
+    ("kingdom", ".dwc-Kingdom"),
+]
+
+# Same as GBIF_TO_DWC but without canonicalName — used when enriching via parent genus
+GBIF_TO_DWC_PARENT = [
     ("genus", ".dwc-Genus"),
     ("family", ".dwc-Family"),
     ("order", ".dwc-Order"),
@@ -111,6 +132,7 @@ def enrich_phs_text_with_gbif(
     """
     lines = text.splitlines()
     output_lines: list[str] = []
+    enriched_subjects: set[str] = set()
 
     i = 0
     while i < len(lines):
@@ -172,7 +194,59 @@ def enrich_phs_text_with_gbif(
             if inserted_any and insert_blank_line:
                 output_lines.append("")
 
+            enriched_subjects.add(subject)
+
         i = j
+
+    # Second pass: enrich via .dwc-Parent_Name_Usage_ID for subjects not yet enriched
+    lines = output_lines
+    output_lines = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        output_lines.append(line)
+
+        mp = PARENT_NAME_USAGE_ID_LINE_PATTERN.match(line)
+        if not mp or mp.group("subject") in enriched_subjects:
+            i += 1
+            continue
+
+        subject = mp.group("subject")
+        indent = mp.group("indent")
+        gbif_id = extract_gbif_id_from_taxon_id_value(mp.group("value"))
+
+        if gbif_id:
+            try:
+                gbif_data = fetch_gbif_species(gbif_id, timeout=timeout)
+            except (HTTPError, URLError, TimeoutError) as exc:
+                print(f"Warning: could not fetch GBIF parent {gbif_id}: {exc}")
+                i += 1
+                continue
+            except Exception as exc:
+                print(f"Warning: unexpected GBIF error for parent {gbif_id}: {exc}")
+                i += 1
+                continue
+
+            inserted_any = False
+            for gbif_field, dwc_predicate in GBIF_TO_DWC_PARENT:
+                value = gbif_data.get(gbif_field)
+                if not value:
+                    continue
+
+                if subject_has_predicate_nearby(lines, i, subject, dwc_predicate):
+                    continue
+
+                output_lines.append(
+                    make_taxonomy_line(indent, subject, dwc_predicate, str(value))
+                )
+                inserted_any = True
+
+            if inserted_any and insert_blank_line:
+                output_lines.append("")
+
+            enriched_subjects.add(subject)
+
+        i += 1
 
     return "\n".join(output_lines) + "\n"
 
