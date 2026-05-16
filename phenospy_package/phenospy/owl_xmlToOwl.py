@@ -165,12 +165,9 @@ def xmlToOwl(tree, owl_file):
         newNode.label = className[0]+':'+ ni.rsplit('/', 1)[-1]
 
         # add annotations
-        newNode.created_by = "phenospy-" + phsVersion
-        # add date
-        # today = date.today()
-        # dt_string = today.strftime("%d/%m/%Y")
-        # newNode.creation_date = dt_string
-        newNode.creation_date = datetime.datetime.now()
+        # newNode.created_by = "phenospy-" + phsVersion
+        # # add date
+        # newNode.creation_date = datetime.datetime.now()
         #
         # add original class annotation
         newNode.phs_original_class.append(nodeClassObj)

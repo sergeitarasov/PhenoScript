@@ -157,12 +157,13 @@ for ni in nodeIDunique:
     if (catalogNumber_value is not None):
         newNode.catalogNumber = catalogNumber_value.get(phs + 'value')
 
-    # add annotations
-    newNode.created_by = "PhenoScript v. " + phsVersion
-    # add date
-    today = date.today()
-    dt_string = today.strftime("%d/%m/%Y")
-    newNode.creation_date = dt_string
+    # # add annotations
+    # newNode.created_by = "PhenoScript v. " + phsVersion
+    # # add date
+    # today = date.today()
+    # dt_string = today.strftime("%d/%m/%Y")
+    # newNode.creation_date = dt_string
+    #
     # add original class annotation
     newNode.PhenoScript_original_class.append(nodeClassObj)
 
