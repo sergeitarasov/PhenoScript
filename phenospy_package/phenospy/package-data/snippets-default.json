@@ -223,14 +223,5 @@
     "label_4_translation": ["owl-Thing"],
     "label_original": "Thing",
     "type": "C"
-    },
-    "(C) uberon-0034926": {
-    "prefix": ["uberon-anatomical_row"],
-    "body": ["uberon-anatomical_row"],
-    "description": "(C): An anatomical collection that is arranged in a line.",
-    "iri": "http://purl.obolibrary.org/obo/UBERON_0034926",
-    "label_4_translation": ["uberon-anatomical_row"],
-    "label_original": "anatomical row",
-    "type": "C"
     }
 }
