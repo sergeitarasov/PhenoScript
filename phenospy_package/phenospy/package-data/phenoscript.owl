@@ -97,6 +97,12 @@ We also have the outstanding issue of how to aim different definitions to differ
     
 
 
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
     <!-- http://purl.org/dc/elements/1.1/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
@@ -300,6 +306,26 @@ We also have the outstanding issue of how to aim different definitions to differ
         <dc:contributor>starasov</dc:contributor>
         <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2023-03-27T19:14:30Z</oboInOwl:creation_date>
         <rdfs:label xml:lang="en">project_id</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000023 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000023">
+        <dc:creator>starasov https://orcid.org/0000-0001-5237-2330</dc:creator>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-18T06:30:01Z</oboInOwl:creation_date>
+        <rdfs:label>represents_taxon</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://github.com/sergeitarasov/PhenoScript/PHS_0000024 -->
+
+    <owl:AnnotationProperty rdf:about="https://github.com/sergeitarasov/PhenoScript/PHS_0000024">
+        <dc:creator>starasov https://orcid.org/0000-0001-5237-2330</dc:creator>
+        <oboInOwl:creation_date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-05-18T06:30:21Z</oboInOwl:creation_date>
+        <rdfs:label>represents_specimen</rdfs:label>
     </owl:AnnotationProperty>
     
 
