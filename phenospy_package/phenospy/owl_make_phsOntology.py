@@ -40,6 +40,8 @@ with onto:
     class creation_date(AnnotationProperty): pass
     class cls_project(Thing): pass
     class title(AnnotationProperty): pass
+    class represents_specimen(AnnotationProperty): pass
+    class represents_taxon(AnnotationProperty): pass
 
 has_trait.iri       = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000017'
 has_trait.label     = 'has_trait'
@@ -59,4 +61,8 @@ creation_date.iri   = 'http://purl.org/dc/terms/created'
 creation_date.label = 'creation_date'
 title.iri           = 'http://purl.org/dc/elements/1.1/title'
 title.label         = 'title'
+represents_specimen.iri = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000024'
+represents_specimen.label = 'represents_specimen'
+represents_taxon.iri = 'https://github.com/sergeitarasov/PhenoScript/PHS_0000023'
+represents_taxon.label = 'represents_taxon'
 #  return(onto)

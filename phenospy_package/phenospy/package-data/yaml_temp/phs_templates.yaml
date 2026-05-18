@@ -81,6 +81,9 @@ templates:
 
       - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
 
+      - "{{ taxon_subject }} .phs-represents_specimen {{ described_species_subject }};"
+      - "{{ described_species_subject }} .phs-represents_taxon {{ taxon_subject }};"
+
 
 
 
@@ -123,6 +126,9 @@ templates:
         template: "{{ taxon_subject }} .dwc-Parent_Name_Usage_ID '{{ new_species['.dwc-Parent_Name_Usage_ID'] }}';"
 
       - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
+
+      - "{{ taxon_subject }} .phs-represents_specimen {{ described_species_subject }};"
+      - "{{ described_species_subject }} .phs-represents_taxon {{ taxon_subject }};"
 
 
 
