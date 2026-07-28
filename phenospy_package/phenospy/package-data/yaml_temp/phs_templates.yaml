@@ -127,8 +127,8 @@ templates:
 
       - "{{ taxon_subject }} .rdfs-label '{{ taxrank_label }}';"
 
-      - "{{ taxon_subject }} .phs-represents_specimen {{ described_species_subject }};"
-      - "{{ described_species_subject }} .phs-represents_taxon {{ taxon_subject }};"
+      - "{{ taxon_subject }} .phs-represents_specimen {{ new_species_subject }};"
+      - "{{ new_species_subject }} .phs-represents_taxon {{ taxon_subject }};"
 
 
 
